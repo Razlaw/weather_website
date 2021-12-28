@@ -1,6 +1,6 @@
 {
   "name": "weather_website",
-  "homepage": "http://razlaw.github.io/weather",
+  "homepage": "https://razlaw.github.io/weather_website",
   "version": "0.1.0",
   "private": true,
   "description": "React website showing the weather",
