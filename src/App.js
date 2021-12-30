@@ -4,31 +4,31 @@ import axios from "axios";
 import CurrentWeather from "./components/currentWeather/CurrentWeather";
 
 function App() {
-    const [city, updateCity] = useState();
-    const [weather, updateWeather] = useState();
+    const [cityName, updateCityName] = useState("");
+    const [weatherData, updateWeatherData] = useState();
 
     const fetchWeather = async (e) => {
         e.preventDefault();
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`);
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
 
         console.log(response.data);
 
-        updateWeather(response.data);
+        updateWeatherData(response.data);
     };
 
     return (
         <div className="App">
             <h1>React weather app</h1>
 
-            {city && weather ? (
-                <CurrentWeather weatherData={weather}/>
+            {cityName && weatherData ? (
+                <CurrentWeather weatherData={weatherData}/>
             ) : (
                 <div className="wrapper">
                     <h1>Show city selection</h1>
                     <form onSubmit={fetchWeather}>
                         <h1> Our Form </h1>
                         <input
-                            onChange={(e) => updateCity(e.target.value)}
+                            onChange={(e) => updateCityName(e.target.value)}
                             placeholder="City"
                             type="text"
                             id="cityNameInput"
