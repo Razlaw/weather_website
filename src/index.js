@@ -1,12 +1,12 @@
-import {StrictMode} from "react";
 import ReactDOM from "react-dom";
 import 'semantic-ui-css/semantic.min.css';
+import { CookiesProvider } from 'react-cookie';
 
 import App from "./App";
 
 ReactDOM.render(
-    <StrictMode>
+    <CookiesProvider>
         <App/>
-    </StrictMode>,
+    </CookiesProvider>,
     document.getElementById("root")
 );

@@ -1,10 +1,12 @@
 import "./styles.css";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import { useCookies } from 'react-cookie';
 import CurrentWeather from "./components/currentWeather/CurrentWeather";
 
 function App() {
-    const [cityName, updateCityName] = useState("");
+    const [cookies, setCookie, removeCookie] = useCookies(['cityName']);
+    const [cityName, updateCityName] = useState(cookies.cityName ? cookies.cityName : "");
     const [weatherData, updateWeatherData] = useState();
 
     const fetchWeather = async (e) => {
