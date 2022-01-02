@@ -3,41 +3,46 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { useCookies } from 'react-cookie';
 import CurrentWeather from "./components/currentWeather/CurrentWeather";
+import CitySelection from "./components/citySelection/CitySelection";
 
 function App() {
     const [cookies, setCookie, removeCookie] = useCookies(['cityName']);
     const [cityName, updateCityName] = useState(cookies.cityName ? cookies.cityName : "");
     const [weatherData, updateWeatherData] = useState();
 
-    const fetchWeather = async (e) => {
+
+    const reloadWeather = async (e) => {
         e.preventDefault();
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
-
-        console.log(response.data);
-
-        updateWeatherData(response.data);
+        await fetchWeather();
     };
+
+    const fetchWeather = async () => {
+        try {
+            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
+            setCookie('cityName', cityName, { path: '/', secure: true, sameSite: "strict"});
+            updateWeatherData(response.data);
+        } catch(error) {
+            console.log("Failed to fetch weather data");
+            console.log(error.response.data.error);
+            removeCookie("cityName", { path: '/', secure: true, sameSite: "strict"});
+            updateWeatherData();
+        }
+    };
+
+    useEffect(() => {
+        if(cookies.cityName) {
+            fetchWeather();
+        }
+    }, []);
 
     return (
         <div className="App">
-            <h1>React weather app</h1>
-
-            {cityName && weatherData ? (
-                <CurrentWeather weatherData={weatherData}/>
+            <h1>Weather</h1>
+            <CitySelection cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
+            {weatherData === undefined ? (
+                <h1>No weather data to display</h1>
             ) : (
-                <div className="wrapper">
-                    <h1>Show city selection</h1>
-                    <form onSubmit={fetchWeather}>
-                        <h1> Our Form </h1>
-                        <input
-                            onChange={(e) => updateCityName(e.target.value)}
-                            placeholder="City"
-                            type="text"
-                            id="cityNameInput"
-                        />
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
+                <CurrentWeather weatherData={weatherData}/>
             )}
         </div>
     );
