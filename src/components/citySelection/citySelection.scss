@@ -1,0 +1,58 @@
+@import "../../global.scss";
+
+.wrapper {
+  background-color: $backgroundColor;
+
+  font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  box-shadow: 2px 2px 3px 1px #444444;
+
+  .formComponents {
+    width: 250px;
+    height: 40px;
+    background-color: $alternativeColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+
+    input {
+      background-color: $alternativeColor;
+      color: $textColor;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      background-color: $alternativeColor;
+      border: none;
+      cursor: pointer;
+
+      .mag_glass {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150%;
+        height: 150%;
+        g {
+          stroke: $textColor;
+          path {
+            fill: $textColor;
+          }
+        }
+      }
+
+      :hover {
+        g {
+          stroke: #c6c5c5;
+          path {
+            fill: #c6c5c5;
+          }
+        }
+      }
+    }
+  }
+}
