@@ -1,15 +1,15 @@
 import "./styles.scss";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { useCookies } from 'react-cookie';
+import {useCookies} from 'react-cookie';
 import CurrentWeather from "./components/currentWeather/CurrentWeather";
 import CitySelection from "./components/citySelection/CitySelection";
 
 function App() {
     const [cookies, setCookie, removeCookie] = useCookies(['cityName']);
+
     const [cityName, updateCityName] = useState(cookies.cityName ? cookies.cityName : "");
     const [weatherData, updateWeatherData] = useState();
-
 
     const reloadWeather = async (e) => {
         e.preventDefault();
@@ -19,18 +19,19 @@ function App() {
     const fetchWeather = async () => {
         try {
             const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
-            setCookie('cityName', cityName, { path: '/', secure: true, sameSite: "strict"});
+            setCookie('cityName', cityName, {path: '/', secure: true, sameSite: "strict"});
             updateWeatherData(response.data);
-        } catch(error) {
+        } catch (error) {
             console.log("Failed to fetch weather data");
             console.log(error.response.data.error);
-            removeCookie("cityName", { path: '/', secure: true, sameSite: "strict"});
+            removeCookie("cityName", {path: '/', secure: true, sameSite: "strict"});
             updateWeatherData();
         }
     };
 
+    // Fetch weather on first render if city name already defined in cookies
     useEffect(() => {
-        if(cookies.cityName) {
+        if (cookies.cityName) {
             fetchWeather();
         }
     }, []);
