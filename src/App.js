@@ -1,4 +1,4 @@
-import "./styles.scss";
+import "./app.scss";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useCookies} from 'react-cookie';
