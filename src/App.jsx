@@ -38,7 +38,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Weather</h1>
+            <span></span>
             <CitySelection cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
             {weatherData === undefined ? (
                 <h1>No weather data to display</h1>
