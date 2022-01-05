@@ -6,16 +6,18 @@ export default function CitySelection({cityName, updateCityName, reloadWeather})
         <div className="wrapper">
             <form onSubmit={reloadWeather}>
                 <div className="formComponents">
-                    <input
-                        onChange={(e) => updateCityName(e.target.value)}
-                        placeholder={cityName === "" ? "City" : cityName}
-                        type="text"
-                        id="cityNameInput"
-                        autoFocus
-                    />
-                    <button type="submit">
-                        <MagGlass className="mag_glass"/>
-                    </button>
+                    <div className="formComponentsWrapper">
+                        <input
+                            onChange={(e) => updateCityName(e.target.value)}
+                            placeholder={cityName === "" ? "City" : cityName}
+                            type="text"
+                            id="cityNameInput"
+                            autoFocus
+                        />
+                        <button type="submit">
+                            <MagGlass className="mag_glass"/>
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
