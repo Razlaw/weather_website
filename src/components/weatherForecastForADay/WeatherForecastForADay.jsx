@@ -1,5 +1,5 @@
 import "./weatherForecastForADay.scss";
-import TimeOfDayListItem from "../timeOfDayListItem/TimeOfDayListItem";
+import HourOfDayListItem from "../hourOfDayListItem/HourOfDayListItem";
 import React from "react";
 
 export default function WeatherForecastForADay({cityName, weatherData}) {
@@ -14,7 +14,7 @@ export default function WeatherForecastForADay({cityName, weatherData}) {
                 </h1>
                 <ul>
                     {[...Array(24)].map((x, hourOfDay) =>
-                        <TimeOfDayListItem
+                        <HourOfDayListItem
                             key={hourOfDay}
                             time={hourOfDay}
                             active={currentHour === hourOfDay}
