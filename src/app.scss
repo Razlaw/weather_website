@@ -9,8 +9,18 @@
     text-align: center;
     background-color: $backgroundColor;
 
-    span {
-        height: 40px;
+    .noData {
+        width: 100%;
+        height: calc(100vh - #{$searchBarHeight});
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            color: $textColor;
+        }
+    }
+
 
     .sections {
         width: 100%;

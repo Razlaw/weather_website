@@ -55,7 +55,10 @@ function App() {
         <div className="App">
             <CitySelection cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
             {weatherData === undefined ? (
-                <h1>No weather data to display</h1>
+                <div className="noData">
+                    <h1>No weather data to display.</h1>
+                    <h1>Try another city.</h1>
+                </div>
             ) : (
                 <div className="sections">
                     <CurrentWeather cityName={cityName} weatherData={weatherData}/>
