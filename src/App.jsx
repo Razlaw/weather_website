@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useCookies} from 'react-cookie';
 import CitySearchBar from "./components/citySearchBar/CitySearchBar";
-import CurrentWeather from "./components/currentWeather/CurrentWeather";
+import WeatherForecastForADay from "./components/weatherForecastForADay/WeatherForecastForADay";
 import WeatherForecastForAWeek from "./components/weatherForecastForAWeek/WeatherForecastForAWeek";
 
 function App() {
@@ -61,8 +61,8 @@ function App() {
                 </div>
             ) : (
                 <div className="sections">
-                    <CurrentWeather cityName={cookies.cityName} weatherData={weatherData}/>
-                    <CurrentWeather cityName={cookies.cityName} weatherData={weatherData}/>
+                    <WeatherForecastForADay cityName={cookies.cityName} weatherData={weatherData}/>
+                    <WeatherForecastForADay cityName={cookies.cityName} weatherData={weatherData}/>
                     <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
                 </div>
             )}

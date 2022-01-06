@@ -1,8 +1,8 @@
-import "./currentWeather.scss";
+import "./weatherForecastForADay.scss";
 import TimeOfDayListItem from "../timeOfDayListItem/TimeOfDayListItem";
 import React from "react";
 
-export default function CurrentWeather({cityName, weatherData}) {
+export default function WeatherForecastForADay({cityName, weatherData}) {
     const today = new Date();
     const currentHour = today.getHours();
 
