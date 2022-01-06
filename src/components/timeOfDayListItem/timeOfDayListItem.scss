@@ -1,0 +1,11 @@
+@import "../../global.scss";
+
+.timeOfDayListItem {
+  color: $textColor;
+  cursor: pointer;
+
+  &.active {
+    color: black;
+    background-color: $highlightColor;
+  }
+}
