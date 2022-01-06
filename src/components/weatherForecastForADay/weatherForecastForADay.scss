@@ -5,28 +5,35 @@
   height: 100vh;
   background-color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 2;
 
-  .hoursOfDay {
-    background-color: $backgroundColor;
-
-    h1 {
-      color: $textColor;
-    }
-
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-    }
+  h1 {
+    color: black;
   }
 
-  .forecastPlot {
-    background-color: red;
+  .forecast {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .hoursOfDay {
+      background-color: $backgroundColor;
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+      }
+    }
+
+    .forecastPlot {
+      background-color: red;
+    }
   }
 }
