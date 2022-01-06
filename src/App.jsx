@@ -61,9 +61,9 @@ function App() {
                 </div>
             ) : (
                 <div className="sections">
-                    <CurrentWeather cityName={cityName} weatherData={weatherData}/>
-                    <CurrentWeather cityName={cityName} weatherData={weatherData}/>
-                    <WeatherForecastForAWeek cityName={cityName} weatherData={weatherData}/>
+                    <CurrentWeather cityName={cookies.cityName} weatherData={weatherData}/>
+                    <CurrentWeather cityName={cookies.cityName} weatherData={weatherData}/>
+                    <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
                 </div>
             )}
             <div className="footer">
