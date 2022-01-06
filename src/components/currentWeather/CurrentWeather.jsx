@@ -2,10 +2,10 @@ import "./currentWeather.scss";
 import TimeOfDayListItem from "../timeOfDayListItem/TimeOfDayListItem";
 import React, {useState} from "react";
 
+export default function CurrentWeather({cityName, weatherData}) {
     const today = new Date();
     const currentHour = today.getHours();
 
-export default function CurrentWeather({weatherData}) {
     return (
         <div className="forecastWrapper">
             <div className="left">
@@ -21,6 +21,11 @@ export default function CurrentWeather({weatherData}) {
                         />
                     )}
                 </ul>
+            </div>
+            <div className="right">
+                <h1>
+                    {cityName}
+                </h1>
             </div>
         </div>
     );
