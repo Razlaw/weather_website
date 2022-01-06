@@ -4,6 +4,7 @@ import axios from "axios";
 import {useCookies} from 'react-cookie';
 import CurrentWeather from "./components/currentWeather/CurrentWeather";
 import CitySelection from "./components/citySelection/CitySelection";
+import WeatherForecastForAWeek from "./components/weatherForecastForAWeek/WeatherForecastForAWeek";
 
 function App() {
     const [cookies, setCookie, removeCookie] = useCookies(['cityName']);
@@ -57,7 +58,11 @@ function App() {
             {weatherData === undefined ? (
                 <h1>No weather data to display</h1>
             ) : (
-                <CurrentWeather weatherData={weatherData}/>
+                <div className="sections">
+                    <CurrentWeather cityName={cityName} weatherData={weatherData}/>
+                    <CurrentWeather cityName={cityName} weatherData={weatherData}/>
+                    <WeatherForecastForAWeek cityName={cityName} weatherData={weatherData}/>
+                </div>
             )}
             <div className="footer">
                 <span>
