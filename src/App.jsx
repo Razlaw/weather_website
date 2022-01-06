@@ -2,8 +2,8 @@ import "./app.scss";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useCookies} from 'react-cookie';
+import CitySearchBar from "./components/citySearchBar/CitySearchBar";
 import CurrentWeather from "./components/currentWeather/CurrentWeather";
-import CitySelection from "./components/citySelection/CitySelection";
 import WeatherForecastForAWeek from "./components/weatherForecastForAWeek/WeatherForecastForAWeek";
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
 
     return (
         <div className="App">
-            <CitySelection cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
+            <CitySearchBar cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
             {weatherData === undefined ? (
                 <div className="noData">
                     <h1>No weather data to display.</h1>

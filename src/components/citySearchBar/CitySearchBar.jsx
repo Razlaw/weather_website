@@ -1,7 +1,7 @@
-import "./citySelection.scss";
+import "./citySearchBar.scss";
 import {ReactComponent as MagGlass} from '../../assets/magnifying_glass.svg';
 
-export default function CitySelection({cityName, updateCityName, reloadWeather}) {
+export default function CitySearchBar({cityName, updateCityName, reloadWeather}) {
     return (
         <div className="wrapper">
             <form onSubmit={reloadWeather}>
