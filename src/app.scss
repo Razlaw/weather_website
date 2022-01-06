@@ -1,55 +1,57 @@
 @import "./global.scss";
 
 .App {
-    height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: $backgroundColor;
+
+  .noData {
+    width: 100%;
+    height: calc(100vh - #{$searchBarHeight});
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+
+    h1 {
+      color: $textColor;
+    }
+  }
+
+
+  .sections {
+    width: 100%;
+    height: calc(100vh - #{$searchBarHeight});
+    z-index: 2;
+    background-color: white;
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > * {
+      width: 100vw;
+      height: calc(100vh - #{$searchBarHeight});
+      scroll-snap-align: start;
+    }
+  }
+
+  .footer {
+    width: 100%;
+    padding-bottom: 10px;
     background-color: $backgroundColor;
+    display: inline-block;
 
-    .noData {
-        width: 100%;
-        height: calc(100vh - #{$searchBarHeight});
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        h1 {
-            color: $textColor;
-        }
+    span {
+      color: $textColor;
     }
-
-
-    .sections {
-        width: 100%;
-        height: calc(100vh - #{$searchBarHeight});
-        z-index: 2;
-        background-color: white;
-        position: relative;
-        scroll-behavior: smooth;
-        scroll-snap-type: y mandatory;
-        scrollbar-width: none;
-        &::-webkit-scrollbar{
-            display: none;
-        }
-
-        > * {
-            width: 100vw;
-            height: calc(100vh - #{$searchBarHeight});
-            scroll-snap-align: start;
-        }
-    }
-
-    .footer {
-        width: 100%;
-        padding-bottom: 10px;
-        background-color: $backgroundColor;
-        display: inline-block;
-
-        span {
-            color: $textColor;
-        }
-    }
+  }
 }

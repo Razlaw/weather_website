@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import 'semantic-ui-css/semantic.min.css';
-import { CookiesProvider } from 'react-cookie';
+import {CookiesProvider} from 'react-cookie';
 
 import App from "./App";
 

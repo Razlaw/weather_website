@@ -1,5 +1,5 @@
 import "./citySelection.scss";
-import { ReactComponent as MagGlass } from '../../assets/magnifying_glass.svg';
+import {ReactComponent as MagGlass} from '../../assets/magnifying_glass.svg';
 
 export default function CitySelection({cityName, updateCityName, reloadWeather}) {
     return (

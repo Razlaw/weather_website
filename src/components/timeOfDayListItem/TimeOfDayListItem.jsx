@@ -1,6 +1,6 @@
 import "./timeOfDayListItem.scss"
 
-export default function TimeOfDayListItem({ time, active, setSelected }) {
+export default function TimeOfDayListItem({time, active, setSelected}) {
     return (
         <li
             className={active ? "timeOfDayListItem active" : "timeOfDayListItem"}

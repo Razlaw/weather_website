@@ -1,6 +1,6 @@
 import "./currentWeather.scss";
 import TimeOfDayListItem from "../timeOfDayListItem/TimeOfDayListItem";
-import React, {useState} from "react";
+import React from "react";
 
 export default function CurrentWeather({cityName, weatherData}) {
     const today = new Date();

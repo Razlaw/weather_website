@@ -61,8 +61,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
             g {
               stroke: $textColor;
+
               path {
                 fill: $textColor;
               }
@@ -72,6 +74,7 @@
           :hover {
             g {
               stroke: #c6c5c5;
+
               path {
                 fill: #c6c5c5;
               }
