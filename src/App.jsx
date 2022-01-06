@@ -16,11 +16,25 @@ function App() {
         await fetchWeather();
     };
 
+    /* Fetch weather forecast from OpenWeatherMap (OWM)
+    *
+    * If fetch is successful, the current city name is saved in the cookies, so the user doesn't need to specify
+    * it again on reload.
+    * Otherwise the city name entry in the cookies is removed and the forecast data is deleted to show the user
+    * that the forecast is not available.
+    */
     const fetchWeather = async () => {
         try {
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
+            // Since OWM one call api accepts latitude and longitude coordinates only, we first fetch the current
+            // weather - containing the coordinates - using the city name and fetch the forecast using the coordinates.
+            const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
+            const lat = currentWeather.data.coord.lat;
+            const lon = currentWeather.data.coord.lon;
+            const exclude = "current,minutely,alerts"
+            const forecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=${process.env.REACT_APP_API_KEY}`);
             setCookie('cityName', cityName, {path: '/', secure: true, sameSite: "strict"});
-            updateWeatherData(response.data);
+            console.log(forecast)
+            updateWeatherData(forecast.data);
         } catch (error) {
             console.log("Failed to fetch weather data");
             console.log(error.response.data.error);
