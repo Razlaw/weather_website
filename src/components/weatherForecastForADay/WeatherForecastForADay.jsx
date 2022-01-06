@@ -7,8 +7,8 @@ export default function WeatherForecastForADay({cityName, weatherData}) {
     const currentHour = today.getHours();
 
     return (
-        <div className="forecastWrapper">
-            <div className="left">
+        <div className="weatherForecastForADay">
+            <div className="hoursOfDay">
                 <h1>
                     Today
                 </h1>
@@ -22,7 +22,7 @@ export default function WeatherForecastForADay({cityName, weatherData}) {
                     )}
                 </ul>
             </div>
-            <div className="right">
+            <div className="forecastPlot">
                 <h1>
                     {cityName}
                 </h1>
