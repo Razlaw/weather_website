@@ -8,9 +8,11 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
 
     return (
         <div className="weatherForecastForADay">
-            <h1>
-                {dayToDisplay}
-            </h1>
+            <div className="dayDisplay">
+                <h1>
+                    {dayToDisplay}
+                </h1>
+            </div>
             <div className="forecast">
                 <div className="hoursOfDay">
                     <ul>
