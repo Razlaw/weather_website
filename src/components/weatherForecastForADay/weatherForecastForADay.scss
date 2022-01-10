@@ -1,58 +1,68 @@
 @import "../../global.scss";
 
 .weatherForecastForADay {
-  width: 100%;
-  height: 100vh;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  z-index: 2;
-
-  .dayDisplay {
+  .contentContainer {
     width: 100%;
-    background-color: $backgroundColor;
+    height: 91%;
+    min-height: 45.6em;
+    background-color: darkslateblue;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
 
-    h1 {
-      font-size: x-large;
-      font-weight: 100;
-      color: $textColor;
-      background-color: $backgroundColor;
-      padding-left: 10px;
-    }
-  }
-
-  .forecast {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-
-    .hoursOfDay {
-      width: 50%;
-      background-color: #0e8c8c;
+    .dayDisplay {
+      width: 100%;
+      height: 2.6em;
+      background-color: orangered;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: row;
+      align-items: flex-start;
 
-      ul {
+      h1 {
+        font-size: 1.8em;
+        font-weight: 100;
+        color: $textColor;
         background-color: $backgroundColor;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center;
+        padding-left: 10px;
       }
     }
 
-    .forecastPlot {
-      width: 50%;
-      background-color: red;
+    .forecast {
+      width: 100%;
+      height: 85%;
+      min-height: 43em;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-around;
+
+      .hoursOfDay {
+        flex: 1;
+        height: 100%;
+        background-color: #0e8c8c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ul {
+          height: 100%;
+          background-color: $backgroundColor;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: center;
+          align-content: space-evenly;
+          padding: 10px 0;
+        }
+      }
+
+      .forecastPlot {
+        flex: 2;
+        height: 100%;
+        background-color: red;
+      }
     }
   }
 }

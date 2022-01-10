@@ -4,9 +4,11 @@ import React from "react";
 export default function WeatherForecastForAWeek({cityName, weatherData}) {
     return (
         <div className="weatherForecastForAWeek">
-            <h1>
-                Forecast for a week
-            </h1>
+            <div className="contentContainer">
+                <h1>
+                    Forecast for a week
+                </h1>
+            </div>
             <div className="footer">
                 <span>
                     The weather data displayed on this website is provided by

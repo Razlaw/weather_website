@@ -1,7 +1,9 @@
 @import "../../global.scss";
 
 .hourOfDayListItem {
+  height: 100%;
   color: $textColor;
+  font-size: 1.2em;
 
   &.active {
     color: $highlightColor;
