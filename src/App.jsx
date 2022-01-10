@@ -53,19 +53,21 @@ function App() {
 
     return (
         <div className="App">
-            <CitySearchBar cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
-            {weatherData === undefined ? (
-                <div className="noData">
-                    <h1>No weather data to display.</h1>
-                    <h1>Try another city.</h1>
-                </div>
-            ) : (
-                <div className="sections">
-                    <WeatherForecastForADay dayToDisplay="Today" weatherData={weatherData}/>
-                    <WeatherForecastForADay dayToDisplay="Tomorrow" weatherData={weatherData}/>
-                    <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
-                </div>
-            )}
+            <div className="websiteContent">
+                <CitySearchBar cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
+                {weatherData === undefined ? (
+                    <div className="noData">
+                        <h1>No weather data to display.</h1>
+                        <h1>Try another city.</h1>
+                    </div>
+                ) : (
+                    <div className="sections">
+                        <WeatherForecastForADay dayToDisplay="Today" weatherData={weatherData}/>
+                        <WeatherForecastForADay dayToDisplay="Tomorrow" weatherData={weatherData}/>
+                        <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
