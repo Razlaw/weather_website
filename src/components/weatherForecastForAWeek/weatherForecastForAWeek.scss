@@ -12,10 +12,12 @@
   }
 
   .footer {
+    position: absolute;
     width: 100%;
     padding-bottom: 10px;
-    background-color: $backgroundColor;
-    display: inline-block;
+    bottom: 0;
+    background-color: black;
+    z-index: 3;
 
     span {
       color: $textColor;
