@@ -1,6 +1,7 @@
 import "./weatherForecastForADay.scss";
 import HourOfDayListItem from "../hourOfDayListItem/HourOfDayListItem";
 import React from "react";
+import PlotForADay from "../plotForADay/PlotForADay";
 
 export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
     const today = new Date();
@@ -27,9 +28,7 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
                         </ul>
                     </div>
                     <div className="forecastPlot">
-                        <h1>
-                            Plot
-                        </h1>
+                        <PlotForADay currentHour={currentHour} weatherData={weatherData}/>
                     </div>
                 </div>
             </div>

@@ -62,8 +62,8 @@ function App() {
                     </div>
                 ) : (
                     <div className="sections">
-                        <WeatherForecastForADay dayToDisplay="Today" weatherData={weatherData}/>
-                        <WeatherForecastForADay dayToDisplay="Tomorrow" weatherData={weatherData}/>
+                        <WeatherForecastForADay dayToDisplay="Today" weatherData={weatherData.hourly.slice(0, 24)}/>
+                        <WeatherForecastForADay dayToDisplay="Tomorrow" weatherData={weatherData.hourly.slice(24, 48)}/>
                         <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
                     </div>
                 )}
