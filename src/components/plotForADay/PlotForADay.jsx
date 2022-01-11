@@ -56,17 +56,17 @@ export default function PlotForADay({currentHour, weatherData}) {
 
     return (
         <ResponsiveContainer width="100%" height="100%">
-            <BarChart layout="vertical" width={150} height={40} data={weatherData} margin={{
+            <BarChart layout="vertical" width="100%" height="100%" data={weatherData} margin={{
                 top: 20,
-                right: 20,
-                bottom: 20,
-                left: 20,
+                left: 20
             }}>
-                <XAxis type="number" />
-                <Legend/>
-                <Bar dataKey="temp" barSize={20}>
+                <XAxis type="number" hide={true}/>
+                <Bar dataKey="temp" barSize={20} label={{ position: 'right' }}>
                     {weatherData.map((entry, index) => (
-                        <Cell fill={index === currentHour ? '#82ca9d' : '#8884d8'} key={`cell-${index}`} />
+                        <Cell
+                            className={index === currentHour ? "barCell active" : "barCell"}
+                            fill={index === currentHour ? '#82ca9d' : '#8884d8'}
+                            key={`cell-${index}`}/>
                     ))}
                 </Bar>
             </BarChart>
