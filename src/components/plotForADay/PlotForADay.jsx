@@ -1,72 +1,60 @@
 import "./plotForADay.scss";
 import React from 'react';
 import {
-    ComposedChart,
     Cell,
-    Area,
     Bar,
     XAxis,
-    YAxis,
-    CartesianGrid,
     BarChart,
-    Legend,
     ResponsiveContainer,
+    LabelList
 } from 'recharts';
 
-// const data = [
-//     {
-//         name: 'Page A',
-//         uv: 590,
-//         pv: 800,
-//         amt: 1400,
-//     },
-//     {
-//         name: 'Page B',
-//         uv: 868,
-//         pv: 967,
-//         amt: 1506,
-//     },
-//     {
-//         name: 'Page C',
-//         uv: 1397,
-//         pv: 1098,
-//         amt: 989,
-//     },
-//     {
-//         name: 'Page D',
-//         uv: 1480,
-//         pv: 1200,
-//         amt: 1228,
-//     },
-//     {
-//         name: 'Page E',
-//         uv: 1520,
-//         pv: 1108,
-//         amt: 1100,
-//     },
-//     {
-//         name: 'Page F',
-//         uv: 1400,
-//         pv: 680,
-//         amt: 1700,
-//     },
-// ];
+export default function PlotForADay({currentHour, weatherData, unit}) {
 
-export default function PlotForADay({currentHour, weatherData}) {
+    const renderLabel = function(entry) {
+        return (entry).toFixed(0) + unit;
+    }
 
     return (
         <ResponsiveContainer width="100%" height="100%">
             <BarChart layout="vertical" width="100%" height="100%" data={weatherData} margin={{
                 top: 20,
-                left: 20
+                left: 20,
+                right: 20,
+                bottom: 0
             }}>
-                <XAxis type="number" hide={true}/>
-                <Bar dataKey="temp" barSize={20} label={{ position: 'right' }}>
+                <XAxis
+                    type="number"
+                    hide={true}
+                    domain={[0, "dataMax + 1"]}
+                />
+                {/*<CartesianGrid*/}
+                {/*    strokeDasharray="19 6"*/}
+                {/*    strokeDashoffset={10}*/}
+                {/*    stroke={'#000'}*/}
+                {/*    width={20}*/}
+                {/*/>*/}
+                <Bar
+                    dataKey="tempForPlot"
+                    barSize={18}
+                    background={{ fill: 'rgb(255,255,255)' }}
+                    animationDuration={500}
+                >
+                    <LabelList
+                        dataKey="temp"
+                        position="right"
+                        formatter={renderLabel}
+                    />
                     {weatherData.map((entry, index) => (
                         <Cell
                             className={index === currentHour ? "barCell active" : "barCell"}
-                            fill={index === currentHour ? '#82ca9d' : '#8884d8'}
-                            key={`cell-${index}`}/>
+                            fill={index === currentHour ? '#82ca9d' : 'rgb(136,132,216)'}
+                            height={18}
+                            stroke={'#000'}
+                            strokeWidth={0}
+                            radius={[0, 5, 5 ,0]}
+                            key={`cell-${index}`}
+                        />
                     ))}
                 </Bar>
             </BarChart>
