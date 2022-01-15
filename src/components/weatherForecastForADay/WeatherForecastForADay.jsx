@@ -10,10 +10,45 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [temperatures, setTemperatures] = useState( [{"temp": 0, "tempForPlot": 1}]);
 
-    const handleClick = (direction)=>{
-        direction === "left" ? setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : 3 - 1) :
+    const [touchStart, setTouchStart] = React.useState([0, 0]);
+    const [touchEnd, setTouchEnd] = React.useState([0, 0]);
+
+    function handleTouchStart(e) {
+        e.preventDefault();
+        setTouchStart([e.targetTouches[0].clientX, e.targetTouches[0].clientY]);
+        setTouchEnd([e.targetTouches[0].clientX, e.targetTouches[0].clientY]);
+    }
+
+    function handleMouseStart(e) {
+        e.preventDefault();
+        setTouchStart([e.clientX, e.clientY]);
+        setTouchEnd([e.clientX, e.clientY]);
+    }
+
+    function handleTouchMove(e) {
+        setTouchEnd([e.targetTouches[0].clientX, e.targetTouches[0].clientY]);
+    }
+
+    function handleMouseDrag(e) {
+        console.log("moving mouse or dragging?");
+        setTouchEnd([e.clientX, e.clientY]);
+    }
+
+    function handleTouchEnd() {
+        const swipeX = touchStart[0] - touchEnd[0];
+        const swipeY = touchStart[1] - touchEnd[1];
+        const scrollingToSide = Math.abs(swipeX) > Math.abs(swipeY);
+        const swipeLeft = swipeX > 50 && scrollingToSide;
+        const swipeRight = swipeX < -50 && scrollingToSide;
+
+        if (swipeLeft) {
             setCurrentSlide(currentSlide < 3 - 1 ? currentSlide + 1 : 0);
-    };
+        }
+
+        if (swipeRight) {
+            setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : 3 - 1)
+        }
+    }
 
     // Workaround: recharts draws bars with positive and negative values into different directions.
     //  I didn't find a way to change the behaviour to draw all bars into one direction - setting the bottom
@@ -40,7 +75,15 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
     }, [weatherData]);
 
     return (
-        <div className="weatherForecastForADay">
+        <div
+            className="weatherForecastForADay"
+            onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)}
+            onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)}
+            onTouchEnd={() => handleTouchEnd()}
+            onMouseDown={mouseDownEvent => handleMouseStart(mouseDownEvent)}
+            onMouseMove={mouseMoveEvent => handleMouseDrag(mouseMoveEvent)}
+            onMouseUp={() => handleTouchEnd()}
+        >
             <div className="contentContainer">
                 <div className="dayDisplay">
                     <h1>
@@ -60,7 +103,6 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
                         </ul>
                     </div>
                     <div className="forecastPlot">
-                        <h1 className="left" onClick={() => handleClick("left")}>L</h1>
                         <div className="plotContainer">
                             <div className="tempPlot" style={{transform: `rotateY(${currentSlide * 0.25}turn)`}} >
                                 <PlotForADay currentHour={currentHour} weatherData={temperatures} unit={"°C"}/>
@@ -72,7 +114,6 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
                                 <PlotForADay currentHour={currentHour} weatherData={temperatures} unit={"mm"}/>
                             </div>
                         </div>
-                        <h1 className="right" onClick={() => handleClick("right")}>R</h1>
                     </div>
                 </div>
             </div>
