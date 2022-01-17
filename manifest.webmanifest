@@ -1,6 +1,7 @@
 {
-  "short_name": "Weather",
-  "name": "Weather",
+  "background_color": "#505160",
+  "description": "React website showing the weather forecast.",
+  "display": "standalone",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +19,8 @@
       "sizes": "512x512"
     }
   ],
+  "name": "Weather",
+  "short_name": "Weather",
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#505160",
-  "background_color": "#505160"
+  "theme_color": "#505160"
 }
