@@ -21,6 +21,6 @@
   ],
   "name": "Weather",
   "short_name": "Weather",
-  "start_url": ".",
+  "start_url": "/weather_website/index.html",
   "theme_color": "#505160"
 }
