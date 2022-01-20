@@ -29,10 +29,10 @@
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      id="namedview2100"
-     showgrid="false"
-     inkscape:zoom="22.273864"
-     inkscape:cx="21.076368"
-     inkscape:cy="9.6560895"
+     showgrid="true"
+     inkscape:zoom="44.547727"
+     inkscape:cx="8.6785447"
+     inkscape:cy="6.4366329"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -58,6 +58,26 @@
   </metadata>
   <g
      id="g2097">
+    <rect
+       style="fill:#00ff14;fill-opacity:1;stroke:none;stroke-width:0.377953;stroke-linecap:round;stroke-opacity:1"
+       id="rect851"
+       width="16"
+       height="16"
+       x="0"
+       y="0" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.377953;stroke-linecap:round;stroke-opacity:1"
+       id="path849"
+       sodipodi:type="arc"
+       sodipodi:cx="8"
+       sodipodi:cy="8"
+       sodipodi:rx="7"
+       sodipodi:ry="7"
+       sodipodi:start="3.6102834"
+       sodipodi:end="3.5983802"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="M 1.7548767,4.8379697 A 7,7 0 0 1 11.143432,1.7454948 7,7 0 0 1 14.263832,11.124806 7,7 0 0 1 4.8938477,14.273103 7,7 0 0 1 1.7176818,4.9125289" />
     <circle
        cx="8"
        cy="8"
@@ -79,10 +99,6 @@
          font-size="14.9688px"
          id="tspan2091"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Times;-inkscape-font-specification:Times;stroke-width:1.32582">W</tspan></text>
-    <path
-       id="rect2085"
-       style="fill:#00ff16;stroke-width:1.03884;fill-opacity:1"
-       d="M -0.3107247,-0.3107247 V 16.310725 H 16.310725 V -0.3107247 Z M 8,1 A 6.9998119,6.9998119 0 0 1 15,8 6.9998119,6.9998119 0 0 1 8,15 6.9998119,6.9998119 0 0 1 1,8 6.9998119,6.9998119 0 0 1 8,1 Z" />
     <circle
        cx="12.507936"
        cy="12.507936"
@@ -93,6 +109,6 @@
        stroke-linejoin="round"
        stroke-width="0.746161"
        id="circle2095"
-       style="stroke:#00f715;stroke-opacity:1" />
+       style="stroke:#00f715;stroke-opacity:1;stroke-width:0.546;stroke-miterlimit:4;stroke-dasharray:none" />
   </g>
 </svg>
