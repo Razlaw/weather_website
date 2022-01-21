@@ -10,40 +10,40 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [temperatures, setTemperatures] = useState( [{"temp": 0, "tempForPlot": 1}]);
 
-    const touchStart = useRef([0, 0]);
-    const touchEnd = useRef([0, 0]);
+    const touchStartPosition = useRef([0, 0]);
+    const touchEndPosition = useRef([0, 0]);
 
-    function handleTouchStart(e) {
-        touchStart.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
-        touchEnd.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
+    function setTouchStartPosition(e) {
+        touchStartPosition.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
+        touchEndPosition.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
     }
 
-    function handleMouseStart(e) {
+    function setMouseStartPosition(e) {
         e.preventDefault();
-        touchStart.current = [e.clientX, e.clientY];
-        touchEnd.current = [e.clientX, e.clientY];
+        touchStartPosition.current = [e.clientX, e.clientY];
+        touchEndPosition.current = [e.clientX, e.clientY];
     }
 
-    function handleTouchMove(e) {
-        touchEnd.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
+    function setTouchCurrentPosition(e) {
+        touchEndPosition.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
     }
 
-    function handleMouseDrag(e) {
-        touchEnd.current = [e.clientX, e.clientY];
+    function setMouseCurrentPosition(e) {
+        touchEndPosition.current = [e.clientX, e.clientY];
     }
 
-    function handleTouchEnd() {
-        const swipeX = touchStart.current[0] - touchEnd.current[0];
-        const swipeY = touchStart.current[1] - touchEnd.current[1];
-        const scrollingToSide = Math.abs(swipeX) > Math.abs(swipeY);
-        const swipeLeft = swipeX > 50 && scrollingToSide;
-        const swipeRight = swipeX < -50 && scrollingToSide;
+    function scrollOnVerticalSwipe() {
+        const swipeVectorX = touchEndPosition.current[0] - touchStartPosition.current[0];
+        const swipeVectorY = touchEndPosition.current[1] - touchStartPosition.current[1];
+        const isSwipingHorizontally = Math.abs(swipeVectorX) > Math.abs(swipeVectorY);
+        const isSwipingRight = swipeVectorX > 50 && isSwipingHorizontally;
+        const isSwipingLeft = swipeVectorX < -50 && isSwipingHorizontally;
 
-        if (swipeLeft) {
+        if (isSwipingLeft) {
             setCurrentSlide(currentSlide < 3 - 1 ? currentSlide + 1 : 0);
         }
 
-        if (swipeRight) {
+        if (isSwipingRight) {
             setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : 3 - 1)
         }
     }
@@ -75,12 +75,12 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
     return (
         <div
             className="weatherForecastForADay"
-            onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)}
-            onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)}
-            onTouchEnd={() => handleTouchEnd()}
-            onMouseDown={mouseDownEvent => handleMouseStart(mouseDownEvent)}
-            onMouseMove={mouseMoveEvent => handleMouseDrag(mouseMoveEvent)}
-            onMouseUp={() => handleTouchEnd()}
+            onTouchStart={touchStartEvent => setTouchStartPosition(touchStartEvent)}
+            onTouchMove={touchMoveEvent => setTouchCurrentPosition(touchMoveEvent)}
+            onTouchEnd={() => scrollOnVerticalSwipe()}
+            onMouseDown={mouseDownEvent => setMouseStartPosition(mouseDownEvent)}
+            onMouseMove={mouseMoveEvent => setMouseCurrentPosition(mouseMoveEvent)}
+            onMouseUp={() => scrollOnVerticalSwipe()}
         >
             <div className="contentContainer">
                 <div className="dayDisplay">
