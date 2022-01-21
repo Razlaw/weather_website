@@ -68,13 +68,13 @@ function App() {
             const lon = currentWeather.data.coord.lon;
             const exclude = "current,minutely,alerts"
             const forecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=${process.env.REACT_APP_API_KEY}`);
-            setCookie('cityName', cityName, {path: '/', secure: true, sameSite: "strict"});
             console.log(forecast)
             updateWeatherData(forecast.data);
+            setCookie('cityName', cityName, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         } catch (error) {
             console.log("Failed to fetch weather data");
             console.log(error.response.data.error);
-            removeCookie("cityName", {path: '/', secure: true, sameSite: "strict"});
+            removeCookie("cityName", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
             updateWeatherData();
         }
     };
