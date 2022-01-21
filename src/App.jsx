@@ -46,6 +46,7 @@ function App() {
 
     const [cityName, updateCityName] = useState(cookies.cityName ? cookies.cityName : "");
     const [weatherData, updateWeatherData] = useState();
+    const triedToFetchData = useRef(false);
 
     const reloadWeather = async (e) => {
         e.preventDefault();
@@ -61,6 +62,8 @@ function App() {
     */
     const fetchWeather = async () => {
         try {
+            triedToFetchData.current = true;
+
             // Since OWM one call api accepts latitude and longitude coordinates only, we first fetch the current
             // weather - containing the coordinates - using the city name and fetch the forecast using the coordinates.
             const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
@@ -92,8 +95,12 @@ function App() {
                 <CitySearchBar cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
                 {weatherData === undefined ? (
                     <div className="noData">
-                        <h1>No weather data to display.</h1>
-                        <h1>Try another city.</h1>
+                        {triedToFetchData.current === false ? (
+                            <h1>Search for a city name.<br/>Get the weather forecast.</h1>
+                        ) : (
+                            <h1>Failed to get weather data.<br/>Try another city.</h1>
+                            )
+                        }
                     </div>
                 ) : (
                     <div
