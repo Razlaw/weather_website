@@ -1,5 +1,5 @@
 import "./app.scss";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {useCookies} from 'react-cookie';
 import CitySearchBar from "./components/citySearchBar/CitySearchBar";
@@ -7,6 +7,41 @@ import WeatherForecastForADay from "./components/weatherForecastForADay/WeatherF
 import WeatherForecastForAWeek from "./components/weatherForecastForAWeek/WeatherForecastForAWeek";
 
 function App() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const touchStartPosition = useRef([0, 0]);
+    const isAwaitingScroll = useRef(false);
+
+    /* Saves starting point of touch to check for a vertical scroll on swipe. */
+    function handleTouchStart(e) {
+        touchStartPosition.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
+        isAwaitingScroll.current = true;
+    }
+
+    /* Checks for a vertical swipe and scrolls into according direction.
+    *
+    * isAwaitingScroll is used to block further scrolling if swipe continues longer than scroll animation.
+    */
+    function scrollOnVerticalSwipe(e) {
+        if (isAwaitingScroll.current) {
+            const touchCurrentPosition = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
+            const swipeVectorX = touchCurrentPosition[0] - touchStartPosition.current[0];
+            const swipeVectorY = touchCurrentPosition[1] - touchStartPosition.current[1];
+            const isSwipingVertically = Math.abs(swipeVectorX) < Math.abs(swipeVectorY);
+            const isSwipingDown = swipeVectorY > 0 && isSwipingVertically;
+            const isSwipingUp = swipeVectorY < 0 && isSwipingVertically;
+
+            if (isSwipingUp) {
+                setCurrentSlide(currentSlide < 2 ? currentSlide + 1 : currentSlide);
+                isAwaitingScroll.current = false;
+            }
+
+            if (isSwipingDown) {
+                setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : currentSlide)
+                isAwaitingScroll.current = false;
+            }
+        }
+    }
+
     const [cookies, setCookie, removeCookie] = useCookies(['cityName']);
 
     const [cityName, updateCityName] = useState(cookies.cityName ? cookies.cityName : "");
@@ -61,10 +96,20 @@ function App() {
                         <h1>Try another city.</h1>
                     </div>
                 ) : (
-                    <div className="sections">
-                        <WeatherForecastForADay dayToDisplay="Today" weatherData={weatherData.hourly.slice(0, 24)}/>
-                        <WeatherForecastForADay dayToDisplay="Tomorrow" weatherData={weatherData.hourly.slice(24, 48)}/>
-                        <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
+                    <div
+                        className="sections"
+                        onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)}
+                        onTouchMove={touchMoveEvent => scrollOnVerticalSwipe(touchMoveEvent)}
+                    >
+                        <div className="container" style={{transform: `translateY(-${currentSlide * 100}%)`}}>
+                            <WeatherForecastForADay dayToDisplay="Today" weatherData={weatherData.hourly.slice(0, 24)}/>
+                        </div>
+                        <div className="container" style={{transform: `translateY(${(1 - currentSlide) * 100}%)`}}>
+                            <WeatherForecastForADay dayToDisplay="Tomorrow" weatherData={weatherData.hourly.slice(24, 48)}/>
+                        </div>
+                        <div className="container" style={{transform: `translateY(${(2 - currentSlide) * 100}%)`}}>
+                            <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
+                        </div>
                     </div>
                 )}
             </div>
