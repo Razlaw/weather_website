@@ -49,6 +49,8 @@
       scroll-snap-type: y mandatory;
       scroll-snap-stop: always;
       scrollbar-width: none;
+      animation: 500ms ease fade-in;
+      animation-iteration-count: 1;
 
       &::-webkit-scrollbar {
         display: none;
@@ -68,6 +70,18 @@
         -o-transition: all 200ms cubic-bezier(.86,0,.07,1) 0ms;
 
         scroll-snap-align: start;
+      }
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0.3;
+        transform: scale(0.9);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   }
