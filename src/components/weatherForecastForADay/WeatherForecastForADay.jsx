@@ -1,6 +1,6 @@
 import "./weatherForecastForADay.scss";
 import HourOfDayListItem from "../hourOfDayListItem/HourOfDayListItem";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import PlotForADay from "../plotForADay/PlotForADay";
 
 export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
@@ -10,33 +10,31 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [temperatures, setTemperatures] = useState( [{"temp": 0, "tempForPlot": 1}]);
 
-    const [touchStart, setTouchStart] = React.useState([0, 0]);
-    const [touchEnd, setTouchEnd] = React.useState([0, 0]);
+    const touchStart = useRef([0, 0]);
+    const touchEnd = useRef([0, 0]);
 
     function handleTouchStart(e) {
-        e.preventDefault();
-        setTouchStart([e.targetTouches[0].clientX, e.targetTouches[0].clientY]);
-        setTouchEnd([e.targetTouches[0].clientX, e.targetTouches[0].clientY]);
+        touchStart.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
+        touchEnd.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
     }
 
     function handleMouseStart(e) {
         e.preventDefault();
-        setTouchStart([e.clientX, e.clientY]);
-        setTouchEnd([e.clientX, e.clientY]);
+        touchStart.current = [e.clientX, e.clientY];
+        touchEnd.current = [e.clientX, e.clientY];
     }
 
     function handleTouchMove(e) {
-        setTouchEnd([e.targetTouches[0].clientX, e.targetTouches[0].clientY]);
+        touchEnd.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
     }
 
     function handleMouseDrag(e) {
-        console.log("moving mouse or dragging?");
-        setTouchEnd([e.clientX, e.clientY]);
+        touchEnd.current = [e.clientX, e.clientY];
     }
 
     function handleTouchEnd() {
-        const swipeX = touchStart[0] - touchEnd[0];
-        const swipeY = touchStart[1] - touchEnd[1];
+        const swipeX = touchStart.current[0] - touchEnd.current[0];
+        const swipeY = touchStart.current[1] - touchEnd.current[1];
         const scrollingToSide = Math.abs(swipeX) > Math.abs(swipeY);
         const swipeLeft = swipeX > 50 && scrollingToSide;
         const swipeRight = swipeX < -50 && scrollingToSide;
