@@ -1,10 +1,10 @@
 import "./app.scss";
 import React, {useEffect, useRef, useState} from "react";
-import axios from "axios";
 import {useCookies} from 'react-cookie';
 import CitySearchBar from "./components/citySearchBar/CitySearchBar";
 import WeatherForecastForADay from "./components/weatherForecastForADay/WeatherForecastForADay";
 import WeatherForecastForAWeek from "./components/weatherForecastForAWeek/WeatherForecastForAWeek";
+import {getWeatherData} from "./data"
 import {VerticalScrollSnap} from "./utils"
 
 function App() {
@@ -32,19 +32,13 @@ function App() {
         try {
             triedToFetchData.current = true;
 
-            // Since OWM one call api accepts latitude and longitude coordinates only, we first fetch the current
-            // weather - containing the coordinates - using the city name and fetch the forecast using the coordinates.
-            const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
-            const lat = currentWeather.data.coord.lat;
-            const lon = currentWeather.data.coord.lon;
-            const exclude = "current,minutely,alerts"
-            const forecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=${process.env.REACT_APP_API_KEY}`);
-            console.log(forecast)
-            updateWeatherData(forecast.data);
+            const localWeatherData = await getWeatherData(cityName);
+
             setCookie('cityName', cityName, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
+            updateWeatherData(localWeatherData);
         } catch (error) {
             console.log("Failed to fetch weather data");
-            console.log(error.response.data.error);
+            console.log(error);
             removeCookie("cityName", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
             updateWeatherData();
         }
