@@ -38,7 +38,7 @@ export default function PlotForADay({currentHour, weatherData, unit}) {
                     dataKey="tempForPlot"
                     barSize={18}
                     background={{ fill: 'rgb(255,255,255)' }}
-                    animationDuration={500}
+                    isAnimationActive={false}
                 >
                     <LabelList
                         dataKey="temp"
