@@ -1,5 +1,27 @@
 import {useRef, useState} from "react";
 
+export function utcTimeFromUTCUnix(unixUTCTimeInSeconds) {
+    const dateUTC = new Date(unixUTCTimeInSeconds * 1000);
+    const hoursUTC = dateUTC.getUTCHours();
+    let minutesUTC = dateUTC.getUTCMinutes().toString();
+    minutesUTC = minutesUTC.length === 1 ? "0" + minutesUTC : minutesUTC;
+    let secondsUTC = dateUTC.getUTCSeconds().toString();
+    secondsUTC = secondsUTC.length === 1 ? "0" + secondsUTC : secondsUTC;
+
+    return hoursUTC + ':' + minutesUTC + ':' + secondsUTC;
+}
+
+export function localTimeFromUTCUnix(unixUTCTimeInSeconds) {
+    const date = new Date(unixUTCTimeInSeconds * 1000);
+    const hours = date.getHours();
+    let minutes = date.getMinutes().toString();
+    minutes = minutes.length === 1 ? "0" + minutes : minutes;
+    let seconds = date.getSeconds().toString();
+    seconds = seconds.length === 1 ? "0" + seconds : seconds;
+
+    return hours + ':' + minutes + ':' + seconds;
+}
+
 /**
  * Provides the basic functionality for a vertical scroll snap for touch swipe scrolls.
  *

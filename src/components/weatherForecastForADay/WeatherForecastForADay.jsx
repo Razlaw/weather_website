@@ -1,6 +1,6 @@
 import "./weatherForecastForADay.scss";
 import HourOfDayListItem from "../hourOfDayListItem/HourOfDayListItem";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import PlotForADay from "../plotForADay/PlotForADay";
 
 export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
@@ -8,7 +8,6 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
     const currentHour = today.getHours();
 
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [temperatures, setTemperatures] = useState( [{"temp": 0, "tempForPlot": 1}]);
 
     const touchStartPosition = useRef([0, 0]);
     const touchEndPosition = useRef([0, 0]);
@@ -48,30 +47,6 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
         }
     }
 
-    // Workaround: recharts draws bars with positive and negative values into different directions.
-    //  I didn't find a way to change the behaviour to draw all bars into one direction - setting the bottom
-    //  value of the bars as its called in matplotlib. This workaround shifts all values into a range starting
-    //  from the value 1 if at least one element is negative. The shifted values as used for plotting while the
-    //  original values are used for the labels of the bars.
-    useEffect(() => {
-        let roundedTemperatureArray = new Array(0);
-        for(let i = 0; i < weatherData.length; i++) {
-            let roundedTemperature = Math.round(weatherData[i]["temp"]);
-            roundedTemperatureArray.push(roundedTemperature);
-        }
-
-        let lowestTemperature = Math.min(...roundedTemperatureArray);
-        let temperatureArrayForPlot = roundedTemperatureArray.map( function(value) {
-            return value - (lowestTemperature - 1);
-        } );
-
-        let temperatureArray = new Array(0);
-        for(let i = 0; i < weatherData.length; i++) {
-            temperatureArray[i] = {"temp": roundedTemperatureArray[i], "tempForPlot": temperatureArrayForPlot[i]};
-        }
-        setTemperatures(temperatureArray);
-    }, [weatherData]);
-
     return (
         <div
             className="weatherForecastForADay"
@@ -102,14 +77,29 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
                     </div>
                     <div className="forecastPlot">
                         <div className="plotContainer">
-                            <div className="tempPlot" style={{transform: `rotateY(${currentSlide * 0.25}turn)`}} >
-                                <PlotForADay currentHour={currentHour} weatherData={temperatures} unit={"°C"}/>
+                            <div className="temperaturePlot" style={{transform: `rotateY(${currentSlide * 0.25}turn)`}} >
+                                <PlotForADay
+                                    currentHour={currentHour}
+                                    weatherData={weatherData}
+                                    dataKey={"temperatureForPlot"}
+                                    plotKey={"temperature"}
+                                    unit={"°C"}/>
                             </div>
                             <div className="windPlot" style={{transform: `rotateY(${(currentSlide-2) * 0.25}turn)`}}>
-                                <PlotForADay currentHour={currentHour} weatherData={temperatures} unit={"m/s"}/>
+                                <PlotForADay
+                                    currentHour={currentHour}
+                                    weatherData={weatherData}
+                                    dataKey={"wind_speed"}
+                                    plotKey={"wind_speed"}
+                                    unit={"m/s"}/>
                             </div>
                             <div className="rainPlot" style={{transform: `rotateY(${(currentSlide-1) * 0.25}turn)`}}>
-                                <PlotForADay currentHour={currentHour} weatherData={temperatures} unit={"mm"}/>
+                                <PlotForADay
+                                    currentHour={currentHour}
+                                    weatherData={weatherData}
+                                    dataKey={"rain_1h"}
+                                    plotKey={"rain_1h"}
+                                    unit={"mm"}/>
                             </div>
                         </div>
                     </div>

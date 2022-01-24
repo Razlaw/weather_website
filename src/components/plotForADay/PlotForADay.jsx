@@ -9,7 +9,7 @@ import {
     LabelList
 } from 'recharts';
 
-export default function PlotForADay({currentHour, weatherData, unit}) {
+export default function PlotForADay({currentHour, weatherData, dataKey, plotKey, unit}) {
 
     const renderLabel = function(entry) {
         return (entry).toFixed(0) + unit;
@@ -35,13 +35,13 @@ export default function PlotForADay({currentHour, weatherData, unit}) {
                 {/*    width={20}*/}
                 {/*/>*/}
                 <Bar
-                    dataKey="tempForPlot"
+                    dataKey={dataKey}
                     barSize={18}
                     background={{ fill: 'rgb(255,255,255)' }}
                     isAnimationActive={false}
                 >
                     <LabelList
-                        dataKey="temp"
+                        dataKey={plotKey}
                         position="right"
                         formatter={renderLabel}
                     />
