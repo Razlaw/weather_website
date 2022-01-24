@@ -21,13 +21,14 @@ function App() {
         await fetchWeather();
     };
 
-    /* Fetch weather forecast from OpenWeatherMap (OWM)
-    *
-    * If fetch is successful, the current city name is saved in the cookies, so the user doesn't need to specify
-    * it again on reload.
-    * Otherwise the city name entry in the cookies is removed and the forecast data is deleted to show the user
-    * that the forecast is not available.
-    */
+    /**
+     * Fetch weather forecast from OpenWeatherMap (OWM)
+     *
+     * If fetch is successful, the current city name is saved in the cookies, so the user doesn't need to specify
+     * it again on reload.
+     * Otherwise the city name entry in the cookies is removed and the forecast data is deleted to show the user
+     * that the forecast is not available.
+     */
     const fetchWeather = async () => {
         try {
             triedToFetchData.current = true;
@@ -44,7 +45,7 @@ function App() {
         }
     };
 
-    // Fetch weather on first render if city name already defined in cookies
+    // Fetch weather on first render if city name is already defined in cookies
     useEffect(() => {
         if (cookies.cityName) {
             fetchWeather();
