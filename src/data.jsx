@@ -9,15 +9,45 @@ export const getWeatherData = async (cityName) => {
         const lat = currentWeather.data.coord.lat;
         const lon = currentWeather.data.coord.lon;
         const currentUnixTimeUTC = currentWeather.data.dt;
+        const currentUnixTimeInCity = currentWeather.data.dt + currentWeather.data.timezone;
+
         // Historical Data up to the last full hour starting from 00:00 going to and including 11:00 for example at 11:08
         const todaysHistoricalWeather = await axios.get(`https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt=${currentUnixTimeUTC}&units=metric&appid=${process.env.REACT_APP_API_KEY}`);
         const hoursInTwoDays = 48;
-        let hourlyWeatherForTwoDays = new Array(hoursInTwoDays);
+        let hourlyWeatherForTwoDays = [];
+
+        const dateInCity = new Date(currentUnixTimeInCity * 1000);
+        const hoursToFillWithHistoricalData = dateInCity.getUTCHours();
         // Last entry is not used because it corresponds to the same hour as the first entry of the forecast,
         // which is more precise/already updated
-        const hoursOfHistoricalData = todaysHistoricalWeather.data.hourly.length - 1;
-        for (let i = 0; i < hoursOfHistoricalData; i++){
-            hourlyWeatherForTwoDays[i] = {
+        const hoursOfHistoricalDataAvailable = todaysHistoricalWeather.data.hourly.length - 1;
+        if (hoursOfHistoricalDataAvailable < hoursToFillWithHistoricalData){
+            const yesterdayUnixTimeUTC = currentUnixTimeUTC - 86400;
+            const yesterdaysHistoricalWeather = await axios.get(`https://api.openweathermap.org/data/2.5/onecall/timemachine?lat=${lat}&lon=${lon}&dt=${yesterdayUnixTimeUTC}&units=metric&appid=${process.env.REACT_APP_API_KEY}`);
+
+            const hoursToFillWithYesterdaysData = hoursToFillWithHistoricalData - hoursOfHistoricalDataAvailable;
+            console.assert(hoursToFillWithYesterdaysData <= yesterdaysHistoricalWeather.data.hourly.length);
+            const startIndexYesterday = yesterdaysHistoricalWeather.data.hourly.length - hoursToFillWithYesterdaysData;
+            for (let i = startIndexYesterday; i < yesterdaysHistoricalWeather.data.hourly.length; i++){
+                hourlyWeatherForTwoDays.push({
+                    "temperature": Math.round(yesterdaysHistoricalWeather.data.hourly[i].temp),
+                    "wind_deg": yesterdaysHistoricalWeather.data.hourly[i].wind_deg,
+                    "wind_speed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed),
+                    "cloudiness": yesterdaysHistoricalWeather.data.hourly[i].clouds,
+                    "weather": yesterdaysHistoricalWeather.data.hourly[i].weather,
+                    "probabilityOfPrecipitation": 0,
+                    "rain_1h": ("rain" in yesterdaysHistoricalWeather.data.hourly[i] ? Math.round(yesterdaysHistoricalWeather.data.hourly[i].rain["1h"]) : 0),
+                    "snow_1h": ("snow" in yesterdaysHistoricalWeather.data.hourly[i] ? Math.round(yesterdaysHistoricalWeather.data.hourly[i].snow["1h"]) : 0),
+                    "timeUTC": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt),
+                    "timeLocal": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
+                    "dt": yesterdaysHistoricalWeather.data.hourly[i].dt});
+            }
+        }
+
+        const hoursAlreadyFilled = hourlyWeatherForTwoDays.length;
+        const startIndexToday = hoursOfHistoricalDataAvailable - (hoursToFillWithHistoricalData - hoursAlreadyFilled);
+        for (let i = startIndexToday; i < hoursOfHistoricalDataAvailable; i++){
+            hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(todaysHistoricalWeather.data.hourly[i].temp),
                 "wind_deg": todaysHistoricalWeather.data.hourly[i].wind_deg,
                 "wind_speed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed),
@@ -28,17 +58,16 @@ export const getWeatherData = async (cityName) => {
                 "snow_1h": ("snow" in todaysHistoricalWeather.data.hourly[i] ? Math.round(todaysHistoricalWeather.data.hourly[i].snow["1h"]) : 0),
                 "timeUTC": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt),
                 "timeLocal": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
-                "dt": todaysHistoricalWeather.data.hourly[i].dt};
+                "dt": todaysHistoricalWeather.data.hourly[i].dt});
         }
 
         const exclude = "current,minutely,alerts"
         // Hourly forecast starts at previous full hour - e.g. for 11:08 at 11:00
         const nextDaysForecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=${process.env.REACT_APP_API_KEY}`);
-        const numberOfEntriesToFill = hoursInTwoDays - hoursOfHistoricalData;
+        const numberOfEntriesToFill = hoursInTwoDays - hourlyWeatherForTwoDays.length;
         console.assert(numberOfEntriesToFill <= nextDaysForecast.data.hourly.length);
         for (let i = 0; i < numberOfEntriesToFill; i++){
-            const currentHourID = hoursOfHistoricalData + i;
-            hourlyWeatherForTwoDays[currentHourID] = {
+            hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(nextDaysForecast.data.hourly[i].temp),  // in °C
                 "wind_deg": nextDaysForecast.data.hourly[i].wind_deg,  // from 0 to 360 degrees
                 "wind_speed": Math.round(nextDaysForecast.data.hourly[i].wind_speed),  // in m/s
@@ -49,7 +78,7 @@ export const getWeatherData = async (cityName) => {
                 "snow_1h": ("snow" in nextDaysForecast.data.hourly[i] ? Math.round(nextDaysForecast.data.hourly[i].snow["1h"]) : 0),  // in mm
                 "timeUTC": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt),
                 "timeLocal": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone),
-                "dt": nextDaysForecast.data.hourly[i].dt};
+                "dt": nextDaysForecast.data.hourly[i].dt});
         }
 
         // Workaround: recharts draws bars with positive and negative values into different directions.
@@ -81,6 +110,13 @@ export const getWeatherData = async (cityName) => {
         }
 
         const weatherData = {"hourly": hourlyWeatherForTwoDays};
+
+        // Reconstruct the current hour of the requested city
+        const utcNow = Date.now();  // Use .now() because current time in data might be from previous hour
+        const nowInTimezone = (utcNow + (currentWeather.data.timezone * 1000));
+        const dateInTimezone = new Date(nowInTimezone);
+        const currentHour = dateInTimezone.getUTCHours();  // .getUTCHours() to not apply the timezone of the user
+        weatherData["currentHour"] = currentHour;
 
         return Promise.resolve(weatherData);
     } catch (error) {

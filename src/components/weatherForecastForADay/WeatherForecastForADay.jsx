@@ -3,10 +3,7 @@ import HourOfDayListItem from "../hourOfDayListItem/HourOfDayListItem";
 import React, {useRef, useState} from "react";
 import PlotForADay from "../plotForADay/PlotForADay";
 
-export default function WeatherForecastForADay({dayToDisplay, weatherData}) {
-    const today = new Date();
-    const currentHour = today.getHours();
-
+export default function WeatherForecastForADay({dayToDisplay, weatherData, currentHour}) {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const touchStartPosition = useRef([0, 0]);

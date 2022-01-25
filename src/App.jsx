@@ -72,10 +72,18 @@ function App() {
                         onTouchMove={touchMoveEvent => scrollOnVerticalSwipe(touchMoveEvent)}
                     >
                         <div className="container" style={{transform: `translateY(-${currentSlideId * 100}%)`}}>
-                            <WeatherForecastForADay dayToDisplay="Today" weatherData={weatherData.hourly.slice(0, 24)}/>
+                            <WeatherForecastForADay
+                                dayToDisplay="Today"
+                                weatherData={weatherData.hourly.slice(0, 24)}
+                                currentHour={weatherData["currentHour"]}
+                            />
                         </div>
                         <div className="container" style={{transform: `translateY(${(1 - currentSlideId) * 100}%)`}}>
-                            <WeatherForecastForADay dayToDisplay="Tomorrow" weatherData={weatherData.hourly.slice(24, 48)}/>
+                            <WeatherForecastForADay
+                                dayToDisplay="Tomorrow"
+                                weatherData={weatherData.hourly.slice(24, 48)}
+                                currentHour={weatherData["currentHour"]}
+                            />
                         </div>
                         <div className="container" style={{transform: `translateY(${(2 - currentSlideId) * 100}%)`}}>
                             <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
