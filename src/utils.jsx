@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 export function utcTimeFromUTCUnix(unixUTCTimeInSeconds) {
     const dateUTC = new Date(unixUTCTimeInSeconds * 1000);
@@ -90,4 +90,32 @@ export function VerticalScrollSnap(numberOfSlides) {
     }
 
     return [currentSlideId, handleTouchStart, scrollOnVerticalSwipe];
+}
+
+function getWindowInnerHeight() {
+    const {innerHeight: height} = window;
+    return height;
+}
+
+/**
+ * Tracks the maximal inner height of the window.
+ *
+ * @returns {number} A state consisting of the maximal inner height of the window.
+ */
+export function MaxWindowInnerHeight() {
+    const [maxWindowInnerHeight, setMaxWindowInnerHeight] = useState(getWindowInnerHeight());
+
+    useEffect(() => {
+        function handleResize() {
+            const currentWindowInnerHeight = getWindowInnerHeight();
+            if (currentWindowInnerHeight > maxWindowInnerHeight) {
+                setMaxWindowInnerHeight(currentWindowInnerHeight);
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    },);
+
+    return maxWindowInnerHeight;
 }

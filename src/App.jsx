@@ -5,9 +5,13 @@ import CitySearchBar from "./components/citySearchBar/CitySearchBar";
 import WeatherForecastForADay from "./components/weatherForecastForADay/WeatherForecastForADay";
 import WeatherForecastForAWeek from "./components/weatherForecastForAWeek/WeatherForecastForAWeek";
 import {getWeatherData} from "./data"
-import {VerticalScrollSnap} from "./utils"
+import {MaxWindowInnerHeight, VerticalScrollSnap} from "./utils"
 
 function App() {
+    // The maximal inner height of the window, being used as the minHeight of the App to prevent a resize of the
+    // components when the Android keyboard is opened - which leads to a smaller inner height.
+    const maxWindowInnerHeight = MaxWindowInnerHeight();
+
     const [currentSlideId, handleTouchStart, scrollOnVerticalSwipe] = VerticalScrollSnap(3);
 
     const [cookies, setCookie, removeCookie] = useCookies(['cityName']);
@@ -53,7 +57,7 @@ function App() {
     }, []);
 
     return (
-        <div className="App">
+        <div className="App" style={{minHeight : `${maxWindowInnerHeight}px`}}>
             <div className="websiteContent">
                 <CitySearchBar cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
                 {weatherData === undefined ? (
