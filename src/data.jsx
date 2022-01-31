@@ -118,6 +118,18 @@ export const getWeatherData = async (cityName) => {
         const currentHour = dateInTimezone.getUTCHours();  // .getUTCHours() to not apply the timezone of the user
         weatherData["currentHour"] = currentHour;
 
+        // Save hours of sunrise and sunset for current and next day
+        weatherData["hoursOfSunrise"] = [];
+        weatherData["hoursOfSunset"] = [];
+        for (let dayId = 0; dayId < 2; dayId++) {
+            const sunriseInTimezone = new Date((nextDaysForecast.data.daily[dayId].sunrise + currentWeather.data.timezone) * 1000);
+            const hourOfSunrise = sunriseInTimezone.getUTCHours();
+            const sunsetInTimezone = new Date((nextDaysForecast.data.daily[dayId].sunset + currentWeather.data.timezone) * 1000);
+            const hourOfSunset = sunsetInTimezone.getUTCHours();
+            weatherData["hoursOfSunrise"].push(hourOfSunrise);
+            weatherData["hoursOfSunset"].push(hourOfSunset);
+        }
+
         return Promise.resolve(weatherData);
     } catch (error) {
         console.log("Failed to fetch weather data within getWeatherData");

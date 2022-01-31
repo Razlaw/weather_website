@@ -77,16 +77,20 @@ function App() {
                     >
                         <div className="container" style={{transform: `translateY(-${currentSlideId * 100}%)`}}>
                             <WeatherForecastForADay
-                                dayToDisplay="Today"
+                                dayId={0}
                                 weatherData={weatherData.hourly.slice(0, 24)}
                                 currentHour={weatherData["currentHour"]}
+                                hourOfSunrise={weatherData["hoursOfSunrise"][0]}
+                                hourOfSunset={weatherData["hoursOfSunset"][0]}
                             />
                         </div>
                         <div className="container" style={{transform: `translateY(${(1 - currentSlideId) * 100}%)`}}>
                             <WeatherForecastForADay
-                                dayToDisplay="Tomorrow"
+                                dayId={1}
                                 weatherData={weatherData.hourly.slice(24, 48)}
                                 currentHour={weatherData["currentHour"]}
+                                hourOfSunrise={weatherData["hoursOfSunrise"][1]}
+                                hourOfSunset={weatherData["hoursOfSunset"][1]}
                             />
                         </div>
                         <div className="container" style={{transform: `translateY(${(2 - currentSlideId) * 100}%)`}}>

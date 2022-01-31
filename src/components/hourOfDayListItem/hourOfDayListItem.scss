@@ -6,6 +6,16 @@
   font-size: 1.2em;
   touch-action: none;
 
+  &.night {
+    color: #afafaf;
+    touch-action: inherit;
+  }
+
+  &.twilight {
+    color: #cfcfcf;
+    touch-action: inherit;
+  }
+
   &.active {
     color: $highlightColor;
     touch-action: inherit;
