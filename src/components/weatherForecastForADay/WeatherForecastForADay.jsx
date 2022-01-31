@@ -96,7 +96,8 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData, curre
                                     weatherData={weatherData}
                                     dataKey={"rain_1h"}
                                     plotKey={"rain_1h"}
-                                    unit={"mm"}/>
+                                    unit={"mm"}
+                                    decimalPrecision={1}/>
                             </div>
                         </div>
                     </div>

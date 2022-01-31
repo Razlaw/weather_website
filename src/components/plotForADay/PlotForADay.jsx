@@ -9,10 +9,10 @@ import {
     LabelList
 } from 'recharts';
 
-export default function PlotForADay({currentHour, weatherData, dataKey, plotKey, unit}) {
+export default function PlotForADay({currentHour, weatherData, dataKey, plotKey, unit, decimalPrecision = 0}) {
 
     const renderLabel = function(entry) {
-        return (entry).toFixed(0) + unit;
+        return (entry).toFixed(decimalPrecision) + unit;
     }
 
     return (
