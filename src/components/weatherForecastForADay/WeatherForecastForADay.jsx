@@ -88,7 +88,7 @@ export default function WeatherForecastForADay({dayToDisplay, weatherData, curre
                                     weatherData={weatherData}
                                     dataKey={"wind_speed"}
                                     plotKey={"wind_speed"}
-                                    unit={"m/s"}/>
+                                    unit={"km/h"}/>
                             </div>
                             <div className="rainPlot" style={{transform: `rotateY(${(currentSlide-1) * 0.25}turn)`}}>
                                 <PlotForADay

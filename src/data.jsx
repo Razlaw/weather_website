@@ -32,7 +32,7 @@ export const getWeatherData = async (cityName) => {
                 hourlyWeatherForTwoDays.push({
                     "temperature": Math.round(yesterdaysHistoricalWeather.data.hourly[i].temp),
                     "wind_deg": yesterdaysHistoricalWeather.data.hourly[i].wind_deg,
-                    "wind_speed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed),
+                    "wind_speed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                     "cloudiness": yesterdaysHistoricalWeather.data.hourly[i].clouds,
                     "weather": yesterdaysHistoricalWeather.data.hourly[i].weather,
                     "probabilityOfPrecipitation": 0,
@@ -50,7 +50,7 @@ export const getWeatherData = async (cityName) => {
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(todaysHistoricalWeather.data.hourly[i].temp),
                 "wind_deg": todaysHistoricalWeather.data.hourly[i].wind_deg,
-                "wind_speed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed),
+                "wind_speed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                 "cloudiness": todaysHistoricalWeather.data.hourly[i].clouds,
                 "weather": todaysHistoricalWeather.data.hourly[i].weather,
                 "probabilityOfPrecipitation": 0,
@@ -70,7 +70,7 @@ export const getWeatherData = async (cityName) => {
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(nextDaysForecast.data.hourly[i].temp),  // in °C
                 "wind_deg": nextDaysForecast.data.hourly[i].wind_deg,  // from 0 to 360 degrees
-                "wind_speed": Math.round(nextDaysForecast.data.hourly[i].wind_speed),  // in m/s
+                "wind_speed": Math.round(nextDaysForecast.data.hourly[i].wind_speed * 3.6),  // in km/h
                 "cloudiness": nextDaysForecast.data.hourly[i].clouds,  // in % from 0 to 100
                 "weather": nextDaysForecast.data.hourly[i].weather,  // data with key for icon
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i]["pop"] : 0),  // in percent from 0.0 to 1.0
