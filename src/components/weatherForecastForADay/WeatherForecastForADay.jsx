@@ -6,6 +6,7 @@ import PlotForADay from "../plotForADay/PlotForADay";
 export default function WeatherForecastForADay({dayId, weatherData, currentHour, hourOfSunrise, hourOfSunset}) {
     const dayToDisplay = dayId === 0 ? "Today" : "Tomorrow";
 
+    const numberOfSlides = 2;
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const touchStartPosition = useRef([0, 0]);
@@ -38,11 +39,11 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
         const isSwipingLeft = swipeVectorX < -50 && isSwipingHorizontally;
 
         if (isSwipingLeft) {
-            setCurrentSlide(currentSlide < 3 - 1 ? currentSlide + 1 : 0);
+            setCurrentSlide(currentSlide < numberOfSlides - 1 ? currentSlide + 1 : 0);
         }
 
         if (isSwipingRight) {
-            setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : 3 - 1)
+            setCurrentSlide(currentSlide > 0 ? currentSlide - 1 : numberOfSlides - 1)
         }
     }
 
