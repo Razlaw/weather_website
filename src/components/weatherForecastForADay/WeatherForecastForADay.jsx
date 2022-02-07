@@ -77,31 +77,55 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                         </ul>
                     </div>
                     <div className="forecastPlot">
-                        <div className="plotContainer">
-                            <div className="temperaturePlot" style={{transform: `rotateY(${currentSlide * 0.25}turn)`}} >
+                        <div className="plotsContainer">
+                            <div className="temperatureAndWindPlotContainer" style={{transform: `rotateY(${currentSlide * 0.25}turn)`}} >
                                 <PlotForADay
+                                    dayID={dayId}
+                                    plotID={"temperature"}
                                     currentHour={currentHour}
                                     weatherData={weatherData}
                                     dataKey={"temperatureForPlot"}
                                     plotKey={"temperature"}
-                                    unit={"°C"}/>
-                            </div>
-                            <div className="windPlot" style={{transform: `rotateY(${(currentSlide-2) * 0.25}turn)`}}>
+                                    unit={"°C"}
+                                    sunrise={hourOfSunrise}
+                                    sunset={hourOfSunset}
+                                />
                                 <PlotForADay
+                                    dayID={dayId}
+                                    plotID={"wind"}
                                     currentHour={currentHour}
                                     weatherData={weatherData}
                                     dataKey={"wind_speed"}
                                     plotKey={"wind_speed"}
-                                    unit={"km/h"}/>
+                                    unit={"km/h"}
+                                    sunrise={hourOfSunrise}
+                                    sunset={hourOfSunset}
+                                />
                             </div>
-                            <div className="rainPlot" style={{transform: `rotateY(${(currentSlide-1) * 0.25}turn)`}}>
+                            <div className="rainPlotContainer" style={{transform: `rotateY(${(currentSlide-1) * 0.25}turn)`}}>
                                 <PlotForADay
+                                    dayID={dayId}
+                                    plotID={"probabilityOfPrecipitation"}
+                                    currentHour={currentHour}
+                                    weatherData={weatherData}
+                                    dataKey={"probabilityOfPrecipitation"}
+                                    plotKey={"probabilityOfPrecipitation"}
+                                    unit={"%"}
+                                    sunrise={hourOfSunrise}
+                                    sunset={hourOfSunset}
+                                />
+                                <PlotForADay
+                                    dayID={dayId}
+                                    plotID={"rain"}
                                     currentHour={currentHour}
                                     weatherData={weatherData}
                                     dataKey={"rain_1h"}
                                     plotKey={"rain_1h"}
                                     unit={"mm"}
-                                    decimalPrecision={1}/>
+                                    sunrise={hourOfSunrise}
+                                    sunset={hourOfSunset}
+                                    decimalPrecision={1}
+                                />
                             </div>
                         </div>
                     </div>

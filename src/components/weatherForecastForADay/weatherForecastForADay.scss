@@ -9,7 +9,7 @@
     width: 100%;
     height: 100%;
     min-height: 45.6em;
-    background-color: darkslateblue;
+    background-color: $backgroundColor;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -19,18 +19,18 @@
     .dayDisplay {
       width: 100%;
       height: 2.6em;
-      background-color: orangered;
+      background-color: $backgroundColor;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       touch-action: inherit;
 
       h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
         font-weight: 100;
         color: $textColor;
         background-color: $backgroundColor;
-        padding-left: 10px;
+        padding-left: 0;
         touch-action: inherit;
       }
     }
@@ -42,16 +42,16 @@
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      justify-content: space-around;
+      justify-content: space-between;
+      padding-bottom: 20px;
       touch-action: inherit;
 
       .hoursOfDay {
-        flex: 1;
         height: 100%;
-        background-color: #0e8c8c;
+        background-color: $backgroundColor;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         touch-action: inherit;
 
         ul {
@@ -60,41 +60,55 @@
           list-style: none;
           display: flex;
           flex-direction: column;
-          align-items: flex-end;
-          justify-content: center;
+          align-items: center;
+          justify-content: space-between;
           align-content: space-evenly;
-          padding: 10px 0;
+          padding: 0 0 0 10px;
           touch-action: inherit;
         }
       }
 
       .forecastPlot {
-        flex: 2;
+        flex: 4;
         width: 100%;
         height: 100%;
-        background-color: darkgrey;
+        background-color: $backgroundColor;
         position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;
         touch-action: inherit;
 
-        .plotContainer {
+        .plotsContainer {
           width: 100%;
           height: 100%;
-          display: flex;
+          background-color: $backgroundColor;
           position: absolute;
-          margin-left: 10px;
           touch-action: inherit;
 
-          * {
+          .temperatureAndWindPlotContainer {
             width: 100%;
             height: 100%;
-            position: absolute;
+            background-color: $backgroundColor;
+            display: flex;
             top: 0;
             left: 0;
+            position: absolute;
             transition: all 500ms ease-out;
-            transform-origin: 0 50%;
+            //transform-origin: 0 50%;
+            touch-action: inherit;
+          }
+
+          .rainPlotContainer {
+            width: 100%;
+            height: 100%;
+            background-color: #223990;
+            display: flex;
+            top: 0;
+            left: 0;
+            position: absolute;
+            transition: all 500ms ease-out;
+            //transform-origin: 0 50%;
             touch-action: inherit;
           }
         }

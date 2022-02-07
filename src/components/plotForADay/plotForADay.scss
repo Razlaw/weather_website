@@ -1,4 +1,72 @@
-.recharts-wrapper {
+@import "../../global.scss";
+
+.plotAndDataContainer {
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+  background-color: $backgroundColor;
+  position: relative;
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  padding: 0 15px;
+  touch-action: inherit;
+
+  .iconContainer {
+    height: 100%;
+    background-color: $backgroundColor;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    touch-action: none;
+    margin: 0 0 0 20px;
+
+    ul {
+      height: 100%;
+      background-color: $backgroundColor;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      align-content: space-evenly;
+      padding: 0 0 0 0;
+      touch-action: inherit;
+
+      .sunnyIcon {
+        height: 3.3%;
+      }
+    }
+  }
+
+  .dataContainer {
+    height: 100%;
+    color: $textColor;
+    align-items: center;
+    justify-content: flex-end;
+    touch-action: none;
+    margin: 0 10px 0 10px;
+
+    ul {
+      height: 100%;
+      background-color: $backgroundColor;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      align-content: space-evenly;
+      padding: 0 0 0 0;
+      touch-action: inherit;
+    }
+  }
+
+  .plotContainer {
+    width: 100%;
+    height: 100%;
+    background-color: $backgroundColor;
+    align-items: center;
+    justify-content: flex-end;
+    touch-action: none;
+    padding: 0 0 0 0;
+    overflow: hidden;
+  }
 }

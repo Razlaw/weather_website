@@ -1,7 +1,7 @@
-import "./hourOfDayListItem.scss"
+import "./dataListItem.scss"
 
-export default function HourOfDayListItem({time, active, sunrise, sunset}) {
-    let className = "hourOfDayListItem";
+export default function DataListItem({data, time, active, sunrise, sunset}) {
+    let className = "dataListItem";
     className = active ? className + " active" : className;
     className = time < sunrise || time > sunset ? className + " night" : className + " day" ;
     className = time === sunrise || time === sunset ? className + " twilight" : className;
@@ -11,7 +11,7 @@ export default function HourOfDayListItem({time, active, sunrise, sunset}) {
             className={className}
         >
             <span>
-                {time}:00
+                {data}
             </span>
         </li>
     );
