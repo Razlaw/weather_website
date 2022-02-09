@@ -13,6 +13,7 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
     const touchEndPosition = useRef([0, 0]);
 
     function setTouchStartPosition(e) {
+        e.preventDefault();
         touchStartPosition.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
         touchEndPosition.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
     }
@@ -24,6 +25,7 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
     }
 
     function setTouchCurrentPosition(e) {
+        e.preventDefault();
         touchEndPosition.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
     }
 
@@ -31,7 +33,8 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
         touchEndPosition.current = [e.clientX, e.clientY];
     }
 
-    function scrollOnVerticalSwipe() {
+    function scrollOnVerticalSwipe(e) {
+        e.preventDefault();
         const swipeVectorX = touchEndPosition.current[0] - touchStartPosition.current[0];
         const swipeVectorY = touchEndPosition.current[1] - touchStartPosition.current[1];
         const isSwipingHorizontally = Math.abs(swipeVectorX) > Math.abs(swipeVectorY);
@@ -52,10 +55,10 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
             className="weatherForecastForADay"
             onTouchStart={touchStartEvent => setTouchStartPosition(touchStartEvent)}
             onTouchMove={touchMoveEvent => setTouchCurrentPosition(touchMoveEvent)}
-            onTouchEnd={() => scrollOnVerticalSwipe()}
+            onTouchEnd={(pointerEndEvent) => scrollOnVerticalSwipe(pointerEndEvent)}
             onMouseDown={mouseDownEvent => setMouseStartPosition(mouseDownEvent)}
             onMouseMove={mouseMoveEvent => setMouseCurrentPosition(mouseMoveEvent)}
-            onMouseUp={() => scrollOnVerticalSwipe()}
+            onMouseUp={(pointerEndEvent) => scrollOnVerticalSwipe(pointerEndEvent)}
         >
             <div className="contentContainer">
                 <div className="dayDisplay">

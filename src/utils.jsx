@@ -59,6 +59,7 @@ export function VerticalScrollSnap(numberOfSlides) {
 
     /* Saves starting point of touch to check for a vertical scroll on swipe. */
     function handleTouchStart(e) {
+        e.preventDefault();
         touchStartPosition.current = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
         isAwaitingScroll.current = true;
     }
@@ -69,6 +70,7 @@ export function VerticalScrollSnap(numberOfSlides) {
     * isAwaitingScroll is used to block further scrolling if swipe continues longer than scroll animation.
     */
     function scrollOnVerticalSwipe(e) {
+        e.preventDefault();
         if (isAwaitingScroll.current) {
             const touchCurrentPosition = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
             const swipeVectorX = touchCurrentPosition[0] - touchStartPosition.current[0];
