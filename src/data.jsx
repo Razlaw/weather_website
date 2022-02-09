@@ -29,13 +29,15 @@ export const getWeatherData = async (cityName) => {
             console.assert(hoursToFillWithYesterdaysData <= yesterdaysHistoricalWeather.data.hourly.length);
             const startIndexYesterday = yesterdaysHistoricalWeather.data.hourly.length - hoursToFillWithYesterdaysData;
             for (let i = startIndexYesterday; i < yesterdaysHistoricalWeather.data.hourly.length; i++){
+                const wasRaining = (("rain" in yesterdaysHistoricalWeather.data.hourly[i] && yesterdaysHistoricalWeather.data.hourly[i].rain["1h"] > 0)
+                    || ("snow" in yesterdaysHistoricalWeather.data.hourly[i] && yesterdaysHistoricalWeather.data.hourly[i].snow["1h"] > 0));
                 hourlyWeatherForTwoDays.push({
                     "temperature": Math.round(yesterdaysHistoricalWeather.data.hourly[i].temp),
                     "wind_deg": yesterdaysHistoricalWeather.data.hourly[i].wind_deg,
                     "wind_speed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                     "cloudiness": yesterdaysHistoricalWeather.data.hourly[i].clouds,
                     "weather": yesterdaysHistoricalWeather.data.hourly[i].weather,
-                    "probabilityOfPrecipitation": 0,
+                    "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
                     "rain_1h": ("rain" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].rain["1h"] : 0),
                     "snow_1h": ("snow" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].snow["1h"] : 0),
                     "timeUTC": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt),
@@ -47,13 +49,15 @@ export const getWeatherData = async (cityName) => {
         const hoursAlreadyFilled = hourlyWeatherForTwoDays.length;
         const startIndexToday = hoursOfHistoricalDataAvailable - (hoursToFillWithHistoricalData - hoursAlreadyFilled);
         for (let i = startIndexToday; i < hoursOfHistoricalDataAvailable; i++){
+            const wasRaining = (("rain" in todaysHistoricalWeather.data.hourly[i] && todaysHistoricalWeather.data.hourly[i].rain["1h"] > 0)
+                || ("snow" in todaysHistoricalWeather.data.hourly[i] && todaysHistoricalWeather.data.hourly[i].snow["1h"] > 0));
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(todaysHistoricalWeather.data.hourly[i].temp),
                 "wind_deg": todaysHistoricalWeather.data.hourly[i].wind_deg,
                 "wind_speed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                 "cloudiness": todaysHistoricalWeather.data.hourly[i].clouds,
                 "weather": todaysHistoricalWeather.data.hourly[i].weather,
-                "probabilityOfPrecipitation": 0,
+                "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
                 "rain_1h": ("rain" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].rain["1h"] : 0),
                 "snow_1h": ("snow" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].snow["1h"] : 0),
                 "timeUTC": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt),
