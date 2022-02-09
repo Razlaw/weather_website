@@ -73,7 +73,7 @@ export const getWeatherData = async (cityName) => {
                 "wind_speed": Math.round(nextDaysForecast.data.hourly[i].wind_speed * 3.6),  // in km/h
                 "cloudiness": nextDaysForecast.data.hourly[i].clouds,  // in % from 0 to 100
                 "weather": nextDaysForecast.data.hourly[i].weather,  // data with key for icon
-                "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i]["pop"] : 0),  // in percent from 0.0 to 1.0
+                "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.hourly[i] ? (nextDaysForecast.data.hourly[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
                 "rain_1h": ("rain" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].rain["1h"] : 0),  // in mm
                 "snow_1h": ("snow" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].snow["1h"] : 0),  // in mm
                 "timeUTC": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt),
