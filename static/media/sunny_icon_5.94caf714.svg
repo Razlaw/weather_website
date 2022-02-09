@@ -1,0 +1,36 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linearGradient1407" x1="9.6003" x2="6.8909" y1=".92964" y2="14.12"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff703" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#ffba03" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradient1464" x1="9.7033" x2="6.8973" y1=".78426" y2="14.425"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff703" style="stop-color:#ffeb03" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#ffc603" offset="1"/>
+        </linearGradient>
+    </defs>
+    <g style="stroke:url(#linearGradient1407)">
+        <g style="stroke:url(#linearGradient1464)">
+            <path d="m5.6575 10.164a3.2257 3.2257 0 0 1-0.50894-3.7257 3.2257 3.2257 0 0 1 3.3659-1.6764 3.2257 3.2257 0 0 1 2.6669 2.6509 3.2257 3.2257 0 0 1-1.6562 3.3759"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+            <path d="m11.413 13.284 0.3205 0.49871"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+            <path d="m14.195 9.2001 0.47167 0.093357"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+            <path d="m2.7224 11.482-0.45254 0.30119"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+            <path d="m7.4029 11.775-0.13444 0.563"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+            <path d="m1.2873 6.4551 0.53279 0.12057"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+            <path d="m13.72 4.1626-0.45696 0.30413"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+            <path d="m4.4848 2.6989-0.30021-0.45107"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+            <path d="m9.3942 1.7904 0.11881-0.52502"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradient1464)"/>
+        </g>
+    </g>
+</svg>
