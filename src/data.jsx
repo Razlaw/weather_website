@@ -38,8 +38,8 @@ export const getWeatherData = async (cityName) => {
                     "cloudiness": yesterdaysHistoricalWeather.data.hourly[i].clouds,
                     "weather": yesterdaysHistoricalWeather.data.hourly[i].weather,
                     "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
-                    "rain_1h": ("rain" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].rain["1h"] : 0),
-                    "snow_1h": ("snow" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].snow["1h"] : 0),
+                    "rain_1h": ("rain" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].rain["1h"].toFixed(1) : 0),
+                    "snow_1h": ("snow" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].snow["1h"].toFixed(1) : 0),
                     "timeUTC": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt),
                     "timeLocal": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
                     "dt": yesterdaysHistoricalWeather.data.hourly[i].dt});
@@ -58,8 +58,8 @@ export const getWeatherData = async (cityName) => {
                 "cloudiness": todaysHistoricalWeather.data.hourly[i].clouds,
                 "weather": todaysHistoricalWeather.data.hourly[i].weather,
                 "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
-                "rain_1h": ("rain" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].rain["1h"] : 0),
-                "snow_1h": ("snow" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].snow["1h"] : 0),
+                "rain_1h": ("rain" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].rain["1h"].toFixed(1) : 0),
+                "snow_1h": ("snow" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].snow["1h"].toFixed(1) : 0),
                 "timeUTC": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt),
                 "timeLocal": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
                 "dt": todaysHistoricalWeather.data.hourly[i].dt});
@@ -78,8 +78,8 @@ export const getWeatherData = async (cityName) => {
                 "cloudiness": nextDaysForecast.data.hourly[i].clouds,  // in % from 0 to 100
                 "weather": nextDaysForecast.data.hourly[i].weather,  // data with key for icon
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.hourly[i] ? (nextDaysForecast.data.hourly[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
-                "rain_1h": ("rain" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].rain["1h"] : 0),  // in mm
-                "snow_1h": ("snow" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].snow["1h"] : 0),  // in mm
+                "rain_1h": ("rain" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].rain["1h"].toFixed(1) : 0),  // in mm
+                "snow_1h": ("snow" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].snow["1h"].toFixed(1) : 0),  // in mm
                 "timeUTC": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt),
                 "timeLocal": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone),
                 "dt": nextDaysForecast.data.hourly[i].dt});
