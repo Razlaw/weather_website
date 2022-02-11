@@ -2,7 +2,7 @@ import "./plotForADay.scss";
 import React from 'react';
 import OutlinePlot from "../outlinePlot/OutlinePlot";
 import DataListItem from "../dataListItem/DataListItem";
-import {ReactComponent as SunnyIcon} from "../../assets/sunny_icon_2.svg";
+import {ReactComponent as SunnyIcon} from "../../assets/sunny_icon.svg";
 
 export default function PlotForADay({dayID,
                                         plotID,
