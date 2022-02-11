@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/weather_website/static/css/main.9cf88fb3.chunk.css",
-    "main.js": "/weather_website/static/js/main.95cc6f5c.chunk.js",
-    "main.js.map": "/weather_website/static/js/main.95cc6f5c.chunk.js.map",
+    "main.css": "/weather_website/static/css/main.7e4f6200.chunk.css",
+    "main.js": "/weather_website/static/js/main.0dc7ac96.chunk.js",
+    "main.js.map": "/weather_website/static/js/main.0dc7ac96.chunk.js.map",
     "runtime-main.js": "/weather_website/static/js/runtime-main.c77d99b2.js",
     "runtime-main.js.map": "/weather_website/static/js/runtime-main.c77d99b2.js.map",
     "static/css/2.60f302fe.chunk.css": "/weather_website/static/css/2.60f302fe.chunk.css",
-    "static/js/2.41c7958d.chunk.js": "/weather_website/static/js/2.41c7958d.chunk.js",
-    "static/js/2.41c7958d.chunk.js.map": "/weather_website/static/js/2.41c7958d.chunk.js.map",
+    "static/js/2.69d8ad17.chunk.js": "/weather_website/static/js/2.69d8ad17.chunk.js",
+    "static/js/2.69d8ad17.chunk.js.map": "/weather_website/static/js/2.69d8ad17.chunk.js.map",
     "index.html": "/weather_website/index.html",
     "static/css/2.60f302fe.chunk.css.map": "/weather_website/static/css/2.60f302fe.chunk.css.map",
-    "static/css/main.9cf88fb3.chunk.css.map": "/weather_website/static/css/main.9cf88fb3.chunk.css.map",
-    "static/js/2.41c7958d.chunk.js.LICENSE.txt": "/weather_website/static/js/2.41c7958d.chunk.js.LICENSE.txt",
+    "static/css/main.7e4f6200.chunk.css.map": "/weather_website/static/css/main.7e4f6200.chunk.css.map",
+    "static/js/2.69d8ad17.chunk.js.LICENSE.txt": "/weather_website/static/js/2.69d8ad17.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/weather_website/static/media/outline-icons.ddae9b1b.woff",
-    "static/media/cloudy_icon_1.dcf2868c.svg": "/weather_website/static/media/cloudy_icon_1.dcf2868c.svg",
+    "static/media/cloudy_icon.dcf2868c.svg": "/weather_website/static/media/cloudy_icon.dcf2868c.svg",
     "static/media/magnifying_glass.7b20c50e.svg": "/weather_website/static/media/magnifying_glass.7b20c50e.svg",
-    "static/media/sunny_icon_5.94caf714.svg": "/weather_website/static/media/sunny_icon_5.94caf714.svg",
-    "static/media/wind_direction_icon.b36eb856.svg": "/weather_website/static/media/wind_direction_icon.b36eb856.svg"
+    "static/media/sunny_icon.94caf714.svg": "/weather_website/static/media/sunny_icon.94caf714.svg",
+    "static/media/wind_direction_icon.e1a0d8ab.svg": "/weather_website/static/media/wind_direction_icon.e1a0d8ab.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c77d99b2.js",
     "static/css/2.60f302fe.chunk.css",
-    "static/js/2.41c7958d.chunk.js",
-    "static/css/main.9cf88fb3.chunk.css",
-    "static/js/main.95cc6f5c.chunk.js"
+    "static/js/2.69d8ad17.chunk.js",
+    "static/css/main.7e4f6200.chunk.css",
+    "static/js/main.0dc7ac96.chunk.js"
   ]
 }
