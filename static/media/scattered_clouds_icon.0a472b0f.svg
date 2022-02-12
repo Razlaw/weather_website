@@ -1,0 +1,54 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient id="linearGradientScatteredCloudsGrey" x1="9.6003" x2="6.8909" y1=".92964" y2="14.12"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse"
+                        xlink:href="#linearGradientScatteredCloudsGrey1">
+            <stop stop-color="#fff703" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#ffba03" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientScatteredCloudsGrey1" x1="8.872" x2="8.8739" y1="13.459" y2="2.8606"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#a2a2a2" offset="0"/>
+            <stop style="stop-color:#ffffff" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientScatteredCloudsYellow" x1="9.7033" x2="6.8973" y1=".78426" y2="14.425"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff703" style="stop-color:#ffeb03" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#ffc603" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientScatteredCloudsYellow2" x1="9.7033" x2="6.8973" y1=".78426" y2="14.425"
+                        gradientTransform="matrix(.7743 0 0 .7743 3.6116 1.5342)" gradientUnits="userSpaceOnUse"
+                        xlink:href="#linearGradientScatteredCloudsYellow"/>
+        <linearGradient id="linearGradientScatteredCloudsGrey2" x1="8.872" x2="8.8739" y1="13.459" y2="2.8606"
+                        gradientTransform="matrix(.43992 0 0 .43992 2.3763 6.3653)" gradientUnits="userSpaceOnUse"
+                        xlink:href="#linearGradientScatteredCloudsGrey1"/>
+        <linearGradient id="linearGradientScatteredCloudsGrey3" x1="9.6003" x2="6.8909" y1=".92964" y2="14.12"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse"
+                        xlink:href="#linearGradientScatteredCloudsGrey"/>
+    </defs>
+    <g style="stroke:url(#linearGradientScatteredCloudsGrey)">
+        <path d="m7.8306 9.3796a2.3637 2.3637 0 0 1-0.37293-2.73 2.3637 2.3637 0 0 1 2.4664-1.2284 2.3637 2.3637 0 0 1 1.9542 1.9425 2.3637 2.3637 0 0 1-1.2136 2.4737"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsYellow2)"/>
+        <path d="m12.048 11.666 0.23485 0.36543"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsYellow2)"/>
+        <path d="m14.086 8.6732 0.34562 0.068408"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsYellow2)"/>
+        <path d="m9.1095 10.56-0.098512 0.41254"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsYellow2)"/>
+        <path d="m4.6283 6.6618 0.39041 0.088348"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsYellow2)"/>
+        <path d="m13.738 4.982-0.33484 0.22285"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsYellow2)"/>
+        <path d="m6.9713 3.9094-0.21998-0.33052"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsYellow2)"/>
+        <path d="m10.569 3.2437 0.08706-0.38471"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsYellow2)"/>
+        <g transform="translate(-1.1448 .38161)" style="stroke:url(#linearGradientScatteredCloudsGrey3)">
+            <path d="m6.3084 9.9637a1.419 1.419 0 0 1 1.7514-0.71456 1.419 1.419 0 0 1 0.90548 1.6608 1.419 1.419 0 0 1-1.5494 1.0851"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsGrey2)"/>
+            <path d="m5.0396 11.969a2.0374 2.0374 0 0 1-2.1696-1.6691 2.0374 2.0374 0 0 1 1.4496-2.322 2.0374 2.0374 0 0 1 2.4522 1.2164"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientScatteredCloudsGrey2)"/>
+        </g>
+    </g>
+</svg>

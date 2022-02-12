@@ -1,0 +1,19 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient id="linearGradientRainBlue">
+            <stop style="stop-color:#0d72ec" offset="0"/>
+            <stop style="stop-color:#0a5dc1" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientRainBlue1" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(.61485 .73183 -.54731 .66429 5.7638 -5.9412)"
+                        gradientUnits="userSpaceOnUse" xlink:href="#linearGradientRainBlue"/>
+        <linearGradient id="linearGradientRainBlue2" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(.61485 .73183 -.54731 .66429 12.782 -2.1274)"
+                        gradientUnits="userSpaceOnUse" xlink:href="#linearGradientRainBlue"/>
+    </defs>
+    <path d="m3.5687 2.6843c0.90317 1.4359 2.9335 2.3618 3.3469 3.8288 0.41337 1.467-0.31833 2.5291-1.5017 2.8759-1.1834 0.34682-2.3723-0.15233-2.7927-1.6173-0.42037-1.465 0.84213-3.427 0.94754-5.0874"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientRainBlue1)"/>
+    <path d="m10.587 6.4981c0.90317 1.4359 2.9335 2.3618 3.3469 3.8288 0.41337 1.467-0.31833 2.5291-1.5017 2.8759s-2.3723-0.15233-2.7927-1.6173c-0.42037-1.465 0.84213-3.427 0.94754-5.0874"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientRainBlue2)"/>
+</svg>
