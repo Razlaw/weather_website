@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/weather_website/static/css/main.0d4677af.chunk.css",
+    "main.css": "/weather_website/static/css/main.b6a75382.chunk.css",
     "main.js": "/weather_website/static/js/main.6c44f710.chunk.js",
     "main.js.map": "/weather_website/static/js/main.6c44f710.chunk.js.map",
     "runtime-main.js": "/weather_website/static/js/runtime-main.c77d99b2.js",
@@ -10,7 +10,7 @@
     "static/js/2.2980d60d.chunk.js.map": "/weather_website/static/js/2.2980d60d.chunk.js.map",
     "index.html": "/weather_website/index.html",
     "static/css/2.60f302fe.chunk.css.map": "/weather_website/static/css/2.60f302fe.chunk.css.map",
-    "static/css/main.0d4677af.chunk.css.map": "/weather_website/static/css/main.0d4677af.chunk.css.map",
+    "static/css/main.b6a75382.chunk.css.map": "/weather_website/static/css/main.b6a75382.chunk.css.map",
     "static/js/2.2980d60d.chunk.js.LICENSE.txt": "/weather_website/static/js/2.2980d60d.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/weather_website/static/media/outline-icons.ddae9b1b.woff",
     "static/media/magnifying_glass.7b20c50e.svg": "/weather_website/static/media/magnifying_glass.7b20c50e.svg",
@@ -20,7 +20,7 @@
     "static/js/runtime-main.c77d99b2.js",
     "static/css/2.60f302fe.chunk.css",
     "static/js/2.2980d60d.chunk.js",
-    "static/css/main.0d4677af.chunk.css",
+    "static/css/main.b6a75382.chunk.css",
     "static/js/main.6c44f710.chunk.js"
   ]
 }
