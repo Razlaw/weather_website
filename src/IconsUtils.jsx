@@ -15,7 +15,6 @@ import {ReactComponent as HeavyRainIcon} from "./assets/heavy_rain_icon.svg";
 import React from "react";
 
 export function getWeatherIcon(iconID, key) {
-    console.log(iconID);
     switch (iconID) {
         case "01d":
             return <SunnyIcon key={key} className="weatherIcon icon"/>;
