@@ -22,6 +22,11 @@ export function localTimeFromUTCUnix(unixUTCTimeInSeconds) {
     return hours + ':' + minutes + ':' + seconds;
 }
 
+export function utcDateFromUTCUnix(unixUTCTimeInSeconds) {
+    const dateUTC = new Date(unixUTCTimeInSeconds * 1000);
+    return {"day": dateUTC.getUTCDate(), "month": dateUTC.getUTCMonth()};
+}
+
 /**
  * Provides the basic functionality for a 2D scroll snap for touch swipe scrolls.
  *

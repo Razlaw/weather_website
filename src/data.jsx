@@ -1,5 +1,5 @@
 import axios from "axios";
-import {utcTimeFromUTCUnix} from "./utils"
+import {utcDateFromUTCUnix, utcTimeFromUTCUnix} from "./utils"
 
 export const getWeatherData = async (cityName) => {
     try {
@@ -88,6 +88,24 @@ export const getWeatherData = async (cityName) => {
                 "dt": nextDaysForecast.data.hourly[i].dt});
         }
 
+        let dailyWeatherForSevenDays = [];
+        for (let i = 0; i < 7; i++){
+            dailyWeatherForSevenDays.push({
+                "minTemperature": Math.round(nextDaysForecast.data.daily[i].temp.min),  // in °C
+                "maxTemperature": Math.round(nextDaysForecast.data.daily[i].temp.max),  // in °C
+                "weatherIcon": nextDaysForecast.data.daily[i].weather[0].icon,
+                "wind_deg": nextDaysForecast.data.daily[i].wind_deg,  // from 0 to 360 degrees
+                "wind_speed": Math.round(nextDaysForecast.data.daily[i].wind_speed * 3.6),  // in km/h
+                "cloudiness": nextDaysForecast.data.daily[i].clouds,  // in % from 0 to 100
+                "weather": nextDaysForecast.data.daily[i].weather,  // data with key for icon
+                "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.daily[i] ? (nextDaysForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
+                "rain": ("rain" in nextDaysForecast.data.daily[i] ? nextDaysForecast.data.daily[i].rain.toFixed(1) : 0),  // in mm
+                "snow": ("snow" in nextDaysForecast.data.daily[i] ? nextDaysForecast.data.daily[i].snow.toFixed(1) : 0),  // in mm
+                "dateUTC": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt),
+                "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt + currentWeather.data.timezone),
+                "dt": nextDaysForecast.data.daily[i].dt});
+        }
+
         // Workaround: recharts draws bars with positive and negative values into different directions.
         //  I didn't find a way to change the behaviour to draw all bars into one direction - setting the bottom
         //  value of the bars as its called in matplotlib. This workaround shifts all values into a range starting
@@ -116,7 +134,7 @@ export const getWeatherData = async (cityName) => {
             endIndex += 24;
         }
 
-        const weatherData = {"hourly": hourlyWeatherForTwoDays};
+        const weatherData = {"hourly": hourlyWeatherForTwoDays, "daily": dailyWeatherForSevenDays};
 
         // Reconstruct the current hour of the requested city
         const utcNow = Date.now();  // Use .now() because current time in data might be from previous hour

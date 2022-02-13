@@ -96,7 +96,7 @@ function App() {
                             />
                         </div>
                         <div className="container" style={{transform: `translateY(${(2 - currentSlidePosition.y) * 100}%)`}}>
-                            <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
+                            <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData.daily}/>
                         </div>
                     </div>
                 )}
