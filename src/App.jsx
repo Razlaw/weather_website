@@ -5,14 +5,14 @@ import CitySearchBar from "./components/citySearchBar/CitySearchBar";
 import WeatherForecastForADay from "./components/weatherForecastForADay/WeatherForecastForADay";
 import WeatherForecastForAWeek from "./components/weatherForecastForAWeek/WeatherForecastForAWeek";
 import {getWeatherData} from "./data"
-import {MaxWindowInnerHeight, VerticalScrollSnap} from "./utils"
+import {MaxWindowInnerHeight, ScrollSnap2D} from "./utils"
 
 function App() {
     // The maximal inner height of the window, being used as the minHeight of the App to prevent a resize of the
     // components when the Android keyboard is opened - which leads to a smaller inner height.
     const maxWindowInnerHeight = MaxWindowInnerHeight();
 
-    const [currentSlideId, handleTouchStart, scrollOnVerticalSwipe] = VerticalScrollSnap(3);
+    const [currentSlidePosition, handleTouchStart, scrollOnSwipe] = ScrollSnap2D(2, 3);
 
     const [cookies, setCookie, removeCookie] = useCookies(['cityName']);
 
@@ -73,27 +73,29 @@ function App() {
                     <div
                         className="sections"
                         onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)}
-                        onTouchMove={touchMoveEvent => scrollOnVerticalSwipe(touchMoveEvent)}
+                        onTouchMove={touchMoveEvent => scrollOnSwipe(touchMoveEvent)}
                     >
-                        <div className="container" style={{transform: `translateY(-${currentSlideId * 100}%)`}}>
+                        <div className="container" style={{transform: `translateY(-${currentSlidePosition.y * 100}%)`}}>
                             <WeatherForecastForADay
                                 dayId={0}
                                 weatherData={weatherData.hourly.slice(0, 24)}
                                 currentHour={weatherData["currentHour"]}
                                 hourOfSunrise={weatherData["hoursOfSunrise"][0]}
                                 hourOfSunset={weatherData["hoursOfSunset"][0]}
+                                slideID={currentSlidePosition.x}
                             />
                         </div>
-                        <div className="container" style={{transform: `translateY(${(1 - currentSlideId) * 100}%)`}}>
+                        <div className="container" style={{transform: `translateY(${(1 - currentSlidePosition.y) * 100}%)`}}>
                             <WeatherForecastForADay
                                 dayId={1}
                                 weatherData={weatherData.hourly.slice(24, 48)}
                                 currentHour={weatherData["currentHour"]}
                                 hourOfSunrise={weatherData["hoursOfSunrise"][1]}
                                 hourOfSunset={weatherData["hoursOfSunset"][1]}
+                                slideID={currentSlidePosition.x}
                             />
                         </div>
-                        <div className="container" style={{transform: `translateY(${(2 - currentSlideId) * 100}%)`}}>
+                        <div className="container" style={{transform: `translateY(${(2 - currentSlidePosition.y) * 100}%)`}}>
                             <WeatherForecastForAWeek cityName={cookies.cityName} weatherData={weatherData}/>
                         </div>
                     </div>

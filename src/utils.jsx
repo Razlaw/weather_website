@@ -23,36 +23,38 @@ export function localTimeFromUTCUnix(unixUTCTimeInSeconds) {
 }
 
 /**
- * Provides the basic functionality for a vertical scroll snap for touch swipe scrolls.
+ * Provides the basic functionality for a 2D scroll snap for touch swipe scrolls.
  *
- * Maintains a state for the currentSlideId being updated on vertical touch scroll swipes in a range from zero
- * to numberOfSlides.
+ * Maintains a state for the currentSlidePosition being updated on touch scroll swipes in a range from [0, 0]
+ * to [numberOfHorizontalSlides, numberOfVerticalSlides].
  *
  * Example usage within a react functional component:
  *
- * const [currentSlideId, handleTouchStart, scrollOnVerticalSwipe] = VerticalScrollSnap(2);
+ * const [currentSlidePosition, handleTouchStart, scrollOnSwipe] = ScrollSnap2D(0, 2);
  *
  * return (
  *   <div className="slideContainer"
  *     onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)}
- *     onTouchMove={touchMoveEvent => scrollOnVerticalSwipe(touchMoveEvent)}
+ *     onTouchMove={touchMoveEvent => scrollOnSwipe(touchMoveEvent)}
  *   >
- *     <div className="slide" style={{transform: `translateY(-${currentSlideId * 100}%)`}}>
+ *     <div className="slide" style={{transform: `translateY(-${currentSlidePosition.y * 100}%)`}}>
  *       <h1>Content of first slide.</h1>
  *     </div>
- *     <div className="slide" style={{transform: `translateY(${(1 - currentSlideId) * 100}%)`}}>
+ *     <div className="slide" style={{transform: `translateY(${(1 - currentSlidePosition.y) * 100}%)`}}>
  *       <h1>Content of second slide.</h1>
  *     </div>
  *   </div>
  * );
  *
- * @param {number} numberOfSlides - The number of slides you want to scroll through.
- * @returns {Array} The current slide ID, a function to call onTouchStart, and a function to call on onTouchMove.
+ * @param {number} numberOfHorizontalSlides - The number of horizontal slides in x direction you want to scroll through.
+ * @param {number} numberOfVerticalSlides - The number of vertical slides in y direction you want to scroll through.
+ * @returns {Array} The current slide position, a function to call onTouchStart, and a function to call on onTouchMove.
  */
-export function VerticalScrollSnap(numberOfSlides) {
-    const minSlideId = 0;
-    const maxSlideId = Math.max(0, numberOfSlides - 1);
-    const [currentSlideId, setCurrentSlide] = useState(minSlideId);
+export function ScrollSnap2D(numberOfHorizontalSlides, numberOfVerticalSlides) {
+    const minSlidePosition = {x: 0, y: 0};
+    const maxSlidePosition = {x: Math.max(0, numberOfHorizontalSlides - 1),
+        y: Math.max(0, numberOfVerticalSlides - 1)};
+    const [currentSlidePosition, setCurrentSlide] = useState(minSlidePosition);
 
     const touchStartPosition = useRef([0, 0]);
     const isAwaitingScroll = useRef(false);
@@ -65,33 +67,51 @@ export function VerticalScrollSnap(numberOfSlides) {
     }
 
     /**
-    * Checks for a vertical swipe and scrolls into according direction.
+    * Checks for a swipe and scrolls into according direction.
     *
     * isAwaitingScroll is used to block further scrolling if swipe continues longer than scroll animation.
     */
-    function scrollOnVerticalSwipe(e) {
+    function scrollOnSwipe(e) {
         e.preventDefault();
         if (isAwaitingScroll.current) {
             const touchCurrentPosition = [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
             const swipeVectorX = touchCurrentPosition[0] - touchStartPosition.current[0];
             const swipeVectorY = touchCurrentPosition[1] - touchStartPosition.current[1];
-            const isSwipingVertically = Math.abs(swipeVectorX) < Math.abs(swipeVectorY);
-            const isSwipingDown = swipeVectorY > 0 && isSwipingVertically;
-            const isSwipingUp = swipeVectorY < 0 && isSwipingVertically;
+            const isSwipingHorizontally = Math.abs(swipeVectorX) > Math.abs(swipeVectorY);
 
-            if (isSwipingUp) {
-                setCurrentSlide(currentSlideId < maxSlideId ? currentSlideId + 1 : currentSlideId);
+            if (isSwipingHorizontally) {
+                const isSwipingRight = swipeVectorX > 0;
+                const isSwipingLeft = swipeVectorX < 0;
+
+                if (isSwipingRight) {
+                    const newHorizontalSlidePosition = currentSlidePosition.x > minSlidePosition.x ? currentSlidePosition.x - 1 : currentSlidePosition.x;
+                    setCurrentSlide({x: newHorizontalSlidePosition, y: currentSlidePosition.y})
+                }
+                if (isSwipingLeft) {
+                    const newHorizontalSlidePosition = currentSlidePosition.x < maxSlidePosition.x ? currentSlidePosition.x + 1 : currentSlidePosition.x;
+                    setCurrentSlide({x: newHorizontalSlidePosition, y: currentSlidePosition.y});
+                }
+                isAwaitingScroll.current = false;
+            }
+            else {
+                const isSwipingDown = swipeVectorY > 0;
+                const isSwipingUp = swipeVectorY < 0;
+
+                if (isSwipingDown) {
+                    const newVerticalSlidePosition = currentSlidePosition.y > minSlidePosition.y ? currentSlidePosition.y - 1 : currentSlidePosition.y;
+                    setCurrentSlide({x: minSlidePosition.x, y: newVerticalSlidePosition})
+                }
+                if (isSwipingUp) {
+                    const newVerticalSlidePosition = currentSlidePosition.y < maxSlidePosition.y ? currentSlidePosition.y + 1 : currentSlidePosition.y;
+                    setCurrentSlide({x: minSlidePosition.x, y: newVerticalSlidePosition});
+                }
                 isAwaitingScroll.current = false;
             }
 
-            if (isSwipingDown) {
-                setCurrentSlide(currentSlideId > minSlideId ? currentSlideId - 1 : currentSlideId)
-                isAwaitingScroll.current = false;
-            }
         }
     }
 
-    return [currentSlideId, handleTouchStart, scrollOnVerticalSwipe];
+    return [currentSlidePosition, handleTouchStart, scrollOnSwipe];
 }
 
 function getWindowInnerHeight() {
