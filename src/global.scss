@@ -4,3 +4,15 @@ $alternativeColor: #598234;
 $highlightColor: #aebd38;
 
 $searchBarHeight: 40px;
+
+@mixin for-mobile {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

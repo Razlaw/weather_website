@@ -44,15 +44,29 @@
       left: 0;
       background-color: $backgroundColor;
       touch-action: none;
-      scroll-behavior: auto;
-      scroll-snap-type: y mandatory;
-      scroll-snap-stop: always;
+
+      @include for-desktop {
+        scroll-behavior: auto;
+        scroll-snap-type: y mandatory;
+        scroll-snap-stop: always;
+      }
+
+      @include for-mobile {
+        overflow: hidden;
+      }
+
       scrollbar-width: none;
       animation: 500ms ease fade-in;
       animation-iteration-count: 1;
 
       &::-webkit-scrollbar {
         display: none;
+      }
+
+      @include for-mobile {
+        * {
+          pointer-events: none;
+        }
       }
 
       .container {
@@ -68,7 +82,9 @@
         -moz-transition: all 200ms cubic-bezier(.86,0,.07,1) 0ms;
         -o-transition: all 200ms cubic-bezier(.86,0,.07,1) 0ms;
 
-        scroll-snap-align: start;
+        @include for-desktop {
+          scroll-snap-align: start;
+        }
       }
     }
 

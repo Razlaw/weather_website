@@ -49,7 +49,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
 
     return (
         <svg
-            className={plotDayID}
+            className={"svgPlot " + plotDayID}
             viewBox="0 0 100 100"
             width="100%"
             height="100%"
