@@ -1,0 +1,19 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linearGradientProbabilityHighBlue" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(-.54776 .78331 -.78331 -.35673 21.11 8.2437)"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#0d72ec" offset="0"/>
+            <stop style="stop-color:#0a5dc1" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientProbabilityHighRed" x1="8.0894" x2="8.0485" y1="3.3491" y2="10.906"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#cc572e" offset="0"/>
+            <stop style="stop-color:#9d4323" offset="1"/>
+        </linearGradient>
+    </defs>
+    <path d="m4.0407 10.281-2.2282-0.0048c0.011246-3.4326 2.7951-6.2103 6.2277-6.2139 3.4326-0.00368 6.2224 2.7681 6.241 6.2006l-1.164 9e-3"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientProbabilityHighRed)"/>
+    <path d="m12.21 8.356c-1.1532 1.244-1.5221 3.4448-2.8321 4.2238-1.3101 0.77898-2.5253 0.34709-3.1666-0.70622-0.64129-1.0533-0.46687-2.3309 0.83939-3.1161 1.3063-0.78521 3.5282-0.073532 5.1593-0.40146"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientProbabilityHighBlue)"/>
+</svg>

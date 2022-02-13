@@ -33,6 +33,7 @@ export const getWeatherData = async (cityName) => {
                     || ("snow" in yesterdaysHistoricalWeather.data.hourly[i] && yesterdaysHistoricalWeather.data.hourly[i].snow["1h"] > 0));
                 hourlyWeatherForTwoDays.push({
                     "temperature": Math.round(yesterdaysHistoricalWeather.data.hourly[i].temp),
+                    "weatherIcon": yesterdaysHistoricalWeather.data.hourly[i].weather[0].icon,
                     "wind_deg": yesterdaysHistoricalWeather.data.hourly[i].wind_deg,
                     "wind_speed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                     "cloudiness": yesterdaysHistoricalWeather.data.hourly[i].clouds,
@@ -53,6 +54,7 @@ export const getWeatherData = async (cityName) => {
                 || ("snow" in todaysHistoricalWeather.data.hourly[i] && todaysHistoricalWeather.data.hourly[i].snow["1h"] > 0));
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(todaysHistoricalWeather.data.hourly[i].temp),
+                "weatherIcon": todaysHistoricalWeather.data.hourly[i].weather[0].icon,
                 "wind_deg": todaysHistoricalWeather.data.hourly[i].wind_deg,
                 "wind_speed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                 "cloudiness": todaysHistoricalWeather.data.hourly[i].clouds,
@@ -73,6 +75,7 @@ export const getWeatherData = async (cityName) => {
         for (let i = 0; i < numberOfEntriesToFill; i++){
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(nextDaysForecast.data.hourly[i].temp),  // in °C
+                "weatherIcon": nextDaysForecast.data.hourly[i].weather[0].icon,
                 "wind_deg": nextDaysForecast.data.hourly[i].wind_deg,  // from 0 to 360 degrees
                 "wind_speed": Math.round(nextDaysForecast.data.hourly[i].wind_speed * 3.6),  // in km/h
                 "cloudiness": nextDaysForecast.data.hourly[i].clouds,  // in % from 0 to 100

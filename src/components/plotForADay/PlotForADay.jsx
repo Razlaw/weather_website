@@ -2,7 +2,6 @@ import "./plotForADay.scss";
 import React from 'react';
 import OutlinePlot from "../outlinePlot/OutlinePlot";
 import DataListItem from "../dataListItem/DataListItem";
-import {ReactComponent as SunnyIcon} from "../../assets/sunny_icon.svg";
 
 export default function PlotForADay({dayID,
                                         plotID,
@@ -13,13 +12,15 @@ export default function PlotForADay({dayID,
                                         unit,
                                         sunrise,
                                         sunset,
-                                        decimalPrecision = 0}) {
+                                        decimalPrecision = 0,
+                                    getIconFunction,
+                                    iconKey}) {
     return (
         <div className="plotAndDataContainer">
             <div className="iconContainer">
                 <ul>
                     {[...Array(24)].map((x, hourOfDay) =>
-                        <SunnyIcon className="sunnyIcon"/>
+                        getIconFunction(weatherData[hourOfDay][iconKey], hourOfDay)
                     )}
                 </ul>
             </div>

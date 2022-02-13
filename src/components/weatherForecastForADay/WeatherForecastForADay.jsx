@@ -2,6 +2,7 @@ import "./weatherForecastForADay.scss";
 import HourOfDayListItem from "../hourOfDayListItem/HourOfDayListItem";
 import React from "react";
 import PlotForADay from "../plotForADay/PlotForADay";
+import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindDirectionIcon} from "../../IconsUtils";
 
 export default function WeatherForecastForADay({dayId, weatherData, currentHour, hourOfSunrise, hourOfSunset, slideID}) {
     const dayToDisplay = dayId === 0 ? "Today" : "Tomorrow";
@@ -41,6 +42,8 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     unit={"°C"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
+                                    getIconFunction={getWeatherIcon}
+                                    iconKey={"weatherIcon"}
                                 />
                                 <PlotForADay
                                     dayID={dayId}
@@ -52,6 +55,8 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     unit={"km/h"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
+                                    getIconFunction={getWindDirectionIcon}
+                                    iconKey={"wind_deg"}
                                 />
                             </div>
                             <div className="rainPlotContainer" style={{transform: `rotateY(${(slideID - 1) * 0.25}turn)`}}>
@@ -65,6 +70,8 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     unit={"%"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
+                                    getIconFunction={getProbabilityOfPrecipitationIcon}
+                                    iconKey={"probabilityOfPrecipitation"}
                                 />
                                 <PlotForADay
                                     dayID={dayId}
@@ -77,6 +84,8 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
                                     decimalPrecision={1}
+                                    getIconFunction={getRainIcon}
+                                    iconKey={"rain_1h"}
                                 />
                             </div>
                         </div>

@@ -1,0 +1,12 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linearGradientRainBlue" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(.78331 .54776 -.35673 .78331 5.7161 -4.2992)"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#0d72ec" offset="0"/>
+            <stop style="stop-color:#0a5dc1" offset="1"/>
+        </linearGradient>
+    </defs>
+    <path d="m5.8284 4.6005c1.244 1.1532 3.4448 1.5221 4.2238 2.8321 0.77898 1.3101 0.34709 2.5253-0.70622 3.1666-1.0533 0.64129-2.3309 0.46687-3.1161-0.83939-0.78521-1.3063-0.073532-3.5282-0.40146-5.1593"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientRainBlue)"/>
+</svg>

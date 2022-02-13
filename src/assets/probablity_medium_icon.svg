@@ -1,0 +1,19 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linearGradientProbabilityMediumYellow" x1="8.125" x2="8.2499" y1="3.4195" y2="10.888"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff703" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#ffba03" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientProbabilityMediumBlue" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(.40449 .86603 -.7006 .5 12.434 -1.776)"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#0d72ec" offset="0"/>
+            <stop style="stop-color:#0a5dc1" offset="1"/>
+        </linearGradient>
+    </defs>
+    <path d="m3.875 10.281-2.0625-0.0048c0.011246-3.4326 2.7951-6.2103 6.2277-6.2139 3.4326-0.0036792 6.2224 2.7681 6.241 6.2006l-1.9374-0.013089"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientProbabilityMediumYellow)"/>
+    <path d="m8.0814 5.9875c0.50076 1.6207 2.2223 3.0406 2.2419 4.5646 0.01959 1.524-0.96205 2.3605-2.1949 2.3892-1.2328 0.02872-2.2521-0.76114-2.279-2.285-0.026882-1.5239 1.7004-3.0922 2.232-4.6688"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientProbabilityMediumBlue)"/>
+</svg>
