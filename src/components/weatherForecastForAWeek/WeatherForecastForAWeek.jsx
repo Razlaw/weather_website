@@ -2,25 +2,88 @@ import "./weatherForecastForAWeek.scss";
 import React from "react";
 import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindDirectionIcon} from "../../IconsUtils";
 
-export default function WeatherForecastForAWeek({cityName, weatherData}) {
+function weekdayNumberToString(weekdayNumber) {
+    switch (weekdayNumber) {
+        case 0:
+            return "Sun";
+        case 1:
+            return "Mon";
+        case 2:
+            return "Tue";
+        case 3:
+            return "Wed";
+        case 4:
+            return "Thu";
+        case 5:
+            return "Fri";
+        case 6:
+            return "Sat";
+        default:
+            return "?";
+    }
+}
+
+export default function WeatherForecastForAWeek({cityName, weatherData, unit}) {
     return (
         <div className="weatherForecastForAWeek">
             <div className="contentContainer">
                 {[...Array(7)].map((x, dayID) =>
                     <div className="dayContainer">
                         <div className="dateContainer">
-                            <h1>
-                                {weatherData[dayID]["dateLocal"]["day"] < 10 ? 0 : ""}{weatherData[dayID]["dateLocal"]["day"]}
-                            </h1>
-                            <h1>
-                                {weatherData[dayID]["dateLocal"]["month"] < 10 ? 0 : ""}{weatherData[dayID]["dateLocal"]["month"]}
-                            </h1>
+                            <div className="dateDay">
+                                <h2>
+                                    {weatherData[dayID]["dateLocal"]["day"] < 10 ? 0 : ""}{weatherData[dayID]["dateLocal"]["day"]}.
+                                </h2>
+                            </div>
+                            <div className="weekday">
+                                <h2>
+                                    {weekdayNumberToString(weatherData[dayID]["dateLocal"]["weekday"])}
+                                </h2>
+                            </div>
                         </div>
-                        {getWeatherIcon(weatherData[dayID]["weatherIcon"], "weatherIcon" + dayID)}
-                        {getProbabilityOfPrecipitationIcon(weatherData[dayID]["probabilityOfPrecipitation"], "probabilityOfPrecipitationIcon" + dayID)}
-                        {getRainIcon(weatherData[dayID]["rain"], "rainIcon" + dayID)}
-                        {getWindDirectionIcon(weatherData[dayID]["wind_deg"], "windIcon" + dayID)}
-
+                        <div className="mainWeatherContainer">
+                            {getWeatherIcon(weatherData[dayID]["weatherIcon"], "weatherIcon" + dayID)}
+                            <div className="temperatureContainer">
+                                <div className="minTemperature">
+                                    {weatherData[dayID]["minTemperature"]}
+                                </div>
+                                <div className="maxTemperature">
+                                    {weatherData[dayID]["maxTemperature"]}
+                                </div>
+                                <div className="unit">
+                                    °C
+                                </div>
+                            </div>
+                        </div>
+                        <div className="weatherDetailsContainer">
+                            <div className="detailsContainer">
+                                {getWindDirectionIcon(weatherData[dayID]["wind_deg"], "windIcon" + dayID)}
+                                <div className="data">
+                                    {weatherData[dayID]["wind_speed"]}
+                                </div>
+                                <div className="unit">
+                                    km/h
+                                </div>
+                            </div>
+                            <div className="detailsContainer">
+                                {getProbabilityOfPrecipitationIcon(weatherData[dayID]["probabilityOfPrecipitation"], "probabilityOfPrecipitationIcon" + dayID)}
+                                <div className="data">
+                                    {weatherData[dayID]["probabilityOfPrecipitation"]}
+                                </div>
+                                <div className="unit">
+                                    %
+                                </div>
+                            </div>
+                            <div className="detailsContainer">
+                                {getRainIcon(weatherData[dayID]["rain"], "rainIcon" + dayID)}
+                                <div className="data">
+                                    {weatherData[dayID]["rain"]}
+                                </div>
+                                <div className="unit">
+                                    mm
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )}
                 <div className="footer">
