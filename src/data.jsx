@@ -43,6 +43,7 @@ export const getWeatherData = async (cityName) => {
                     "snow_1h": ("snow" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].snow["1h"].toFixed(1) : 0),
                     "timeUTC": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt),
                     "timeLocal": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
+                    "dateLocal": utcDateFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
                     "dt": yesterdaysHistoricalWeather.data.hourly[i].dt});
             }
         }
@@ -64,6 +65,7 @@ export const getWeatherData = async (cityName) => {
                 "snow_1h": ("snow" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].snow["1h"].toFixed(1) : 0),
                 "timeUTC": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt),
                 "timeLocal": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
+                "dateLocal": utcDateFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
                 "dt": todaysHistoricalWeather.data.hourly[i].dt});
         }
 
@@ -85,6 +87,7 @@ export const getWeatherData = async (cityName) => {
                 "snow_1h": ("snow" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].snow["1h"].toFixed(1) : 0),  // in mm
                 "timeUTC": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt),
                 "timeLocal": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone),
+                "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone),
                 "dt": nextDaysForecast.data.hourly[i].dt});
         }
 

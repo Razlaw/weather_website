@@ -6,13 +6,15 @@ import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindD
 
 export default function WeatherForecastForADay({dayId, weatherData, currentHour, hourOfSunrise, hourOfSunset, slideID}) {
     const dayToDisplay = dayId === 0 ? "Today" : "Tomorrow";
+    const date = (weatherData[0]["dateLocal"]["day"] < 10 ? "0" : "") + weatherData[0]["dateLocal"]["day"].toString() +
+        "." + (weatherData[0]["dateLocal"]["month"] < 10 ? "0" : "") + weatherData[0]["dateLocal"]["month"].toString();
 
     return (
         <div className="weatherForecastForADay">
             <div className="contentContainer">
                 <div className="dayDisplay">
                     <h1>
-                        {dayToDisplay}
+                        {dayToDisplay}, {date}
                     </h1>
                 </div>
                 <div className="forecast">

@@ -24,7 +24,7 @@ export function localTimeFromUTCUnix(unixUTCTimeInSeconds) {
 
 export function utcDateFromUTCUnix(unixUTCTimeInSeconds) {
     const dateUTC = new Date(unixUTCTimeInSeconds * 1000);
-    return {"day": dateUTC.getUTCDate(), "month": dateUTC.getUTCMonth()};
+    return {"day": dateUTC.getUTCDate(), "weekday": dateUTC.getUTCDay(), "month": dateUTC.getUTCMonth() + 1};
 }
 
 /**
