@@ -2,10 +2,10 @@
 
 .svgPlot {
   .shadowPath {
-    fill: $backgroundColor;
+    fill: var(--background-color);
   }
 
   * {
-    stroke: $textColor;
+    stroke: var(--text-color);
   }
 }

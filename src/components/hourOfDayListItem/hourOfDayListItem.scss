@@ -2,8 +2,7 @@
 
 .hourOfDayListItem {
   width: 100%;
-  color: $textColor;
-  background-color: $backgroundColor;
+  color: var(--text-color);
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -15,17 +14,17 @@
   }
 
   &.night {
-    color: #afafaf;
+    color: var(--text-color-darkest);
     touch-action: inherit;
   }
 
   &.twilight {
-    color: #cfcfcf;
+    color: var(--text-color-darker);
     touch-action: inherit;
   }
 
   &.active {
-    color: $highlightColor;
+    color: var(--highlight-color);
     touch-action: inherit;
   }
 }

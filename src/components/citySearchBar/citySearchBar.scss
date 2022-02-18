@@ -9,9 +9,9 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border: 1px solid $alternativeColor;
-  -webkit-text-fill-color: $textColor;
-  -webkit-box-shadow: 0 0 0px 1000px $alternativeColor inset;
+  border: 1px solid var(--alternative-color);
+  -webkit-text-fill-color: var(--text-color);
+  -webkit-box-shadow: 0 0 0px 1000px var(--alternative-color) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -23,7 +23,7 @@ select:-webkit-autofill:focus {
   min-width: 200px;
   max-width: 1200px - 40px;
   height: $searchBarHeight;
-  background-color: $alternativeColor;
+  background-color: var(--alternative-color);
   border-radius: 5px;
   box-shadow: 2px 2px 3px 1px #444444;
   z-index: 10;
@@ -32,10 +32,13 @@ select:-webkit-autofill:focus {
     width: 100%;
     height: 100%;
 
+    * {
+      background-color: var(--alternative-color);
+    }
+
     .formComponents {
       width: 100%;
       height: 100%;
-      background-color: $alternativeColor;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -45,15 +48,14 @@ select:-webkit-autofill:focus {
       input {
         width: 100%;
         height: 100%;
+        color: var(--text-color);
         margin-left: 20px;
-        background-color: $alternativeColor;
-        color: $textColor;
         border: none;
         outline: none;
       }
 
       ::placeholder {
-        color: #bfbfbf;
+        color: var(--text-color-darker);
         opacity: 1;
       }
 
@@ -61,7 +63,6 @@ select:-webkit-autofill:focus {
         width: 40px;
         height: 100%;
         margin-right: 10px;
-        background-color: $alternativeColor;
         border: none;
         cursor: pointer;
 
@@ -73,20 +74,20 @@ select:-webkit-autofill:focus {
           justify-content: center;
 
           g {
-            stroke: $textColor;
+            stroke: var(--text-color);
 
             path {
-              fill: $textColor;
+              fill: var(--text-color);
             }
           }
         }
 
         :hover {
           g {
-            stroke: #c6c5c5;
+            stroke: var(--text-color-darker);
 
             path {
-              fill: #c6c5c5;
+              fill: var(--text-color-darker);
             }
           }
         }

@@ -1,7 +1,15 @@
-$backgroundColor: #505160;
-$textColor: #efefef; // #68829e;
-$alternativeColor: #598234;
-$highlightColor: #aebd38;
+:root {
+  --background-color: #505160; // #1b4332;
+  --text-color: #efefef;
+  --text-color-darker: #cfcfcf;
+  --text-color-darkest: #afafaf;
+  --alternative-color: #598234;
+  --highlight-color: #aebd38;
+
+  * {
+    background-color: var(--background-color, grey);
+  }
+}
 
 $searchBarHeight: 40px;
 

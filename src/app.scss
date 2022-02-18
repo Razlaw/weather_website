@@ -9,7 +9,6 @@
   text-align: center;
   display: flex;
   justify-content: center;
-  background-color: $backgroundColor;
 
   .websiteContent {
     width: 100%;
@@ -19,21 +18,16 @@
     top: 0;
     overflow: hidden;
     text-align: center;
-    background-color: $backgroundColor;
 
     .noData {
       width: 100%;
       height: 100%;
-      background-color: $backgroundColor;
+      color: var(--text-color);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-
-      h1 {
-        color: $textColor;
-      }
     }
 
     .sections {
@@ -42,7 +36,6 @@
       position: absolute;
       top: 0;
       left: 0;
-      background-color: $backgroundColor;
       touch-action: none;
 
       @include for-desktop {
@@ -75,7 +68,6 @@
         margin-left: 10px;
         position: absolute;
         padding-top: 60px;
-        background-color: $backgroundColor;
         touch-action: none;
         transition: all 400ms cubic-bezier(.86,0,.07,1) 0ms;
         -webkit-transition: all 400ms cubic-bezier(.86,0,.07,1) 0ms;

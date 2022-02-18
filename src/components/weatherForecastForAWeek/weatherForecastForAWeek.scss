@@ -12,7 +12,6 @@
     width: 100%;
     height: 100%;
     min-height: 45.6em;
-    background-color: #5a30b5;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -21,8 +20,7 @@
       flex: 1;
       width: 100%;
       height: 100%;
-      background-color: $backgroundColor;
-      border-bottom-color: $textColor;
+      border-bottom-color: var(--text-color);
       border-bottom-width: 1px;
       border-bottom-style: solid;
       display: grid;
@@ -37,7 +35,7 @@
         justify-content: space-between;
 
         .dateDay {
-          color: $textColor;
+          color: var(--text-color);
           height: 50%;
           width: 100%;
           margin: 0;
@@ -47,7 +45,7 @@
         }
 
         .weekday {
-          color: $textColor;
+          color: var(--text-color);
           height: 50%;
           width: 100%;
           margin: 0;
@@ -95,7 +93,7 @@
             font-size: 1.1rem;
 
             * {
-              color: $textColor;
+              color: var(--text-color);
               width: 100%;
               margin: 0;
               overflow: hidden;
@@ -118,7 +116,7 @@
 
         .detailsContainer {
           flex: 1;
-          color: $textColor;
+          color: var(--text-color);
           height: 80%;
           overflow: hidden;
           display: flex;
@@ -150,10 +148,9 @@
     .footer {
       width: 100%;
       padding: 10px 0;
-      background-color: $backgroundColor;
 
       span {
-        color: $textColor;
+        color: var(--text-color);
       }
     }
   }
