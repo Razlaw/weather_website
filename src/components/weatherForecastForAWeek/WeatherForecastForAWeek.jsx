@@ -28,30 +28,34 @@ export default function WeatherForecastForAWeek({cityName, weatherData, unit}) {
         <div className="weatherForecastForAWeek">
             <div className="contentContainer">
                 {[...Array(7)].map((x, dayID) =>
-                    <div className="dayContainer">
+                    <div className="dayContainer" key={dayID}>
                         <div className="dateContainer">
                             <div className="dateDay">
-                                <h2>
+                                <h3>
                                     {weatherData[dayID]["dateLocal"]["day"] < 10 ? 0 : ""}{weatherData[dayID]["dateLocal"]["day"]}.
-                                </h2>
+                                </h3>
                             </div>
                             <div className="weekday">
-                                <h2>
+                                <h3>
                                     {weekdayNumberToString(weatherData[dayID]["dateLocal"]["weekday"])}
-                                </h2>
+                                </h3>
                             </div>
                         </div>
                         <div className="mainWeatherContainer">
-                            {getWeatherIcon(weatherData[dayID]["weatherIcon"], "weatherIcon" + dayID)}
+                            <div className="mainWeatherIconContainer">
+                                {getWeatherIcon(weatherData[dayID]["weatherIcon"], "weatherIcon" + dayID)}
+                            </div>
                             <div className="temperatureContainer">
-                                <div className="minTemperature">
-                                    {weatherData[dayID]["minTemperature"]}
-                                </div>
-                                <div className="maxTemperature">
-                                    {weatherData[dayID]["maxTemperature"]}
-                                </div>
-                                <div className="unit">
-                                    °C
+                                <div className="temperatureDataContainer">
+                                    <div className="minTemperature">
+                                        {weatherData[dayID]["minTemperature"]}
+                                    </div>
+                                    <div className="maxTemperature">
+                                        {weatherData[dayID]["maxTemperature"]}
+                                    </div>
+                                    <div className="unit">
+                                        °C
+                                    </div>
                                 </div>
                             </div>
                         </div>

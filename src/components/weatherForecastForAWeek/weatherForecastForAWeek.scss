@@ -26,7 +26,7 @@
       border-bottom-width: 1px;
       border-bottom-style: solid;
       display: grid;
-      grid-template-columns: 2fr 5fr 4fr;
+      grid-template-columns: 2fr 5fr 5fr;
 
       .dateContainer {
         width: 100%;
@@ -43,7 +43,7 @@
           margin: 0;
           justify-content: center;
           display: flex;
-          align-items: end;
+          align-items: flex-end;
         }
 
         .weekday {
@@ -53,7 +53,7 @@
           margin: 0;
           justify-content: center;
           display: flex;
-          align-items: start;
+          align-items: flex-start;
         }
       }
 
@@ -62,12 +62,18 @@
         height: 100%;
         display: flex;
         align-items: center;
-        margin: 0 5px;
+        margin: 0 0 0 15px;
 
-        .weatherIcon {
+        .mainWeatherIconContainer {
           flex: 1;
-          width: 100%;
-          height: 80%;
+          height: 70%;
+          display: flex;
+          justify-content: flex-end;
+          padding-right: 10px;
+
+          .weatherIcon {
+            height: 100%;
+          }
         }
 
         .temperatureContainer {
@@ -75,20 +81,29 @@
           width: 80%;
           height: 80%;
           display: flex;
-          flex-direction: column;
-          justify-content: space-around;
+          flex-direction: row;
           align-items: center;
-          font-size: large;
+          justify-content: flex-start;
 
-          * {
-            color: $textColor;
-            width: 100%;
-            margin: 0;
+          .temperatureDataContainer {
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
             overflow: hidden;
-          }
+            font-size: 1.1rem;
 
-          .unit {
-            font-size: small;
+            * {
+              color: $textColor;
+              width: 100%;
+              margin: 0;
+              overflow: hidden;
+            }
+
+            .unit {
+              font-size: x-small;
+            }
           }
         }
       }
@@ -105,19 +120,28 @@
           flex: 1;
           color: $textColor;
           height: 80%;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
 
           .icon {
-            height: 25%;
+            height: 40%;
+            position: relative;
           }
 
           .data {
-            font-size: large;
             width: 100%;
             margin: 0;
+            overflow: hidden;
           }
 
           .unit {
-            font-size: small;
+            font-size: x-small;
+            position: relative;
+            top: -3px;
+            overflow: hidden;
           }
         }
       }
