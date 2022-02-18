@@ -1,7 +1,11 @@
+@import "../../global.scss";
+
 .svgPlot {
-  pointer-events: none;
+  .shadowPath {
+    fill: $backgroundColor;
+  }
 
   * {
-    pointer-events: none;
+    stroke: $textColor;
   }
 }

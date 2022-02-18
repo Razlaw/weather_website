@@ -1,3 +1,4 @@
+import "./outlinePlot.scss";
 import React, {useEffect} from 'react';
 
 function createLine(data, dataKey) {
@@ -78,7 +79,6 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
 
                 <path
                     id={plotDayID}
-                    stroke="#efefef"
                     fill="none"
                     strokeWidth="4"
                     vectorEffect="non-scaling-stroke"
@@ -91,7 +91,6 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
 
             <path
                 className="shadowPath"
-                fill="#505160"
                 strokeWidth="0"
                 vectorEffect="non-scaling-stroke"
                 d={createLine(weatherData, dataKey)}
