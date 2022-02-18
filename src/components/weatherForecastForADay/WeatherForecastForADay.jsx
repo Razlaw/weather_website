@@ -30,6 +30,7 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                 />
                             )}
                         </ul>
+                        <div className="emptySpace"/>
                     </div>
                     <div className="forecastPlot">
                         <div className="plotsContainer">

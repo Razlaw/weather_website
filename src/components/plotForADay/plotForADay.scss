@@ -12,6 +12,7 @@
   .iconContainer {
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     touch-action: none;
@@ -33,11 +34,16 @@
         height: 3.3%;
       }
     }
+
+    .emptySpace {
+      height: 20px;
+    }
   }
 
   .dataContainer {
     height: 100%;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     touch-action: none;
     margin: 0 10px 0 10px;
@@ -53,15 +59,28 @@
       padding: 0 0 0 0;
       touch-action: inherit;
     }
+
+    .unitContainer {
+      height: 20px;
+      color: var(--text-color-darkest);
+      font-size: x-small;
+      text-align: end;
+    }
   }
 
   .plotContainer {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     touch-action: none;
     padding: 0 0 0 0;
     overflow: hidden;
+
+    .emptySpace {
+      height: 20px;
+    }
   }
 }

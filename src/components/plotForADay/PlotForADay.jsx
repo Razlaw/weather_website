@@ -23,6 +23,7 @@ export default function PlotForADay({dayID,
                         getIconFunction(weatherData[hourOfDay][iconKey], hourOfDay)
                     )}
                 </ul>
+                <div className="emptySpace"/>
             </div>
             <div className="dataContainer">
                 <ul>
@@ -37,6 +38,9 @@ export default function PlotForADay({dayID,
                         />
                     )}
                 </ul>
+                <div className="unitContainer">
+                    {unit}
+                </div>
             </div>
             <div className="plotContainer">
                 <OutlinePlot
@@ -46,6 +50,7 @@ export default function PlotForADay({dayID,
                     weatherData={weatherData}
                     dataKey={plotKey}
                 />
+                <div className="emptySpace"/>
             </div>
         </div>
     );
