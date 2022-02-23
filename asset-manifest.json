@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/weather_website/static/css/main.1bcbd190.chunk.css",
-    "main.js": "/weather_website/static/js/main.76ed0690.chunk.js",
-    "main.js.map": "/weather_website/static/js/main.76ed0690.chunk.js.map",
+    "main.js": "/weather_website/static/js/main.defbf85f.chunk.js",
+    "main.js.map": "/weather_website/static/js/main.defbf85f.chunk.js.map",
     "runtime-main.js": "/weather_website/static/js/runtime-main.c77d99b2.js",
     "runtime-main.js.map": "/weather_website/static/js/runtime-main.c77d99b2.js.map",
     "static/css/2.60f302fe.chunk.css": "/weather_website/static/css/2.60f302fe.chunk.css",
@@ -27,13 +27,13 @@
     "static/media/scattered_clouds_icon.0a472b0f.svg": "/weather_website/static/media/scattered_clouds_icon.0a472b0f.svg",
     "static/media/shower_rain_icon.fade4e69.svg": "/weather_website/static/media/shower_rain_icon.fade4e69.svg",
     "static/media/sunny_icon.7c0951ad.svg": "/weather_website/static/media/sunny_icon.7c0951ad.svg",
-    "static/media/wind_direction_icon.d86b2fe2.svg": "/weather_website/static/media/wind_direction_icon.d86b2fe2.svg"
+    "static/media/wind_direction_icon.632b7145.svg": "/weather_website/static/media/wind_direction_icon.632b7145.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c77d99b2.js",
     "static/css/2.60f302fe.chunk.css",
     "static/js/2.3ee51e06.chunk.js",
     "static/css/main.1bcbd190.chunk.css",
-    "static/js/main.76ed0690.chunk.js"
+    "static/js/main.defbf85f.chunk.js"
   ]
 }
