@@ -6,7 +6,7 @@
   position: relative;
   display: grid;
   grid-template-columns: max-content max-content 1fr;
-  padding: 0 15px;
+  padding: 0 10px 0 20px;
   touch-action: inherit;
 
   .iconContainer {
@@ -46,7 +46,7 @@
     flex-direction: column;
     justify-content: flex-end;
     touch-action: none;
-    margin: 0 10px 0 10px;
+    margin: 0 10px 0 5px;
 
     ul {
       height: 100%;

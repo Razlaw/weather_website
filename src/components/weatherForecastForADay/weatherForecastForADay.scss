@@ -59,7 +59,7 @@
           align-items: center;
           justify-content: space-between;
           align-content: space-evenly;
-          padding: 0 0 0 10px;
+          padding: 0 0 0 5px;
           touch-action: inherit;
         }
 
@@ -94,6 +94,7 @@
             transition: all 500ms ease-out;
             //transform-origin: 0 50%;
             touch-action: inherit;
+            padding-left: 5px;
           }
 
           .rainPlotContainer {
@@ -106,6 +107,7 @@
             transition: all 500ms ease-out;
             //transform-origin: 0 50%;
             touch-action: inherit;
+            padding-left: 5px;
           }
         }
       }
