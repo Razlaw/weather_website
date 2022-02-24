@@ -2,7 +2,27 @@
 
 .svgPlot {
   .shadowPath {
-    fill: var(--background-color);
+    fill: none;
+  }
+
+  .dataPath {
+    stroke: white;
+
+    &.temperature {
+      stroke: orange;
+    }
+
+    &.wind {
+      stroke: cornflowerblue;
+    }
+
+    &.probabilityOfPrecipitation {
+      stroke: #5173e3;
+    }
+
+    &.rain {
+      stroke: #5173e3;
+    }
   }
 
   * {

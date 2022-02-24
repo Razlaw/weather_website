@@ -1,31 +1,49 @@
 import "./outlinePlot.scss";
 import React, {useEffect} from 'react';
 
-function createLine(data, dataKey) {
-    let lineString = "M 0,0 ";
+function getMinMax(data, dataKey) {
     let minValue = Number.MAX_VALUE;
     let maxValue = -Number.MAX_VALUE;
     for (let i = 0; i < data.length; i++) {
         minValue = Math.min(minValue, data[i][dataKey]);
         maxValue = Math.max(maxValue, data[i][dataKey]);
     }
+    return [minValue, maxValue];
+}
 
-    const minPlotWidth = 1;
-    minValue -= Math.max(minPlotWidth, (maxValue - minValue) * 0.2);
-
+function createOutline(data, dataKey, minValue) {
+    let lineString = "M 0,0 ";
     for (let i = 0; i < data.length; i++) {
         const currentValue = data[i][dataKey] - minValue;
         lineString += "H " + currentValue.toString() + " ";
         lineString += "v 1 ";
     }
-
     lineString += "L 0," + data.length.toString() + " z";
+
+    return lineString;
+}
+
+function createDataLine(data, dataKey, minValue) {
+    let lineString = "";
+    for (let i = 0; i < data.length; i++) {
+        const currentValue = data[i][dataKey] - minValue;
+        if(i === 0) {
+            lineString += "M " + currentValue.toString() + "," + i.toString() + " ";
+        }
+        lineString += "H " + currentValue.toString() + " ";
+        lineString += "v 1 ";
+    }
 
     return lineString;
 }
 
 export default function PlotForADay({dayID, plotID, currentHour, weatherData, dataKey}) {
     const plotDayID = plotID.toString() + dayID.toString();
+
+    let [minValue, maxValue] = getMinMax(weatherData, dataKey);
+
+    const minPlotWidth = 1;
+    minValue -= Math.max(minPlotWidth, (maxValue - minValue) * 0.2);
 
     const minViewBoxWidth = 5;
     useEffect(() => {
@@ -85,18 +103,27 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                     fill="none"
                     strokeWidth="4"
                     vectorEffect="non-scaling-stroke"
-                    d={createLine(weatherData, dataKey)}
+                    d={createOutline(weatherData, dataKey, minValue)}
                 />
                 <clipPath id={"clip" + plotDayID}>
                     <use href={"#" + plotDayID} />
                 </clipPath>
+
+                <path
+                    className={"dataPath " + plotID.toString()}
+                    id={"dataPath" + plotDayID}
+                    strokeWidth="4"
+                    fill="none"
+                    vectorEffect="non-scaling-stroke"
+                    d={createDataLine(weatherData, dataKey, minValue)}
+                />
             </defs>
 
             <path
                 className="shadowPath"
                 strokeWidth="0"
                 vectorEffect="non-scaling-stroke"
-                d={createLine(weatherData, dataKey)}
+                d={createOutline(weatherData, dataKey, minValue)}
                 filter="url(#inset-shadow)"
             />
             {/*<path*/}
@@ -107,6 +134,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
             {/*    d={"M 0," + currentHour.toString() + " H 10 v 1 H 0 z"}*/}
             {/*/>*/}
             <use href={"#" + plotDayID} clipPath={"url(#clip" + plotDayID + ")"}/>
+            <use className={"dataPath " + plotID.toString()} href={"#dataPath" + plotDayID} clipPath={"url(#clip" + plotDayID + ")"}/>
         </svg>
     );
 }
