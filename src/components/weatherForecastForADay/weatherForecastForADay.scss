@@ -110,5 +110,33 @@
         }
       }
     }
+
+    .slideIndicator {
+      width: 100%;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+
+      .slideIndicatorItem {
+        color: var(--text-color-darkest);
+        height: 5px;
+        width: 5px;
+        display: inline-block;
+        border-radius: 50%;
+
+        &.active {
+          background-color: var(--text-color-darkest);
+        }
+
+        &.passive {
+          border: 1px solid var(--text-color-darkest);
+        }
+      }
+
+      .spaceBetween {
+        display: inline-block;
+        width: 5px;
+      }
+    }
   }
 }

@@ -94,6 +94,11 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                         </div>
                     </div>
                 </div>
+                <div className="slideIndicator">
+                    <span className={slideID === 0 ? "slideIndicatorItem active" : "slideIndicatorItem passive"}/>
+                    <span className="spaceBetween"/>
+                    <span className={slideID === 1 ? "slideIndicatorItem active" : "slideIndicatorItem passive"}/>
+                </div>
             </div>
         </div>
     );
