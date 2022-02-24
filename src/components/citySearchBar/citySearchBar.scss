@@ -23,7 +23,7 @@ select:-webkit-autofill:focus {
   width: calc(100% - 40px);
   min-width: 200px;
   max-width: 1200px - 40px;
-  height: $searchBarHeight;
+  height: 40px;
   border-radius: 5px;
   box-shadow: 2px 2px 3px 1px #151515;
   z-index: 10;

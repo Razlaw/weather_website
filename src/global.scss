@@ -7,8 +7,6 @@
   --highlight-color: #b2c61a;
 }
 
-$searchBarHeight: 40px;
-
 @mixin for-mobile {
   @media (max-width: 1199px) {
     @content;
