@@ -33,12 +33,15 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
 
         const { xMin, xMax, yMin, yMax } = [...svg.children].reduce((acc, el) => {
             const { x, y, width, height } = el.getBBox();
-            if (!acc.xMin || x < acc.xMin) acc.xMin = x;
-            if (!acc.xMax || x + width > acc.xMax) acc.xMax = x + width;
-            if (!acc.yMin || y < acc.yMin) acc.yMin = y;
-            if (!acc.yMax || y + height > acc.yMax) acc.yMax = y + height;
+            if (x < acc.xMin) acc.xMin = x;
+            if (x + width > acc.xMax) acc.xMax = x + width;
+            if (y < acc.yMin) acc.yMin = y;
+            if (y + height > acc.yMax) acc.yMax = y + height;
             return acc;
-        }, {});
+        }, {"xMin": Number.MAX_VALUE,
+            "xMax": -Number.MAX_VALUE,
+            "yMin": Number.MAX_VALUE,
+            "yMax": -Number.MAX_VALUE});
 
         const viewbox = `${xMin} ${yMin} ${Math.max(
             xMax - xMin,
