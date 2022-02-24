@@ -104,11 +104,11 @@ export function ScrollSnap2D(numberOfHorizontalSlides, numberOfVerticalSlides) {
 
                 if (isSwipingDown) {
                     const newVerticalSlidePosition = currentSlidePosition.y > minSlidePosition.y ? currentSlidePosition.y - 1 : currentSlidePosition.y;
-                    setCurrentSlide({x: minSlidePosition.x, y: newVerticalSlidePosition})
+                    setCurrentSlide({x: currentSlidePosition.x, y: newVerticalSlidePosition})
                 }
                 if (isSwipingUp) {
                     const newVerticalSlidePosition = currentSlidePosition.y < maxSlidePosition.y ? currentSlidePosition.y + 1 : currentSlidePosition.y;
-                    setCurrentSlide({x: minSlidePosition.x, y: newVerticalSlidePosition});
+                    setCurrentSlide({x: currentSlidePosition.x, y: newVerticalSlidePosition});
                 }
                 isAwaitingScroll.current = false;
             }
