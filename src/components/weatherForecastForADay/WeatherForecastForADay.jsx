@@ -34,7 +34,7 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                     </div>
                     <div className="forecastPlot">
                         <div className="plotsContainer">
-                            <div className="temperatureAndWindPlotContainer" style={{transform: `rotateY(${slideID * 0.25}turn)`}} >
+                            <div className="temperatureAndWindPlotContainer" style={{transform: `translateX(-${slideID * 100}%)`}} >
                                 <PlotForADay
                                     dayID={dayId}
                                     plotID={"temperature"}
@@ -62,7 +62,7 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     iconKey={"wind_deg"}
                                 />
                             </div>
-                            <div className="rainPlotContainer" style={{transform: `rotateY(${(slideID - 1) * 0.25}turn)`}}>
+                            <div className="rainPlotContainer" style={{transform: `translateX(${(1 - slideID) * 100}%)`}}>
                                 <PlotForADay
                                     dayID={dayId}
                                     plotID={"probabilityOfPrecipitation"}
