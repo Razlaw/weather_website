@@ -79,25 +79,6 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
             xmlns="http://www.w3.org/2000/svg"
         >
             <defs>
-                <filter id="inset-shadow">
-                    <feOffset dx="0.1" dy="0.1" />
-                    <feGaussianBlur stdDeviation="0.4" result="offset-blur" />
-                    <feComposite
-                        operator="out"
-                        in="SourceGraphic"
-                        in2="offset-blur"
-                        result="inverse"
-                    />
-                    <feFlood floodColor="black" floodOpacity=".95" result="color" />
-                    <feComposite
-                        operator="in"
-                        in="color"
-                        in2="inverse"
-                        result="shadow"
-                    />
-                    <feComposite operator="over" in="shadow" in2="SourceGraphic" />
-                </filter>
-
                 <path
                     id={plotDayID}
                     fill="none"
@@ -105,6 +86,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                     vectorEffect="non-scaling-stroke"
                     d={createOutline(weatherData, dataKey, minValue)}
                 />
+
                 <clipPath id={"clip" + plotDayID}>
                     <use href={"#" + plotDayID} />
                 </clipPath>
@@ -119,13 +101,6 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                 />
             </defs>
 
-            <path
-                className="shadowPath"
-                strokeWidth="0"
-                vectorEffect="non-scaling-stroke"
-                d={createOutline(weatherData, dataKey, minValue)}
-                filter="url(#inset-shadow)"
-            />
             <path
                 className="currentHourPath"
                 strokeWidth="0"

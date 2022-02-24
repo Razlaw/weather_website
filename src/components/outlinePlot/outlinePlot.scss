@@ -1,17 +1,11 @@
 @import "../../global.scss";
 
 .svgPlot {
-  .shadowPath {
-    fill: none;
-  }
-
   .currentHourPath {
     fill: var(--current-hour-color);
   }
 
   .dataPath {
-    stroke: white;
-
     &.temperature {
       stroke: orange;
     }
