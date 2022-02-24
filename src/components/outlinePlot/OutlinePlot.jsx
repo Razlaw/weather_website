@@ -80,7 +80,8 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
         >
             <defs>
                 <path
-                    id={plotDayID}
+                    className={"outlinePath " + plotID.toString()}
+                    id={"outlinePath" + plotDayID}
                     fill="none"
                     strokeWidth="4"
                     vectorEffect="non-scaling-stroke"
@@ -88,7 +89,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                 />
 
                 <clipPath id={"clip" + plotDayID}>
-                    <use href={"#" + plotDayID} />
+                    <use href={"#outlinePath" + plotDayID} />
                 </clipPath>
 
                 <path
@@ -107,8 +108,16 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                 vectorEffect="non-scaling-stroke"
                 d={"M 0," + (currentHour + 0.05).toString() + " H " + (weatherData[currentHour][dataKey] - minValue).toString()+ " v 0.95 H 0 z"}
             />
-            <use href={"#" + plotDayID} clipPath={"url(#clip" + plotDayID + ")"}/>
-            <use className={"dataPath " + plotID.toString()} href={"#dataPath" + plotDayID} clipPath={"url(#clip" + plotDayID + ")"}/>
+            <use
+                className={"outlinePath " + plotID.toString()}
+                href={"#outlinePath" + plotDayID}
+                clipPath={"url(#clip" + plotDayID + ")"}
+            />
+            <use
+                className={"dataPath " + plotID.toString()}
+                href={"#dataPath" + plotDayID}
+                clipPath={"url(#clip" + plotDayID + ")"}
+            />
         </svg>
     );
 }
