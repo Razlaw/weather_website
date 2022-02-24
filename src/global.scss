@@ -1,14 +1,10 @@
 :root {
-  --background-color: #505160; // #1b4332;
+  --background-color: #23232b;
   --text-color: #efefef;
-  --text-color-darker: #cfcfcf;
-  --text-color-darkest: #afafaf;
+  --text-color-darker: #a2a2a2;
+  --text-color-darkest: #6c6c6c;
   --alternative-color: #598234;
-  --highlight-color: #aebd38;
-
-  * {
-    background-color: var(--background-color, grey);
-  }
+  --highlight-color: #b2c61a;
 }
 
 $searchBarHeight: 40px;
