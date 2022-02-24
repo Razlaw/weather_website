@@ -47,11 +47,11 @@ export default function WeatherForecastForAWeek({cityName, weatherData, unit}) {
                             </div>
                             <div className="temperatureContainer">
                                 <div className="temperatureDataContainer">
-                                    <div className="minTemperature">
-                                        {weatherData[dayID]["minTemperature"]}
-                                    </div>
                                     <div className="maxTemperature">
                                         {weatherData[dayID]["maxTemperature"]}
+                                    </div>
+                                    <div className="minTemperature">
+                                        {weatherData[dayID]["minTemperature"]}
                                     </div>
                                     <div className="unit">
                                         °C
