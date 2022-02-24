@@ -25,7 +25,7 @@
 
   &.active {
     font-weight: 500;
-    color: var(--highlight-color);
+    color: var(--current-hour-color);
     touch-action: inherit;
   }
 }

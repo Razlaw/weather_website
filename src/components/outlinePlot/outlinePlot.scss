@@ -6,7 +6,7 @@
   }
 
   .currentHourPath {
-    fill: var(--highlight-color);
+    fill: var(--current-hour-color);
   }
 
   .dataPath {
@@ -30,6 +30,6 @@
   }
 
   * {
-    stroke: var(--text-color);
+    stroke: var(--plot-color);
   }
 }

@@ -1,10 +1,13 @@
 :root {
-  --background-color: #23232b;
+  --background-color-top: #23232b;
+  --background-color-bottom: #0f0f13;
   --text-color: #efefef;
   --text-color-darker: #a2a2a2;
   --text-color-darkest: #6c6c6c;
-  --alternative-color: #598234;
-  --highlight-color: #b2c61a;
+  --plot-color: #efefef;
+  --search-bar-color-top: #598234;
+  --search-bar-color-bottom: #4a6c2b;
+  --current-hour-color: #b2c61a;
 }
 
 @mixin for-mobile {

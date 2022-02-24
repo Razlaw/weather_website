@@ -9,14 +9,14 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border: 1px solid var(--alternative-color);
+  border: 1px solid var(--search-bar-color-top);
   -webkit-text-fill-color: var(--text-color);
-  -webkit-box-shadow: 0 0 0px 1000px var(--alternative-color) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--search-bar-color-top) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
 .citySearchBar {
-  background: linear-gradient(0deg, #4a6c2b, var(--alternative-color));
+  background: linear-gradient(0deg, var(--search-bar-color-bottom), var(--search-bar-color-top));
   position: fixed;
   top: 10px;
   margin-left: 20px;
