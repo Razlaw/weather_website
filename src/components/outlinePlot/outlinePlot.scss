@@ -5,6 +5,10 @@
     fill: none;
   }
 
+  .currentHourPath {
+    fill: var(--highlight-color);
+  }
+
   .dataPath {
     stroke: white;
 
