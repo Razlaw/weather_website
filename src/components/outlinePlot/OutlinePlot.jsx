@@ -106,7 +106,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                 className="currentHourPath"
                 strokeWidth="0"
                 vectorEffect="non-scaling-stroke"
-                d={"M 0," + (currentHour + 0.05).toString() + " H " + (weatherData[currentHour][dataKey] - minValue).toString()+ " v 0.95 H 0 z"}
+                d={"M 0," + (currentHour + 0.05).toString() + " H " + (weatherData[currentHour][dataKey] - minValue).toString()+ " v 0.9 H 0 z"}
             />
             <use
                 className={"outlinePath " + plotID.toString()}
