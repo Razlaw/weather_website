@@ -10,8 +10,8 @@
             <stop style="stop-color:#a2a2a2" offset="0"/>
             <stop style="stop-color:#ffffff" offset="1"/>
         </linearGradient>
-        <linearGradient id="linearGradientShowerRainBlue" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
-                        gradientTransform="matrix(.22352 .1563 -.10179 .22352 8.2008 9.713)"
+        <linearGradient id="linearGradientShowerRainBlue-8" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(.34051 .22744 -.15507 .32525 7.8838 8.0804)"
                         gradientUnits="userSpaceOnUse">
             <stop style="stop-color:#0d72ec" offset="0"/>
             <stop style="stop-color:#0a5dc1" offset="1"/>
@@ -25,6 +25,6 @@
                   style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientShowerRainGrey)"/>
         </g>
     </g>
-    <path d="m8.2328 12.252c0.35498 0.32906 0.98299 0.43432 1.2053 0.80814 0.22228 0.37381 0.09904 0.72058-0.20152 0.90357-0.30055 0.18299-0.66513 0.13322-0.8892-0.23951-0.22409-0.37273-0.02099-1.0068-0.11455-1.4722"
-          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientShowerRainBlue)"/>
+    <path d="m7.9325 11.775c0.54078 0.47883 1.4975 0.632 1.8362 1.176 0.33862 0.54395 0.15088 1.0485-0.307 1.3148-0.45786 0.26628-1.0133 0.19385-1.3546-0.34852-0.34138-0.54238-0.03198-1.465-0.17451-2.1423"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:.75;stroke:url(#linearGradientShowerRainBlue-8)"/>
 </svg>
