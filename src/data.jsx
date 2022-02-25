@@ -39,14 +39,10 @@ export const getWeatherData = async (cityName) => {
                     "weatherIcon": yesterdaysHistoricalWeather.data.hourly[i].weather[0].icon,
                     "wind_deg": yesterdaysHistoricalWeather.data.hourly[i].wind_deg,
                     "wind_speed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
-                    "cloudiness": yesterdaysHistoricalWeather.data.hourly[i].clouds,
-                    "weather": yesterdaysHistoricalWeather.data.hourly[i].weather,
                     "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
                     "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                    "timeUTC": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt),
-                    "timeLocal": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
-                    "dateLocal": utcDateFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
-                    "dt": yesterdaysHistoricalWeather.data.hourly[i].dt});
+                    "dateLocal": utcDateFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone)
+                });
             }
         }
 
@@ -63,14 +59,10 @@ export const getWeatherData = async (cityName) => {
                 "weatherIcon": todaysHistoricalWeather.data.hourly[i].weather[0].icon,
                 "wind_deg": todaysHistoricalWeather.data.hourly[i].wind_deg,
                 "wind_speed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
-                "cloudiness": todaysHistoricalWeather.data.hourly[i].clouds,
-                "weather": todaysHistoricalWeather.data.hourly[i].weather,
                 "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                "timeUTC": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt),
-                "timeLocal": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
-                "dateLocal": utcDateFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
-                "dt": todaysHistoricalWeather.data.hourly[i].dt});
+                "dateLocal": utcDateFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone)
+            });
         }
 
         const exclude = "current,minutely,alerts"
@@ -87,14 +79,10 @@ export const getWeatherData = async (cityName) => {
                 "weatherIcon": nextDaysForecast.data.hourly[i].weather[0].icon,
                 "wind_deg": nextDaysForecast.data.hourly[i].wind_deg,  // from 0 to 360 degrees
                 "wind_speed": Math.round(nextDaysForecast.data.hourly[i].wind_speed * 3.6),  // in km/h
-                "cloudiness": nextDaysForecast.data.hourly[i].clouds,  // in % from 0 to 100
-                "weather": nextDaysForecast.data.hourly[i].weather,  // data with key for icon
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.hourly[i] ? (nextDaysForecast.data.hourly[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                "timeUTC": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt),
-                "timeLocal": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone),
-                "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone),
-                "dt": nextDaysForecast.data.hourly[i].dt});
+                "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone)
+            });
         }
 
         let dailyWeatherForSevenDays = [];
@@ -108,13 +96,10 @@ export const getWeatherData = async (cityName) => {
                 "weatherIcon": nextDaysForecast.data.daily[i].weather[0].icon,
                 "wind_deg": nextDaysForecast.data.daily[i].wind_deg,  // from 0 to 360 degrees
                 "wind_speed": Math.round(nextDaysForecast.data.daily[i].wind_speed * 3.6),  // in km/h
-                "cloudiness": nextDaysForecast.data.daily[i].clouds,  // in % from 0 to 100
-                "weather": nextDaysForecast.data.daily[i].weather,  // data with key for icon
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.daily[i] ? (nextDaysForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                "dateUTC": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt),
-                "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt + currentWeather.data.timezone),
-                "dt": nextDaysForecast.data.daily[i].dt});
+                "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt + currentWeather.data.timezone)
+            });
         }
 
         // Workaround: recharts draws bars with positive and negative values into different directions.
