@@ -4,14 +4,31 @@ import {ReactComponent as BrokenCloudsIcon} from "./assets/broken_clouds_icon.sv
 import {ReactComponent as CloudyIcon} from "./assets/cloudy_icon.svg";
 import {ReactComponent as ShowerRainIcon} from "./assets/shower_rain_icon.svg";
 import {ReactComponent as RainIcon} from "./assets/rain_icon.svg";
+import {ReactComponent as ThunderstormIcon} from "./assets/thunderstorm_icon.svg";
+import {ReactComponent as SnowIcon} from "./assets/snow_icon.svg";
+import {ReactComponent as MistIcon} from "./assets/mist_icon.svg";
+
+import {ReactComponent as MoonIcon} from "./assets/moon_icon.svg";
+import {ReactComponent as NightScatteredCloudsIcon} from "./assets/night_scattered_clouds_icon.svg";
+import {ReactComponent as NightBrokenCloudsIcon} from "./assets/night_broken_clouds_icon.svg";
+import {ReactComponent as NightCloudyIcon} from "./assets/night_cloudy_icon.svg";
+import {ReactComponent as NightShowerRainIcon} from "./assets/night_shower_rain_icon.svg";
+import {ReactComponent as NightRainIcon} from "./assets/night_rain_icon.svg";
+import {ReactComponent as NightThunderstormIcon} from "./assets/night_thunderstorm_icon.svg";
+import {ReactComponent as NightSnowIcon} from "./assets/night_snow_icon.svg";
+import {ReactComponent as NightMistIcon} from "./assets/night_mist_icon.svg";
+
 import {ReactComponent as WindDirectionIcon} from "./assets/wind_direction_icon.svg";
+
 import {ReactComponent as ProbabilityLowIcon} from "./assets/probablity_low_icon.svg";
 import {ReactComponent as ProbabilityMediumIcon} from "./assets/probablity_medium_icon.svg";
 import {ReactComponent as ProbabilityHighIcon} from "./assets/probablity_high_icon.svg";
+
 import {ReactComponent as NoRainIcon} from "./assets/no_rain_icon.svg";
 import {ReactComponent as LightRainIcon} from "./assets/light_rain_icon.svg";
 import {ReactComponent as MediumRainIcon} from "./assets/medium_rain_icon.svg";
 import {ReactComponent as HeavyRainIcon} from "./assets/heavy_rain_icon.svg";
+
 import React from "react";
 
 export function getWeatherIcon(iconID, key) {
@@ -19,27 +36,39 @@ export function getWeatherIcon(iconID, key) {
         case "01d":
             return <SunnyIcon key={key} className="weatherIcon icon"/>;
         case "01n":
-            return <SunnyIcon key={key} className="weatherIcon icon"/>;
+            return <MoonIcon key={key} className="weatherIcon icon"/>;
         case "02d":
             return <ScatteredCloudsIcon key={key} className="weatherIcon icon"/>;
         case "02n":
-            return <ScatteredCloudsIcon key={key} className="weatherIcon icon"/>;
+            return <NightScatteredCloudsIcon key={key} className="weatherIcon icon"/>;
         case "03d":
             return <BrokenCloudsIcon key={key} className="weatherIcon icon"/>;
         case "03n":
-            return <BrokenCloudsIcon key={key} className="weatherIcon icon"/>;
+            return <NightBrokenCloudsIcon key={key} className="weatherIcon icon"/>;
         case "04d":
             return <CloudyIcon key={key} className="weatherIcon icon"/>;
         case "04n":
-            return <CloudyIcon key={key} className="weatherIcon icon"/>;
+            return <NightCloudyIcon key={key} className="weatherIcon icon"/>;
         case "09d":
             return <ShowerRainIcon key={key} className="weatherIcon icon"/>;
         case "09n":
-            return <ShowerRainIcon key={key} className="weatherIcon icon"/>;
+            return <NightShowerRainIcon key={key} className="weatherIcon icon"/>;
         case "10d":
             return <RainIcon key={key} className="weatherIcon icon"/>;
         case "10n":
-            return <RainIcon key={key} className="weatherIcon icon"/>;
+            return <NightRainIcon key={key} className="weatherIcon icon"/>;
+        case "11d":
+            return <ThunderstormIcon key={key} className="weatherIcon icon"/>;
+        case "11n":
+            return <NightThunderstormIcon key={key} className="weatherIcon icon"/>;
+        case "13d":
+            return <SnowIcon key={key} className="weatherIcon icon"/>;
+        case "13n":
+            return <NightSnowIcon key={key} className="weatherIcon icon"/>;
+        case "50d":
+            return <MistIcon key={key} className="weatherIcon icon"/>;
+        case "50n":
+            return <NightMistIcon key={key} className="weatherIcon icon"/>;
         default:
             return <span key={key}>?</span>;
     }

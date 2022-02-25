@@ -1,0 +1,28 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linearGradientMistGrey" x1="8.3929" x2="8.4095" y1="16.111" y2="-.74603"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#a2a2a2" offset="0"/>
+            <stop style="stop-color:#ffffff" offset="1"/>
+        </linearGradient>
+    </defs>
+    <g style="stroke:url(#linearGradientMistGrey)">
+        <path d="m5 2h4" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m3 4.4062h3"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m2 6.5625h7"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m8.4375 9h4.1875"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m7 11.562h6"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m3 9h3" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m9 4.4062h4"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m12 6.5625h2.4688"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m5 14h4" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+        <path d="m2 11.5h3"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMistGrey)"/>
+    </g>
+</svg>
