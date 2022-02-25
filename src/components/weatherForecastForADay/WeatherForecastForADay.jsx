@@ -81,14 +81,14 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     plotID={"rain"}
                                     currentHour={currentHour}
                                     weatherData={weatherData}
-                                    dataKey={"rain_1h"}
-                                    plotKey={"rain_1h"}
+                                    dataKey={"amountOfPrecipitation"}
+                                    plotKey={"amountOfPrecipitation"}
                                     unit={"mm"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
                                     decimalPrecision={1}
                                     getIconFunction={getRainIcon}
-                                    iconKey={"rain_1h"}
+                                    iconKey={"amountOfPrecipitation"}
                                 />
                             </div>
                         </div>

@@ -79,9 +79,9 @@ export default function WeatherForecastForAWeek({cityName, weatherData, unit}) {
                                 </div>
                             </div>
                             <div className="detailsContainer">
-                                {getRainIcon(weatherData[dayID]["rain"], "rainIcon" + dayID)}
+                                {getRainIcon(weatherData[dayID]["amountOfPrecipitation"], "rainIcon" + dayID)}
                                 <div className="data">
-                                    {weatherData[dayID]["rain"]}
+                                    {weatherData[dayID]["amountOfPrecipitation"]}
                                 </div>
                                 <div className="unit">
                                     mm

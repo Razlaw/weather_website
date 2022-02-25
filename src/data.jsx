@@ -31,6 +31,9 @@ export const getWeatherData = async (cityName) => {
             for (let i = startIndexYesterday; i < yesterdaysHistoricalWeather.data.hourly.length; i++){
                 const wasRaining = (("rain" in yesterdaysHistoricalWeather.data.hourly[i] && yesterdaysHistoricalWeather.data.hourly[i].rain["1h"] > 0)
                     || ("snow" in yesterdaysHistoricalWeather.data.hourly[i] && yesterdaysHistoricalWeather.data.hourly[i].snow["1h"] > 0));
+                let amountOfPrecipitation = "rain" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].rain["1h"] : 0;
+                amountOfPrecipitation += ("snow" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].snow["1h"] : 0);
+
                 hourlyWeatherForTwoDays.push({
                     "temperature": Math.round(yesterdaysHistoricalWeather.data.hourly[i].temp),
                     "weatherIcon": yesterdaysHistoricalWeather.data.hourly[i].weather[0].icon,
@@ -39,8 +42,7 @@ export const getWeatherData = async (cityName) => {
                     "cloudiness": yesterdaysHistoricalWeather.data.hourly[i].clouds,
                     "weather": yesterdaysHistoricalWeather.data.hourly[i].weather,
                     "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
-                    "rain_1h": ("rain" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].rain["1h"].toFixed(1) : 0),
-                    "snow_1h": ("snow" in yesterdaysHistoricalWeather.data.hourly[i] ? yesterdaysHistoricalWeather.data.hourly[i].snow["1h"].toFixed(1) : 0),
+                    "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
                     "timeUTC": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt),
                     "timeLocal": utcTimeFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
                     "dateLocal": utcDateFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
@@ -53,6 +55,9 @@ export const getWeatherData = async (cityName) => {
         for (let i = startIndexToday; i < hoursOfHistoricalDataAvailable; i++){
             const wasRaining = (("rain" in todaysHistoricalWeather.data.hourly[i] && todaysHistoricalWeather.data.hourly[i].rain["1h"] > 0)
                 || ("snow" in todaysHistoricalWeather.data.hourly[i] && todaysHistoricalWeather.data.hourly[i].snow["1h"] > 0));
+            let amountOfPrecipitation = "rain" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].rain["1h"] : 0;
+            amountOfPrecipitation += ("snow" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].snow["1h"] : 0);
+
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(todaysHistoricalWeather.data.hourly[i].temp),
                 "weatherIcon": todaysHistoricalWeather.data.hourly[i].weather[0].icon,
@@ -61,8 +66,7 @@ export const getWeatherData = async (cityName) => {
                 "cloudiness": todaysHistoricalWeather.data.hourly[i].clouds,
                 "weather": todaysHistoricalWeather.data.hourly[i].weather,
                 "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
-                "rain_1h": ("rain" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].rain["1h"].toFixed(1) : 0),
-                "snow_1h": ("snow" in todaysHistoricalWeather.data.hourly[i] ? todaysHistoricalWeather.data.hourly[i].snow["1h"].toFixed(1) : 0),
+                "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
                 "timeUTC": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt),
                 "timeLocal": utcTimeFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
                 "dateLocal": utcDateFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone),
@@ -75,6 +79,9 @@ export const getWeatherData = async (cityName) => {
         const numberOfEntriesToFill = hoursInTwoDays - hourlyWeatherForTwoDays.length;
         console.assert(numberOfEntriesToFill <= nextDaysForecast.data.hourly.length);
         for (let i = 0; i < numberOfEntriesToFill; i++){
+            let amountOfPrecipitation = "rain" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].rain["1h"] : 0;
+            amountOfPrecipitation += ("snow" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].snow["1h"] : 0);
+
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(nextDaysForecast.data.hourly[i].temp),  // in °C
                 "weatherIcon": nextDaysForecast.data.hourly[i].weather[0].icon,
@@ -83,8 +90,7 @@ export const getWeatherData = async (cityName) => {
                 "cloudiness": nextDaysForecast.data.hourly[i].clouds,  // in % from 0 to 100
                 "weather": nextDaysForecast.data.hourly[i].weather,  // data with key for icon
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.hourly[i] ? (nextDaysForecast.data.hourly[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
-                "rain_1h": ("rain" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].rain["1h"].toFixed(1) : 0),  // in mm
-                "snow_1h": ("snow" in nextDaysForecast.data.hourly[i] ? nextDaysForecast.data.hourly[i].snow["1h"].toFixed(1) : 0),  // in mm
+                "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
                 "timeUTC": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt),
                 "timeLocal": utcTimeFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone),
                 "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone),
@@ -93,6 +99,9 @@ export const getWeatherData = async (cityName) => {
 
         let dailyWeatherForSevenDays = [];
         for (let i = 0; i < 7; i++){
+            let amountOfPrecipitation = "rain" in nextDaysForecast.data.daily[i] ? nextDaysForecast.data.daily[i].rain : 0;
+            amountOfPrecipitation += ("snow" in nextDaysForecast.data.daily[i] ? nextDaysForecast.data.daily[i].snow : 0);
+
             dailyWeatherForSevenDays.push({
                 "minTemperature": Math.round(nextDaysForecast.data.daily[i].temp.min),  // in °C
                 "maxTemperature": Math.round(nextDaysForecast.data.daily[i].temp.max),  // in °C
@@ -102,8 +111,7 @@ export const getWeatherData = async (cityName) => {
                 "cloudiness": nextDaysForecast.data.daily[i].clouds,  // in % from 0 to 100
                 "weather": nextDaysForecast.data.daily[i].weather,  // data with key for icon
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.daily[i] ? (nextDaysForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
-                "rain": ("rain" in nextDaysForecast.data.daily[i] ? nextDaysForecast.data.daily[i].rain.toFixed(1) : 0),  // in mm
-                "snow": ("snow" in nextDaysForecast.data.daily[i] ? nextDaysForecast.data.daily[i].snow.toFixed(1) : 0),  // in mm
+                "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
                 "dateUTC": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt),
                 "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt + currentWeather.data.timezone),
                 "dt": nextDaysForecast.data.daily[i].dt});
