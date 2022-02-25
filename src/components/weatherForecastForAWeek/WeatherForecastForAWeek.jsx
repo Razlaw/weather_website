@@ -61,9 +61,9 @@ export default function WeatherForecastForAWeek({cityName, weatherData, unit}) {
                         </div>
                         <div className="weatherDetailsContainer">
                             <div className="detailsContainer">
-                                {getWindDirectionIcon(weatherData[dayID]["wind_deg"], "windIcon" + dayID)}
+                                {getWindDirectionIcon(weatherData[dayID]["windDirection"], "windIcon" + dayID)}
                                 <div className="data">
-                                    {weatherData[dayID]["wind_speed"]}
+                                    {weatherData[dayID]["windSpeed"]}
                                 </div>
                                 <div className="unit">
                                     km/h

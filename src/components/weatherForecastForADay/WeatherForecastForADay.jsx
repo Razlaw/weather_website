@@ -53,13 +53,13 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     plotID={"wind"}
                                     currentHour={currentHour}
                                     weatherData={weatherData}
-                                    dataKey={"wind_speed"}
-                                    plotKey={"wind_speed"}
+                                    dataKey={"windSpeed"}
+                                    plotKey={"windSpeed"}
                                     unit={"km/h"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
                                     getIconFunction={getWindDirectionIcon}
-                                    iconKey={"wind_deg"}
+                                    iconKey={"windDirection"}
                                 />
                             </div>
                             <div className="rainPlotContainer" style={{transform: `translateX(${(1 - slideID) * 100}%)`}}>

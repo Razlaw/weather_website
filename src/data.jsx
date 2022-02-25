@@ -37,8 +37,8 @@ export const getWeatherData = async (cityName) => {
                 hourlyWeatherForTwoDays.push({
                     "temperature": Math.round(yesterdaysHistoricalWeather.data.hourly[i].temp),
                     "weatherIcon": yesterdaysHistoricalWeather.data.hourly[i].weather[0].icon,
-                    "wind_deg": yesterdaysHistoricalWeather.data.hourly[i].wind_deg,
-                    "wind_speed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
+                    "windDirection": yesterdaysHistoricalWeather.data.hourly[i].wind_deg,
+                    "windSpeed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                     "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
                     "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
                     "dateLocal": utcDateFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone)
@@ -57,8 +57,8 @@ export const getWeatherData = async (cityName) => {
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(todaysHistoricalWeather.data.hourly[i].temp),
                 "weatherIcon": todaysHistoricalWeather.data.hourly[i].weather[0].icon,
-                "wind_deg": todaysHistoricalWeather.data.hourly[i].wind_deg,
-                "wind_speed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
+                "windDirection": todaysHistoricalWeather.data.hourly[i].wind_deg,
+                "windSpeed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                 "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
                 "dateLocal": utcDateFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone)
@@ -77,8 +77,8 @@ export const getWeatherData = async (cityName) => {
             hourlyWeatherForTwoDays.push({
                 "temperature": Math.round(nextDaysForecast.data.hourly[i].temp),  // in °C
                 "weatherIcon": nextDaysForecast.data.hourly[i].weather[0].icon,
-                "wind_deg": nextDaysForecast.data.hourly[i].wind_deg,  // from 0 to 360 degrees
-                "wind_speed": Math.round(nextDaysForecast.data.hourly[i].wind_speed * 3.6),  // in km/h
+                "windDirection": nextDaysForecast.data.hourly[i].wind_deg,  // from 0 to 360 degrees
+                "windSpeed": Math.round(nextDaysForecast.data.hourly[i].wind_speed * 3.6),  // in km/h
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.hourly[i] ? (nextDaysForecast.data.hourly[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
                 "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone)
@@ -94,8 +94,8 @@ export const getWeatherData = async (cityName) => {
                 "minTemperature": Math.round(nextDaysForecast.data.daily[i].temp.min),  // in °C
                 "maxTemperature": Math.round(nextDaysForecast.data.daily[i].temp.max),  // in °C
                 "weatherIcon": nextDaysForecast.data.daily[i].weather[0].icon,
-                "wind_deg": nextDaysForecast.data.daily[i].wind_deg,  // from 0 to 360 degrees
-                "wind_speed": Math.round(nextDaysForecast.data.daily[i].wind_speed * 3.6),  // in km/h
+                "windDirection": nextDaysForecast.data.daily[i].wind_deg,  // from 0 to 360 degrees
+                "windSpeed": Math.round(nextDaysForecast.data.daily[i].wind_speed * 3.6),  // in km/h
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.daily[i] ? (nextDaysForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
                 "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt + currentWeather.data.timezone)
