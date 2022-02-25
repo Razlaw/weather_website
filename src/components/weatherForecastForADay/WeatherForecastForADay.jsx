@@ -41,7 +41,7 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     currentHour={currentHour}
                                     weatherData={weatherData}
                                     dataKey={"temperature"}
-                                    plotKey={"temperatureForPlot"}
+                                    plotKey={"temperature"}
                                     unit={"°C"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}

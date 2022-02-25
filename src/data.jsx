@@ -102,33 +102,6 @@ export const getWeatherData = async (cityName) => {
             });
         }
 
-        // Workaround: recharts draws bars with positive and negative values into different directions.
-        //  I didn't find a way to change the behaviour to draw all bars into one direction - setting the bottom
-        //  value of the bars as its called in matplotlib. This workaround shifts all values into a range starting
-        //  from the value 1 if at least one element is negative. The shifted values as used for plotting while the
-        //  original values are used for the labels of the bars.
-        let startIndex = 0;
-        let endIndex = 23;
-        for (let dayId = 0; dayId < 2; dayId++) {
-            let roundedTemperatureArray = [];
-            for(let i = startIndex; i <= endIndex; i++) {
-                roundedTemperatureArray.push(hourlyWeatherForTwoDays[i]["temperature"]);
-            }
-
-            let lowestTemperature = Math.min(...roundedTemperatureArray);
-            let temperatureArrayForPlot = roundedTemperatureArray.map( function(value) {
-                return value - (lowestTemperature - 1);
-            } );
-
-            let indexForPlotData = 0;
-            for(let i = startIndex; i <= endIndex; i++) {
-                hourlyWeatherForTwoDays[i]["temperatureForPlot"] = temperatureArrayForPlot[indexForPlotData];
-                indexForPlotData++;
-            }
-
-            startIndex += 24;
-            endIndex += 24;
-        }
 
         const weatherData = {"hourly": hourlyWeatherForTwoDays, "daily": dailyWeatherForSevenDays};
 
