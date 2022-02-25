@@ -10,11 +10,11 @@
             <stop style="stop-color:#6c6c6c" offset="0"/>
             <stop style="stop-color:#a2a2a2" offset="1"/>
         </linearGradient>
-        <linearGradient id="linearGradientShowerRainBlue" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+        <linearGradient id="linearGradientNightShowerRainBlue" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
                         gradientTransform="matrix(.22352 .1563 -.10179 .22352 8.2008 9.713)"
                         gradientUnits="userSpaceOnUse">
-            <stop style="stop-color:#0d72ec" offset="0"/>
-            <stop style="stop-color:#0a5dc1" offset="1"/>
+            <stop style="stop-color:#0b59b8" offset="0"/>
+            <stop style="stop-color:#094691" offset="1"/>
         </linearGradient>
     </defs>
     <g style="stroke:url(#linearGradientShowerRainYellow)">
@@ -26,5 +26,5 @@
         </g>
     </g>
     <path d="m8.2328 12.252c0.35498 0.32906 0.98299 0.43432 1.2053 0.80814 0.22228 0.37381 0.09904 0.72058-0.20152 0.90357-0.30055 0.18299-0.66513 0.13322-0.8892-0.23951-0.22409-0.37273-0.02099-1.0068-0.11455-1.4722"
-          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientShowerRainBlue)"/>
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientNightShowerRainBlue)"/>
 </svg>
