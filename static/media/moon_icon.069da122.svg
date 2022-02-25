@@ -1,0 +1,15 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linearGradientMoonYellow" x1="13.158" x2="3.7128" y1="3.0675" y2="12.803"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff703" style="stop-color:#fff688" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#f1e33a" offset="1"/>
+        </linearGradient>
+    </defs>
+    <g style="stroke:url(#linearGradientMoonYellow)">
+        <path d="m9.8312 3.1088c1.9603 0.79332 3.1967 2.748 3.0736 4.8592-0.12307 2.1112-1.5783 3.9089-3.6175 4.4691-2.0392 0.56013-4.2086-0.24204-5.3928-1.9941"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMoonYellow)"/>
+        <path d="m9.9245 3.236c1.1306 1.7871 0.99619 4.0961-0.3342 5.74-1.3304 1.6438-3.5607 2.2566-5.5442 1.5233"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMoonYellow)"/>
+    </g>
+</svg>

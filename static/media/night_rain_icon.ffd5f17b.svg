@@ -1,0 +1,49 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient id="linearGradientShowerRainYellow" x1="9.6003" x2="6.8909" y1=".92964" y2="14.12"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff703" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#ffba03" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientNightRainGrey" x1="8.872" x2="8.8739" y1="13.459" y2="2.8606"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#6c6c6c" offset="0"/>
+            <stop style="stop-color:#a2a2a2" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientShowerRainBlue" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(.22352 .1563 -.10179 .22352 9.0421 6.9511)"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#0d72ec" offset="0"/>
+            <stop style="stop-color:#0a5dc1" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientShowerRainBlue-7" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(.22352 .1563 -.10179 .22352 5.6112 6.6333)"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#0d72ec" offset="0"/>
+            <stop style="stop-color:#0a5dc1" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientNightRainGrey2" x1="8.872" x2="8.8739" y1="13.459" y2="2.8606"
+                        gradientUnits="userSpaceOnUse" xlink:href="#linearGradientNightRainGrey"/>
+        <linearGradient id="linearGradientShowerRainBlue-5" x1="3.5957" x2="11.353" y1="8.1995" y2="12.762"
+                        gradientTransform="matrix(.22352 .1563 -.10179 .22352 7.5953 9.7921)"
+                        gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:#0d72ec" offset="0"/>
+            <stop style="stop-color:#0a5dc1" offset="1"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(0 -1.3016)" style="stroke:url(#linearGradientShowerRainYellow)">
+        <g style="stroke:url(#linearGradientNightRainGrey2)">
+            <path d="m8.9382 8.1798c0.72012-1.476 2.4342-2.1753 3.9813-1.6243 1.5471 0.55097 2.4332 2.1763 2.0583 3.7752-0.3073 1.3106-1.3815 2.2604-2.657 2.4534"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightRainGrey2)"/>
+            <path d="m3.5104 12.214c-1.2166-0.64608-2.1274-1.8243-2.3882-3.2699-0.42306-2.3451 1.0025-4.6285 3.2952-5.2782 2.2927-0.64966 4.7042 0.54651 5.5743 2.765"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightRainGrey2)"/>
+        </g>
+    </g>
+    <path d="m9.0741 9.4901c0.35498 0.32906 0.98299 0.43432 1.2053 0.80814 0.22228 0.37381 0.09904 0.72058-0.20152 0.90357-0.30055 0.18299-0.66513 0.13322-0.8892-0.23951-0.22409-0.37273-0.02099-1.0068-0.11455-1.4722"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientShowerRainBlue)"/>
+    <path d="m5.6432 9.1723c0.35498 0.32906 0.98299 0.43432 1.2053 0.80814 0.22228 0.37381 0.09904 0.72058-0.20152 0.90357-0.30055 0.18299-0.66513 0.13322-0.8892-0.23951-0.22409-0.37273-0.02099-1.0068-0.11455-1.4722"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientShowerRainBlue-7)"/>
+    <path d="m7.6273 12.331c0.35498 0.32906 0.98299 0.43432 1.2053 0.80814 0.22228 0.37381 0.09904 0.72058-0.20152 0.90357-0.30055 0.18299-0.66513 0.13322-0.8892-0.23951-0.22409-0.37273-0.02099-1.0068-0.11455-1.4722"
+          style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5;stroke:url(#linearGradientShowerRainBlue-5)"/>
+</svg>

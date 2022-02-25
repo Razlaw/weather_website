@@ -1,0 +1,28 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linearGradientMoonYellow" x1="13.158" x2="3.7128" y1="3.0675" y2="12.803"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff703" style="stop-color:#fff688" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#f1e33a" offset="1"/>
+        </linearGradient>
+        <linearGradient id="linearGradientNightGrey" x1="6.1196" x2="6.165" y1="12.747" y2="7.3182"
+                        gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff703" style="stop-color:#6c6c6c" offset="0"/>
+            <stop stop-color="#ff9d03" style="stop-color:#a2a2a2" offset="1"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(.67552 -.54349)">
+        <g style="stroke:url(#linearGradientMoonYellow)">
+            <path d="m9.8312 3.1088c1.9603 0.79332 3.1967 2.748 3.0736 4.8592-0.12307 2.1112-1.5783 3.9089-3.6175 4.4691-0.74788 0.20543-1.5133 0.22762-2.2412 0.08691"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMoonYellow)"/>
+            <path d="m9.9245 3.236c1.1306 1.7871 0.99619 4.0961-0.3342 5.74-0.66881 0.82636-1.5651 1.3922-2.543 1.6574"
+                  style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientMoonYellow)"/>
+        </g>
+    </g>
+    <g transform="translate(-1.1448 .38161)" style="stroke:url(#linearGradientNightGrey)">
+        <path d="m6.3084 9.9637a1.419 1.419 0 0 1 1.7514-0.71456 1.419 1.419 0 0 1 0.90548 1.6608 1.419 1.419 0 0 1-1.5494 1.0851"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightGrey)"/>
+        <path d="m5.0396 11.969a2.0374 2.0374 0 0 1-2.1696-1.6691 2.0374 2.0374 0 0 1 1.4496-2.322 2.0374 2.0374 0 0 1 2.4522 1.2164"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightGrey)"/>
+    </g>
+</svg>
