@@ -16,9 +16,9 @@ function App() {
 
     const [cookies, setCookie, removeCookie] = useCookies(['cityName']);
 
-    const [cityName, updateCityName] = useState(cookies.cityName ? cookies.cityName : "");
+    const cityName = useRef(cookies.cityName ? cookies.cityName : "");
     const [weatherData, updateWeatherData] = useState();
-    const triedToFetchData = useRef(false);
+    const [triedToFetchData, updateTriedToFetchData] = useState(false);
 
     const reloadWeather = async (e) => {
         e.preventDefault();
@@ -35,17 +35,19 @@ function App() {
      */
     const fetchWeather = async () => {
         try {
-            triedToFetchData.current = true;
+            const localWeatherData = await getWeatherData(cityName.current);
 
-            const localWeatherData = await getWeatherData(cityName);
-
-            setCookie('cityName', cityName, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
+            setCookie('cityName', cityName.current, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
             updateWeatherData(localWeatherData);
         } catch (error) {
             console.log("Failed to fetch weather data");
             console.log(error);
             removeCookie("cityName", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
             updateWeatherData();
+        }
+
+        if(triedToFetchData === false) {
+            updateTriedToFetchData(true);
         }
     };
 
@@ -56,13 +58,21 @@ function App() {
         }
     }, []);
 
+    useEffect(() => {
+        document.addEventListener('visibilitychange', () => {
+            if(document.visibilityState === "visible" && cityName.current !== "") {
+                fetchWeather();
+            }
+        });
+    }, []);
+
     return (
         <div className="App" style={{minHeight : `${maxWindowInnerHeight}px`}}>
             <div className="websiteContent">
-                <CitySearchBar cityName={cityName} updateCityName={updateCityName} reloadWeather={reloadWeather}/>
+                <CitySearchBar cityName={cityName} reloadWeather={reloadWeather}/>
                 {weatherData === undefined ? (
                     <div className="noData">
-                        {triedToFetchData.current === false ? (
+                        {triedToFetchData === false ? (
                             <h1>Search for a city name.<br/>Get the weather forecast.</h1>
                         ) : (
                             <h1>Failed to get weather data.<br/>Try another city.</h1>
