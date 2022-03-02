@@ -1,5 +1,5 @@
 import axios from "axios";
-import {utcDateFromUTCUnix, utcTimeFromUTCUnix} from "./utils"
+import {utcDateFromUTCUnix} from "./utils"
 
 export const getWeatherData = async (cityName) => {
     try {
