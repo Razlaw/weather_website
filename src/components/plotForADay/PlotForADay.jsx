@@ -12,7 +12,6 @@ export default function PlotForADay({dayID,
                                         unit,
                                         sunrise,
                                         sunset,
-                                        decimalPrecision = 0,
                                     getIconFunction,
                                     iconKey}) {
     return (

@@ -23,7 +23,7 @@ function weekdayNumberToString(weekdayNumber) {
     }
 }
 
-export default function WeatherForecastForAWeek({cityName, weatherData, unit}) {
+export default function WeatherForecastForAWeek({weatherData}) {
     return (
         <div className="weatherForecastForAWeek">
             <div className="contentContainer">

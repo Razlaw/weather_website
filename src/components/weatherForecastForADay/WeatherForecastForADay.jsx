@@ -86,7 +86,6 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     unit={"mm"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
-                                    decimalPrecision={1}
                                     getIconFunction={getRainIcon}
                                     iconKey={"amountOfPrecipitation"}
                                 />
