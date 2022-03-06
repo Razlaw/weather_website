@@ -124,9 +124,11 @@
             top: 0;
             left: 0;
             position: absolute;
-            transition: all 500ms ease-out;
+            transition: all 500ms cubic-bezier(.86,0,.07,1) 0ms;
+            -webkit-transition: all 500ms cubic-bezier(.86,0,.07,1) 0ms;
             touch-action: inherit;
             padding-left: 5px;
+            will-change: transform;
 
             @include for-tablet {
               transform: none !important;
@@ -182,9 +184,12 @@
             top: 0;
             left: 0;
             position: absolute;
-            transition: all 500ms ease-out;
+            transition: all 500ms cubic-bezier(.86,0,.07,1) 0ms;
+            -webkit-transition: all 500ms cubic-bezier(.86,0,.07,1) 0ms;
             touch-action: inherit;
             padding-left: 5px;
+            will-change: transform;
+
             @include for-tablet {
               transform: none !important;
               position: relative;
