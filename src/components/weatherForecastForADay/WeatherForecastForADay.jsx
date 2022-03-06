@@ -82,7 +82,7 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     currentHour={currentHour}
                                     weatherData={weatherData}
                                     dataKey={"amountOfPrecipitation"}
-                                    plotKey={"amountOfPrecipitation"}
+                                    plotKey={"amountOfPrecipitationForPlot"}
                                     unit={"mm"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
