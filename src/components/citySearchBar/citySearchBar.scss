@@ -78,12 +78,14 @@ select:-webkit-autofill:focus {
           }
         }
 
-        :hover {
-          g {
-            stroke: var(--text-color-darker);
+        @include for-desktop {
+          :hover {
+            g {
+              stroke: var(--text-color-darker);
 
-            path {
-              fill: var(--text-color-darker);
+              path {
+                fill: var(--text-color-darker);
+              }
             }
           }
         }

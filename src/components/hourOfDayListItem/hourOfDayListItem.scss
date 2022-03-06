@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: flex-end;
   touch-action: none;
+  overflow: hidden;
 
   animation: 500ms ease fade-in-hours both;
   animation-iteration-count: 1;
@@ -22,8 +23,17 @@
     }
   }
 
+  @include for-tablet {
+    font-size: 1.4rem;
+  }
+
+  @include for-desktop {
+    font-size: x-large;
+  }
+
   span {
     text-align: end;
+    overflow: hidden;
   }
 
   &.night {

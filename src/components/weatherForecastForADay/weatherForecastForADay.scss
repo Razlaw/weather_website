@@ -5,15 +5,23 @@
   height: 100%;
   touch-action: none;
 
+  @include for-desktop {
+    display: flex;
+    justify-content: center;
+  }
+
   .contentContainer {
     width: 100%;
     height: 100%;
-    min-height: 45.6em;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     touch-action: inherit;
+
+    @include for-desktop {
+      width: 90%;
+    }
 
     .dayDisplay {
       width: 100%;
@@ -29,13 +37,17 @@
         color: var(--text-color);
         padding-left: 0;
         touch-action: inherit;
+
+        @include for-desktop {
+          font-size: x-large;
+        }
       }
     }
 
     .forecast {
       width: 100%;
       height: calc(100% - 2.6em);
-      min-height: 43em;
+      //min-height: 43em;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
@@ -51,13 +63,18 @@
         justify-content: flex-start;
         touch-action: inherit;
 
+        @include for-desktop {
+          padding-right: 3%;
+          padding-left: 1.5%;
+        }
+
         ul {
           height: 100%;
           list-style: none;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: space-between;
+          justify-content: space-around;
           align-content: space-evenly;
           padding: 0 0 0 5px;
           touch-action: inherit;
@@ -90,6 +107,16 @@
           position: absolute;
           touch-action: inherit;
 
+          @include for-tablet {
+            display: flex;
+            flex-direction: row;
+          }
+
+          @include for-desktop {
+            display: flex;
+            flex-direction: row;
+          }
+
           .temperatureAndWindPlotContainer {
             width: 100%;
             height: 100%;
@@ -101,7 +128,19 @@
             touch-action: inherit;
             padding-left: 5px;
 
-            animation: 3500ms ease slide-in-temperature;
+            @include for-tablet {
+              transform: none !important;
+              position: relative;
+              animation: 3500ms ease fade-in-temperature;
+            }
+
+            @include for-desktop {
+              transform: none !important;
+              position: relative;
+              animation: 3500ms ease fade-in-temperature;
+            }
+
+            animation: 3500ms ease-in-out slide-in-temperature;
             animation-iteration-count: 1;
 
             @keyframes slide-in-temperature {
@@ -120,6 +159,20 @@
                 transform: translateX(0%);
               }
             }
+
+            @keyframes fade-in-temperature {
+              0% {
+                opacity: 0.0;
+              }
+
+              30% {
+                opacity: 0.0;
+              }
+
+              100% {
+                opacity: 1;
+              }
+            }
           }
 
           .rainPlotContainer {
@@ -132,8 +185,19 @@
             transition: all 500ms ease-out;
             touch-action: inherit;
             padding-left: 5px;
+            @include for-tablet {
+              transform: none !important;
+              position: relative;
+              animation: 3500ms ease fade-in-rain;
+            }
 
-            animation: 3500ms ease slide-in-rain;
+            @include for-desktop {
+              transform: none !important;
+              position: relative;
+              animation: 3500ms ease fade-in-rain;
+            }
+
+            animation: 3500ms ease-in-out slide-in-rain;
             animation-iteration-count: 1;
 
             @keyframes slide-in-rain {
@@ -152,6 +216,20 @@
                 transform: translateX(100%);
               }
             }
+
+            @keyframes fade-in-rain {
+              0% {
+                opacity: 0.0;
+              }
+
+              30% {
+                opacity: 0.0;
+              }
+
+              100% {
+                opacity: 1;
+              }
+            }
           }
         }
       }
@@ -162,6 +240,14 @@
       position: fixed;
       bottom: 20px;
       left: 20px;
+
+      @include for-tablet {
+        display: none;
+      }
+
+      @include for-desktop {
+        display: none;
+      }
 
       .slideIndicatorItem {
         color: var(--text-color-darkest);

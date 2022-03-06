@@ -11,6 +11,10 @@
   display: flex;
   justify-content: center;
 
+  @include for-desktop {
+    min-height: 100% !important;
+  }
+
   .websiteContent {
     width: 100%;
     max-width: 1200px;

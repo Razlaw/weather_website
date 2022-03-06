@@ -8,9 +8,19 @@
   align-items: center;
   justify-content: flex-end;
   touch-action: none;
+  overflow: hidden;
+
+  @include for-tablet {
+    font-size: 1.4rem;
+  }
+
+  @include for-desktop {
+    font-size: x-large;
+  }
 
   span {
     text-align: end;
+    overflow: hidden;
   }
 
   &.night {

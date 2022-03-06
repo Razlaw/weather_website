@@ -3,18 +3,24 @@
 .weatherForecastForAWeek {
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-rows: 1fr max-content;
   position: relative;
   touch-action: none;
+
+  @include for-desktop {
+    display: flex;
+    justify-content: center;
+  }
 
   .contentContainer {
     width: 100%;
     height: 100%;
-    min-height: 45.6em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    @include for-desktop {
+      width: 90%;
+    }
 
     .dayContainer {
       flex: 1;
@@ -42,6 +48,16 @@
           justify-content: center;
           display: flex;
           align-items: flex-end;
+
+          h3 {
+            @include for-tablet {
+              font-size: 1.8rem;
+            }
+
+            @include for-desktop {
+              font-size: 2.5rem;
+            }
+          }
         }
 
         .weekday {
@@ -52,6 +68,16 @@
           justify-content: center;
           display: flex;
           align-items: flex-start;
+
+          h3 {
+            @include for-tablet {
+              font-size: 1.8rem;
+            }
+
+            @include for-desktop {
+              font-size: 2.5rem;
+            }
+          }
         }
       }
 
@@ -92,6 +118,14 @@
             overflow: hidden;
             font-size: 1.1rem;
 
+            @include for-tablet {
+              font-size: 1.5rem;
+            }
+
+            @include for-desktop {
+              font-size: 2rem;
+            }
+
             * {
               width: 100%;
               margin: 0;
@@ -109,6 +143,14 @@
             .unit {
               font-size: x-small;
               color: var(--text-color);
+
+              @include for-tablet {
+                font-size: small;
+              }
+
+              @include for-desktop {
+                font-size: medium;
+              }
             }
           }
         }
@@ -132,6 +174,16 @@
           align-items: center;
           justify-content: center;
 
+          @include for-tablet {
+            font-size: 1.5rem;
+            justify-content: space-evenly;
+          }
+
+          @include for-desktop {
+            font-size: 2rem;
+            justify-content: space-evenly;
+          }
+
           .icon {
             height: 40%;
             position: relative;
@@ -148,6 +200,15 @@
             position: relative;
             top: -3px;
             overflow: hidden;
+
+            @include for-tablet {
+              font-size: small;
+            }
+
+            @include for-desktop {
+              top: 0;
+              font-size: medium;
+            }
           }
         }
       }
