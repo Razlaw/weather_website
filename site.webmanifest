@@ -27,6 +27,7 @@
     ],
     "theme_color": "#23232b",
     "background_color": "#23232b",
+    "start_url": "/weather_website/",
     "display": "standalone",
     "orientation": "portrait"
 }
