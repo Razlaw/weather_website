@@ -31,7 +31,7 @@ export default function CitySelection({updateCityName}) {
 
     useEffect(() => {
         fetchCityLocations(cityName);
-    }, []);
+    }, [cityName]);
 
     if(citySelection === undefined) {
         return (
