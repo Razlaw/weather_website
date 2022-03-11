@@ -33,12 +33,15 @@ export default function WeatherForecastDisplay({updateCityName}) {
         fetchWeather(lat, lon);
     }, [lat, lon]);
 
+    const onVisibilityChange = () => {
+        if(document.visibilityState === "visible") {
+            fetchWeather(lat, lon);
+        }
+    };
+
     useEffect(() => {
-        document.addEventListener('visibilitychange', () => {
-            if(document.visibilityState === "visible") {
-                fetchWeather(lat, lon);
-            }
-        });
+        document.addEventListener("visibilitychange", onVisibilityChange);
+        return () => document.removeEventListener("visibilitychange", onVisibilityChange);
     }, []);
 
     if(weatherData === undefined) {
