@@ -1,16 +1,24 @@
 import "./citySearchBar.scss";
 import {ReactComponent as MagnifyingGlassIcon} from '../../assets/magnifying_glass.svg';
+import {useNavigate} from "react-router-dom";
 
-export default function CitySearchBar({cityName, updateCityName, updateWeather}) {
+export default function CitySearchBar({cityName, updateCityName}) {
+    const navigate = useNavigate();
+
     function hideKeyboardOnEnter(e) {
         if (e.key === 'Enter') {
             e.target.blur();
         }
     }
 
+    function navigateToCitySelection(e) {
+        e.preventDefault();
+        navigate("/city_selection/cityname=" + cityName);
+    }
+
     return (
         <div className="citySearchBar">
-            <form onSubmit={updateWeather}>
+            <form onSubmit={navigateToCitySelection}>
                 <div className="formComponents">
                     <input
                         onKeyUp={hideKeyboardOnEnter}
