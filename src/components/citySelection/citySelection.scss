@@ -52,7 +52,11 @@
     }
 
     &:hover {
-      color: var(--text-color-darker);
+      .cityDetailsContainer {
+        .cityDetails {
+          padding-left: 10px;
+        }
+      }
     }
 
     .flagContainer {
@@ -75,6 +79,7 @@
         font-size: medium;
         font-weight: 500;
         margin: 0;
+        transition: all 500ms ease-out 0ms;
 
         .cityDetailsCountry {
           color: var(--text-color-darker);
