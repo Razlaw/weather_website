@@ -1,12 +1,12 @@
 import ReactDOM from "react-dom";
 import 'semantic-ui-css/semantic.min.css';
-import {CookiesProvider} from 'react-cookie';
+import {HashRouter} from "react-router-dom";
 
 import App from "./App";
 
 ReactDOM.render(
-    <CookiesProvider>
+    <HashRouter>
         <App/>
-    </CookiesProvider>,
+    </HashRouter>,
     document.getElementById("root")
 );

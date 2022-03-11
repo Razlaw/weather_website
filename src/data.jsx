@@ -1,13 +1,10 @@
 import axios from "axios";
 import {utcDateFromUTCUnix} from "./utils"
 
-export const getWeatherData = async (cityName) => {
+export const getWeatherData = async (lat, lon) => {
     try {
-        // Since OWM one call api accepts latitude and longitude coordinates only, we first fetch the current
-        // weather - containing the coordinates - using the city name and fetch the forecast using the coordinates.
-        const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`);
-        const lat = currentWeather.data.coord.lat;
-        const lon = currentWeather.data.coord.lon;
+        const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}`);
+
         const currentUnixTimeUTC = currentWeather.data.dt;
         const currentUnixTimeInCity = currentWeather.data.dt + currentWeather.data.timezone;
 
