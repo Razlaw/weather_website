@@ -47,6 +47,8 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     sunset={hourOfSunset}
                                     getIconFunction={getWeatherIcon}
                                     iconKey={"weatherIcon"}
+                                    requestedMinimumValue={0}
+                                    requestedMinimalValueRange={20}
                                 />
                                 <PlotForADay
                                     dayID={dayId}
@@ -60,6 +62,8 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     sunset={hourOfSunset}
                                     getIconFunction={getWindDirectionIcon}
                                     iconKey={"windDirection"}
+                                    requestedMinimumValue={0}
+                                    requestedMinimalValueRange={25}
                                 />
                             </div>
                             <div className="rainPlotContainer" style={{transform: `translateX(${(1 - slideID) * 100}%)`}}>
@@ -75,6 +79,8 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     sunset={hourOfSunset}
                                     getIconFunction={getProbabilityOfPrecipitationIcon}
                                     iconKey={"probabilityOfPrecipitation"}
+                                    requestedMinimumValue={0}
+                                    requestedMinimalValueRange={100}
                                 />
                                 <PlotForADay
                                     dayID={dayId}
@@ -82,12 +88,14 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     currentHour={currentHour}
                                     weatherData={weatherData}
                                     dataKey={"amountOfPrecipitation"}
-                                    plotKey={"amountOfPrecipitationForPlot"}
+                                    plotKey={"amountOfPrecipitation"}
                                     unit={"mm"}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
                                     getIconFunction={getRainIcon}
                                     iconKey={"amountOfPrecipitation"}
+                                    requestedMinimumValue={0}
+                                    requestedMinimalValueRange={1.5}
                                 />
                             </div>
                         </div>

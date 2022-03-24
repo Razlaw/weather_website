@@ -11,10 +11,10 @@ function getMinMax(data, dataKey) {
     return [minValue, maxValue];
 }
 
-function createOutline(data, dataKey, minValue) {
+function createOutline(data, dataKey, plotXOffset, minValue, valueRange) {
     let lineString = "M 0,0 ";
     for (let i = 0; i < data.length; i++) {
-        const currentValue = data[i][dataKey] - minValue;
+        const currentValue = (data[i][dataKey] - minValue) / valueRange * 100 + plotXOffset;
         lineString += "H " + currentValue.toString() + " ";
         lineString += "v 1 ";
     }
@@ -23,10 +23,10 @@ function createOutline(data, dataKey, minValue) {
     return lineString;
 }
 
-function createDataLine(data, dataKey, minValue) {
+function createDataLine(data, dataKey, plotXOffset, minValue, valueRange) {
     let lineString = "";
     for (let i = 0; i < data.length; i++) {
-        const currentValue = data[i][dataKey] - minValue;
+        const currentValue = (data[i][dataKey] - minValue) / valueRange * 100 + plotXOffset;
         if(i === 0) {
             lineString += "M " + currentValue.toString() + "," + i.toString() + " ";
         }
@@ -37,15 +37,30 @@ function createDataLine(data, dataKey, minValue) {
     return lineString;
 }
 
-export default function PlotForADay({dayID, plotID, currentHour, weatherData, dataKey}) {
+function createCurrentHourBlock(data, dataKey, currentHour, plotXOffset, minValue, valueRange) {
+    const yStartPosition = currentHour + 0.05;
+    const xValueAtCurrentHour = (data[currentHour][dataKey] - minValue) / valueRange * 100 + plotXOffset;
+    const blockHeight = 0.9;
+    const pathForBlock = `M 0,${yStartPosition} H ${xValueAtCurrentHour} v ${blockHeight} H 0 z`;
+    return pathForBlock;
+}
+
+export default function OutlinePlot({dayID,
+                                        plotID,
+                                        currentHour,
+                                        weatherData,
+                                        dataKey,
+                                        requestedMinimumValue = undefined,
+                                        requestedMinimalValueRange = undefined}) {
+    const plotXOffset = 20;
     const plotDayID = plotID.toString() + dayID.toString();
 
     let [minValue, maxValue] = getMinMax(weatherData, dataKey);
+    minValue = requestedMinimumValue === undefined ? minValue : Math.min(minValue, requestedMinimumValue);
 
-    const minPlotWidth = 1;
-    minValue -= Math.max(minPlotWidth, (maxValue - minValue) * 0.2);
+    let valueRange = maxValue - minValue;
+    valueRange = requestedMinimalValueRange === undefined ? valueRange : Math.max(valueRange, requestedMinimalValueRange);
 
-    const minViewBoxWidth = 5;
     useEffect(() => {
         const svg = document.querySelector("." + plotDayID);
 
@@ -61,6 +76,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
             "yMin": Number.MAX_VALUE,
             "yMax": -Number.MAX_VALUE});
 
+        const minViewBoxWidth = 100 + plotXOffset;
         const viewbox = `${xMin} ${yMin} ${Math.max(
             xMax - xMin,
             minViewBoxWidth
@@ -85,7 +101,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                     fill="none"
                     strokeWidth="4"
                     vectorEffect="non-scaling-stroke"
-                    d={createOutline(weatherData, dataKey, minValue)}
+                    d={createOutline(weatherData, dataKey, plotXOffset, minValue, valueRange)}
                 />
 
                 <clipPath id={"clip" + plotDayID}>
@@ -98,7 +114,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                     strokeWidth="4"
                     fill="none"
                     vectorEffect="non-scaling-stroke"
-                    d={createDataLine(weatherData, dataKey, minValue)}
+                    d={createDataLine(weatherData, dataKey, plotXOffset, minValue, valueRange)}
                 />
             </defs>
 
@@ -106,7 +122,7 @@ export default function PlotForADay({dayID, plotID, currentHour, weatherData, da
                 className="currentHourPath"
                 strokeWidth="0"
                 vectorEffect="non-scaling-stroke"
-                d={"M 0," + (currentHour + 0.05).toString() + " H " + (weatherData[currentHour][dataKey] - minValue).toString()+ " v 0.9 H 0 z"}
+                d={createCurrentHourBlock(weatherData, dataKey, currentHour, plotXOffset, minValue, valueRange)}
             />
             <use
                 className={"outlinePath " + plotID.toString()}

@@ -13,7 +13,9 @@ export default function PlotForADay({dayID,
                                         sunrise,
                                         sunset,
                                     getIconFunction,
-                                    iconKey}) {
+                                    iconKey,
+                                        requestedMinimumValue = undefined,
+                                        requestedMinimalValueRange = undefined}) {
     return (
         <div className="plotAndDataContainer">
             <div className="iconContainer">
@@ -48,6 +50,8 @@ export default function PlotForADay({dayID,
                     currentHour={currentHour}
                     weatherData={weatherData}
                     dataKey={plotKey}
+                    requestedMinimumValue={requestedMinimumValue}
+                    requestedMinimalValueRange={requestedMinimalValueRange}
                 />
                 <div className="emptySpace"/>
             </div>

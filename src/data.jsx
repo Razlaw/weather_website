@@ -38,7 +38,6 @@ export const getWeatherData = async (lat, lon) => {
                     "windSpeed": Math.round(yesterdaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                     "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
                     "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                    "amountOfPrecipitationForPlot": amountOfPrecipitation.toFixed(1) * 10,
                     "dateLocal": utcDateFromUTCUnix(yesterdaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone)
                 });
             }
@@ -59,7 +58,6 @@ export const getWeatherData = async (lat, lon) => {
                 "windSpeed": Math.round(todaysHistoricalWeather.data.hourly[i].wind_speed * 3.6),
                 "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                "amountOfPrecipitationForPlot": amountOfPrecipitation.toFixed(1) * 10,
                 "dateLocal": utcDateFromUTCUnix(todaysHistoricalWeather.data.hourly[i].dt + currentWeather.data.timezone)
             });
         }
@@ -80,7 +78,6 @@ export const getWeatherData = async (lat, lon) => {
                 "windSpeed": Math.round(nextDaysForecast.data.hourly[i].wind_speed * 3.6),  // in km/h
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.hourly[i] ? (nextDaysForecast.data.hourly[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                "amountOfPrecipitationForPlot": amountOfPrecipitation.toFixed(1) * 10,
                 "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.hourly[i].dt + currentWeather.data.timezone)
             });
         }
@@ -98,7 +95,6 @@ export const getWeatherData = async (lat, lon) => {
                 "windSpeed": Math.round(nextDaysForecast.data.daily[i].wind_speed * 3.6),  // in km/h
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.daily[i] ? (nextDaysForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
                 "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                "amountOfPrecipitationForPlot": amountOfPrecipitation.toFixed(1) * 10,
                 "dateLocal": utcDateFromUTCUnix(nextDaysForecast.data.daily[i].dt + currentWeather.data.timezone)
             });
         }
