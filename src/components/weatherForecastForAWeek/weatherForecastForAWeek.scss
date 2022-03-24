@@ -220,6 +220,10 @@
 
       span {
         color: var(--text-color);
+
+        a {
+          pointer-events: initial;
+        }
       }
     }
   }
