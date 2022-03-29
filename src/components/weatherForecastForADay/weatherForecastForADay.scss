@@ -47,12 +47,11 @@
     .forecast {
       width: 100%;
       height: calc(100% - 2.6em);
-      //min-height: 43em;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       justify-content: space-between;
-      padding-bottom: 20px;
+      padding-bottom: 7px;
       touch-action: inherit;
 
       .hoursOfDay {
@@ -243,7 +242,7 @@
     .slideIndicator {
       width: 100%;
       position: fixed;
-      bottom: 20px;
+      bottom: 7px;
       left: 20px;
 
       @include for-tablet {

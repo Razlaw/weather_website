@@ -6,7 +6,7 @@ import {ScrollSnap2D} from "../../utils";
 import {useNavigate, useParams} from "react-router-dom";
 import {getWeatherData} from "../../data";
 
-export default function WeatherForecastDisplay({updateCityName}) {
+export default function WeatherForecastDisplay({updateCityName, areCookiesAccepted}) {
     const [currentSlidePosition, handleTouchStart, scrollOnSwipe] = ScrollSnap2D(2, 3);
 
     const navigate = useNavigate();
@@ -19,6 +19,9 @@ export default function WeatherForecastDisplay({updateCityName}) {
             const localWeatherData = await getWeatherData(lat, lon);
 
             updateCityName(cityName);
+            if(areCookiesAccepted) {
+                // TODO: set cookies
+            }
             updateWeatherData(localWeatherData);
         } catch (error) {
             console.log("Failed to fetch weather data");

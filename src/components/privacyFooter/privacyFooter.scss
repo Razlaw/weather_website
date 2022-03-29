@@ -1,0 +1,74 @@
+@import "./../../global.scss";
+
+.privacyFooterContainer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color-bottom);
+  transition: background-color 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+
+  &.showCookieBanner {
+    background-color: #ddd;
+  }
+
+  .privacyFooterContent {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    color: var(--text-color-darkest);
+
+    .cookieBannerContainer {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-end;
+
+      //background-color: olive;
+
+      .cookieDeclineButton {
+        width: 30%;
+        height: 50px;
+        cursor: pointer;
+
+        background-color: olivedrab;
+      }
+
+      .cookieAcceptButton {
+        width: 30%;
+        height: 50px;
+        cursor: pointer;
+
+        background-color: darkgreen;
+      }
+    }
+
+    .linkToPrivacyStatementContainer {
+      width: 100%;
+      height: 20px;
+      position: relative;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      text-decoration: underline dotted;
+
+      * {
+        cursor: pointer;
+      }
+
+      //background-color: orange;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import "./../../global.scss";
+
+.privacyStatementContainer {
+  width: 100%;
+  height: 100%;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
+  scrollbar-width: none;
+
+  touch-action: initial;
+
+  .contentContainer {
+    width: 90%;
+    padding-top: 60px;
+    text-align: left;
+    scrollbar-width: none;
+    transition: padding-top 1s ease-in-out;
+
+    &.showCookieBanner {
+      padding-top: 260px;
+    }
+
+    @include for-desktop {
+      width: 60%;
+    }
+
+    .removeCookiesButton {
+      width: 100%;
+      height: 40px;
+      text-align: center;
+      background-color: var(--search-bar-color-bottom);
+      color: var(--text-color);
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  }
+
+  * {
+    touch-action: initial;
+  }
+}

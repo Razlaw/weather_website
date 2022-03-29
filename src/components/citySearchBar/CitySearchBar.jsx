@@ -2,7 +2,7 @@ import "./citySearchBar.scss";
 import {ReactComponent as MagnifyingGlassIcon} from '../../assets/magnifying_glass.svg';
 import {useNavigate} from "react-router-dom";
 
-export default function CitySearchBar({cityName, updateCityName}) {
+export default function CitySearchBar({cityName, updateCityName, setShowCookieBanner}) {
     const navigate = useNavigate();
 
     function hideKeyboardOnEnter(e) {
@@ -13,6 +13,7 @@ export default function CitySearchBar({cityName, updateCityName}) {
 
     function navigateToCitySelection(e) {
         e.preventDefault();
+        setShowCookieBanner(false);
         navigate("/city_selection/cityname=" + cityName);
     }
 

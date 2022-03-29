@@ -1,0 +1,46 @@
+import "./privacyFooter.scss";
+import React from "react";
+import {useNavigate} from "react-router-dom";
+
+export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, setAreCookiesAccepted}) {
+    const navigate = useNavigate();
+
+    function onDecline() {
+        setShowCookieBanner(false);
+        setAreCookiesAccepted(false);
+    }
+
+    function onAccept() {
+        setShowCookieBanner(false);
+        setAreCookiesAccepted(true);
+    }
+
+    return (
+        <div className={"privacyFooterContainer " + (showCookieBanner && "showCookieBanner")}>
+            <div className="privacyFooterContent">
+                <div className="cookieBannerContainer">
+                    <div
+                        className="cookieDeclineButton"
+                        onClick={onDecline}
+                    >
+                        Nein
+                    </div>
+                    <div
+                        className="cookieAcceptButton"
+                        onClick={onAccept}
+                    >
+                        Ja
+                    </div>
+                </div>
+                <div className="linkToPrivacyStatementContainer">
+                    <div className="linkToPrivacyStatement" onClick={() => navigate("/privacy_statement")}>
+                        Datenschutz
+                    </div>
+                    <div className="linkToSiteNotice" onClick={() => navigate("/site_notice")}>
+                        Impressum
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
