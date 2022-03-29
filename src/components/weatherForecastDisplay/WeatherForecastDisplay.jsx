@@ -6,7 +6,7 @@ import {ScrollSnap2D} from "../../utils";
 import {useNavigate, useParams} from "react-router-dom";
 import {getWeatherData} from "../../data";
 
-export default function WeatherForecastDisplay({updateCityName, areCookiesAccepted}) {
+export default function WeatherForecastDisplay({updateCityName, areCookiesAccepted, setCookie}) {
     const [currentSlidePosition, handleTouchStart, scrollOnSwipe] = ScrollSnap2D(2, 3);
 
     const navigate = useNavigate();
@@ -20,7 +20,9 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
 
             updateCityName(cityName);
             if(areCookiesAccepted) {
-                // TODO: set cookies
+                setCookie('selectedCityName', cityName, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
+                setCookie('lat', lat, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
+                setCookie('lon', lon, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
             }
             updateWeatherData(localWeatherData);
         } catch (error) {

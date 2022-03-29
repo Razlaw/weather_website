@@ -1,7 +1,8 @@
 import "./app.scss";
 
-import React, {useState} from "react";
-import {Route, Routes} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Route, Routes, useNavigate} from "react-router-dom";
+import {useCookies} from 'react-cookie';
 
 import CitySearchBar from "./components/citySearchBar/CitySearchBar";
 import Home from "./components/home/Home";
@@ -20,10 +21,19 @@ function App() {
     // components when the Android keyboard is opened - which leads to a smaller inner height.
     const maxWindowInnerHeight = MaxWindowInnerHeight();
 
-    const [cityName, updateCityName] = useState("");
-    const [showCookieBanner, setShowCookieBanner] = useState(true);
-    const [areCookiesAccepted, setAreCookiesAccepted] = useState(false);
+    const [cookies, setCookie, removeCookie] = useCookies([]);
 
+    const [cityName, updateCityName] = useState("");
+    const [showCookieBanner, setShowCookieBanner] = useState(cookies.areCookiesAccepted === undefined);
+    const [areCookiesAccepted, setAreCookiesAccepted] = useState(cookies.areCookiesAccepted === "true");
+
+    // If cookies were set before, navigate to previously viewed weather forecast
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (cookies.selectedCityName !== undefined) {
+            navigate("/forecast/lat=" + cookies.lat + "&lon=" + cookies.lon + "&cityname=" + cookies.selectedCityName);
+        }
+    }, []);
 
     return (
         <div className="appBackground" style={{minHeight : `${maxWindowInnerHeight}px`}}>
@@ -38,9 +48,9 @@ function App() {
                         <Route path="/" element={<Home/>}/>
                         <Route path="/city_selection/cityname=:cityName" element={<CitySelection updateCityName={updateCityName}/>}/>
                         <Route path="/failed_fetch" element={<FailedFetch/>}/>
-                        <Route path="/forecast/lat=:lat&lon=:lon&cityname=:cityName" element={<WeatherForecastDisplay updateCityName={updateCityName} areCookiesAccepted={areCookiesAccepted}/>}/>
+                        <Route path="/forecast/lat=:lat&lon=:lon&cityname=:cityName" element={<WeatherForecastDisplay updateCityName={updateCityName} areCookiesAccepted={areCookiesAccepted} setCookie={setCookie}/>}/>
 
-                        <Route path="/privacy_statement" element={<PrivacyStatement showCookieBanner={showCookieBanner} setAreCookiesAccepted={setAreCookiesAccepted}/>}/>
+                        <Route path="/privacy_statement" element={<PrivacyStatement showCookieBanner={showCookieBanner} removeCookie={removeCookie} setAreCookiesAccepted={setAreCookiesAccepted}/>}/>
                         <Route path="/site_notice" element={<SiteNotice showCookieBanner={showCookieBanner}/>}/>
 
                         <Route path="/*" element={<ErrorPage/>}/>
@@ -51,6 +61,7 @@ function App() {
                 showCookieBanner={showCookieBanner}
                 setShowCookieBanner={setShowCookieBanner}
                 setAreCookiesAccepted={setAreCookiesAccepted}
+                setCookie={setCookie}
             />
         </div>
     );

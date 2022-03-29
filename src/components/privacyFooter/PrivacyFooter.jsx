@@ -2,7 +2,7 @@ import "./privacyFooter.scss";
 import React from "react";
 import {useNavigate} from "react-router-dom";
 
-export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, setAreCookiesAccepted}) {
+export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, setAreCookiesAccepted, setCookie}) {
     const navigate = useNavigate();
 
     function onDecline() {
@@ -13,6 +13,7 @@ export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, se
     function onAccept() {
         setShowCookieBanner(false);
         setAreCookiesAccepted(true);
+        setCookie('areCookiesAccepted', "true", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
     }
 
     return (

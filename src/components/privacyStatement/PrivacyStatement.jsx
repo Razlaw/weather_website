@@ -1,8 +1,12 @@
 import "./privacyStatement.scss";
 import React from "react";
 
-export default function PrivacyStatement({showCookieBanner, setAreCookiesAccepted}) {
+export default function PrivacyStatement({showCookieBanner, removeCookie, setAreCookiesAccepted}) {
     function removeAllCookies() {
+        removeCookie("selectedCityName", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
+        removeCookie("lat", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
+        removeCookie("lon", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
+        removeCookie("areCookiesAccepted", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         setAreCookiesAccepted(false);
     }
 
