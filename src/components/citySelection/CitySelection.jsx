@@ -17,7 +17,7 @@ export default function CitySelection({updateCityName}) {
         try {
             const cityLocations = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${process.env.REACT_APP_API_KEY}`);
             if(cityLocations.data.length === 0) {
-                throw "No cities with corresponding names to " + cityName + " found.";
+                throw new Error("No cities with corresponding names to " + cityName + " found.");
             }
             updateCityName(cityName);
             updateCitySelection(cityLocations.data);
