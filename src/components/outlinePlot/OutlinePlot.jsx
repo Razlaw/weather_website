@@ -83,7 +83,7 @@ export default function OutlinePlot({dayID,
         )} ${yMax - yMin}`;
 
         svg.setAttribute("viewBox", viewbox);
-    }, [weatherData]);
+    }, [weatherData, plotDayID]);
 
     return (
         <svg
