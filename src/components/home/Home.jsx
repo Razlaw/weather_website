@@ -4,7 +4,7 @@ import React from "react";
 export default function Home() {
     return (
         <div className="homeScreen">
-            <h1>Search for a city name.<br/>Get the weather forecast.</h1>
+            <h1>Suche nach - Stadt.<br/>Finde vor - Wetter.</h1>
         </div>
     );
 }

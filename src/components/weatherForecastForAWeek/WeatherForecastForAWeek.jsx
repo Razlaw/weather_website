@@ -5,19 +5,19 @@ import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindD
 function weekdayNumberToString(weekdayNumber) {
     switch (weekdayNumber) {
         case 0:
-            return "Sun";
+            return "Son";
         case 1:
             return "Mon";
         case 2:
-            return "Tue";
+            return "Din";
         case 3:
-            return "Wed";
+            return "Mit";
         case 4:
-            return "Thu";
+            return "Don";
         case 5:
-            return "Fri";
+            return "Fre";
         case 6:
-            return "Sat";
+            return "Sam";
         default:
             return "?";
     }
@@ -92,10 +92,12 @@ export default function WeatherForecastForAWeek({weatherData}) {
                 )}
                 <div className="footer">
                     <span>
-                        The weather data displayed on this website is provided by
-                        <a href="https://openweathermap.org"> OpenWeather (TM)</a> under the
-                        <a href="https://creativecommons.org/licenses/by-sa/4.0/"> Creative Commons Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0)</a>.
-                        Data and database are open and licensed by <a href="https://opendatacommons.org/licenses/odbl/"> Open Data Commons Open Database License (ODbL)</a>.
+                        Die dargestellten Wetterdaten werden durch
+                        <a href="https://openweathermap.org"> OpenWeather (TM)</a> unter der
+                        <a href="https://creativecommons.org/licenses/by-sa/4.0/"> Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) </a>
+                        bereitgestellt.
+                        Daten und Datenbank sind offen und lizensiert unter der
+                        <a href="https://opendatacommons.org/licenses/odbl/"> Open Data Commons Open Database License (ODbL)</a>.
                     </span>
                 </div>
             </div>

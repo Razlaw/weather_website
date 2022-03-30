@@ -5,7 +5,7 @@ import PlotForADay from "../plotForADay/PlotForADay";
 import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindDirectionIcon} from "../../IconsUtils";
 
 export default function WeatherForecastForADay({dayId, weatherData, currentHour, hourOfSunrise, hourOfSunset, slideID}) {
-    const dayToDisplay = dayId === 0 ? "Today" : "Tomorrow";
+    const dayToDisplay = dayId === 0 ? "Heute" : "Morgen";
     const date = (weatherData[0]["dateLocal"]["day"] < 10 ? "0" : "") + weatherData[0]["dateLocal"]["day"].toString() +
         "." + (weatherData[0]["dateLocal"]["month"] < 10 ? "0" : "") + weatherData[0]["dateLocal"]["month"].toString();
 

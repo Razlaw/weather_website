@@ -24,13 +24,13 @@ export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, se
                         className="cookieDeclineButton"
                         onClick={onDecline}
                     >
-                        Nein
+                        Cookies ablehnen
                     </div>
                     <div
                         className="cookieAcceptButton"
                         onClick={onAccept}
                     >
-                        Ja
+                        Cookies zulassen
                     </div>
                 </div>
                 <div className="linkToPrivacyStatementContainer">

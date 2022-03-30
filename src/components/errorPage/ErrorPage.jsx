@@ -7,9 +7,9 @@ export default function ErrorPage() {
 
     return (
         <div className="errorPage">
-            <h1>Error.<br/>Path does not exist.</h1>
+            <h1>Fehler.<br/>Dieser Pfad existiert nicht.</h1>
             <span>
-                Requested path is {location.pathname}.
+                Der angeforderte Pfad ist {location.pathname}.
             </span>
         </div>
     );

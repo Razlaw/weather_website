@@ -36,7 +36,7 @@ export default function CitySelection({updateCityName}) {
     if(citySelection === undefined) {
         return (
             <div className="loadingCitySelection">
-                <h1>Loading data.</h1>
+                <h1>Lade Daten.</h1>
             </div>
         );
     }

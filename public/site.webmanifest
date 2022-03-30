@@ -1,6 +1,6 @@
 {
-    "name": "Weather",
-    "short_name": "Weather",
+    "name": "Wetter",
+    "short_name": "Wetter",
     "icons": [
         {
             "src": "/weather_website/android-chrome-192x192.png",

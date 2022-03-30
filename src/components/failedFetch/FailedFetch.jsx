@@ -4,7 +4,7 @@ import React from "react";
 export default function FailedFetch() {
     return (
         <div className="failedFetch">
-            <h1>Failed to get weather data.<br/>Try another city.</h1>
+            <h1>Suche nach Wetterdaten gescheitert.<br/>Probiere eine andere Stadt.</h1>
         </div>
     );
 }

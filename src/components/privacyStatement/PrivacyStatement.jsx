@@ -14,7 +14,7 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
         <div className="privacyStatementContainer">
             <div className={"contentContainer " + (showCookieBanner && "showCookieBanner")}>
                 <div className="removeCookiesButton" onClick={removeAllCookies}>
-                    <h1>Remove cookies</h1>
+                    <h1>Lösche Cookies</h1>
                 </div>
                 <h1>Datenschutzerklärung</h1>
                 

@@ -52,7 +52,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
     if(weatherData === undefined) {
         return (
             <div className="loadingData">
-                <h1>Loading data.</h1>
+                <h1>Lade Daten.</h1>
             </div>
         );
     }
