@@ -62,7 +62,7 @@
           border-radius: 7px;
           margin-bottom: 5px;
           opacity: 0;
-          transition: all 1s ease-in-out;
+          transition: opacity 1s ease-in-out, box-shadow 1s ease-in-out;
           user-select: none;
 
           display: flex;
