@@ -261,6 +261,13 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                         Mediendateien, wie Grafiken oder Programm-Skripte, mit Hilfe regional verteilter und über das
                         Internet verbundener Server schneller und sicherer ausgeliefert werden können.
                     </li>
+                    <li><strong>Github Pages: </strong>Hosting Service von Github; <strong>Dienstanbieter: </strong>
+                        GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA; <strong>Website: </strong>
+                        <a href="https://github.com/" target="_blank" rel="noreferrer">https://github.com/</a>;
+                        <strong> Datenschutzerklärung: </strong>
+                        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
+                           target="_blank" rel="noreferrer">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a>.
+                    </li>
                 </ul>
                 <h2 id="m182">Kontakt- und Anfragenverwaltung</h2><p>Bei der Kontaktaufnahme mit uns (z.B. per
                 Kontaktformular, E-Mail, Telefon oder via soziale Medien) sowie im Rahmen bestehender Nutzer- und
