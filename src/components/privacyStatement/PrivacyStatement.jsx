@@ -1,6 +1,7 @@
 import "./privacyStatement.scss";
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {HashLink} from "react-router-hash-link";
 
 export default function PrivacyStatement({showCookieBanner, removeCookie, setAreCookiesAccepted}) {
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                     <h2>Lösche Cookies</h2>
                 </div>
                 <h1>Datenschutzerklärung</h1>
-                <h2>Einleitung</h2>
+                <h2 id="m1870">Einleitung</h2>
                 <p>
                     <strong>Zusammenfassung für Laien</strong><br/>
                     Diese Website leitet deine Suchanfrage weiter, um dir die Wettervorhersage darzustellen.
@@ -59,25 +60,22 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                 </p>
                 <p>Stand: 30. März 2022</p><h2>Inhaltsübersicht</h2>
                 <ul className="index">
-                    <li><a className="index-link" href="#m1870">Einleitung</a></li>
-                    <li><a className="index-link" href="#m3">Verantwortlicher</a></li>
-                    <li><a className="index-link" href="#mOverview">Übersicht der Verarbeitungen</a></li>
-                    <li><a className="index-link" href="#m13">Maßgebliche Rechtsgrundlagen</a></li>
-                    <li><a className="index-link" href="#m27">Sicherheitsmaßnahmen</a></li>
-                    <li><a className="index-link" href="#m25">Übermittlung von personenbezogenen Daten</a></li>
-                    <li><a className="index-link" href="#m24">Datenverarbeitung in Drittländern</a></li>
-                    <li><a className="index-link" href="#m12">Löschung von Daten</a></li>
-                    <li><a className="index-link" href="#m134">Einsatz von Cookies</a></li>
-                    <li><a className="index-link" href="#m225">Bereitstellung des Onlineangebotes und Webhosting</a>
-                    </li>
-                    <li><a className="index-link" href="#m182">Kontakt- und Anfragenverwaltung</a></li>
-                    <li><a className="index-link" href="#m328">Plugins und eingebettete Funktionen sowie Inhalte</a>
-                    </li>
-                    <li><a className="index-link" href="#m15">Änderung und Aktualisierung der Datenschutzerklärung</a>
-                    </li>
-                    <li><a className="index-link" href="#m10">Rechte der betroffenen Personen</a></li>
-                    <li><a className="index-link" href="#m42">Begriffsdefinitionen</a></li>
-                    <li><a className="index-link" href="#m43">Vom Websiteinhaber angepasst</a></li>
+                    <li><HashLink smooth to="/privacy_statement#m1870">Einleitung</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m3">Verantwortlicher</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#mOverview">Übersicht der Verarbeitungen</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m13">Maßgebliche Rechtsgrundlagen</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m27">Sicherheitsmaßnahmen</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m25">Übermittlung von personenbezogenen Daten</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m24">Datenverarbeitung in Drittländern</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m12">Löschung von Daten</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m134">Einsatz von Cookies</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m225">Bereitstellung des Onlineangebotes und Webhosting</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m182">Kontakt- und Anfragenverwaltung</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m328">Plugins und eingebettete Funktionen sowie Inhalte</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m15">Änderung und Aktualisierung der Datenschutzerklärung</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m10">Rechte der betroffenen Personen</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m42">Begriffsdefinitionen</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m43">Vom Websiteinhaber angepasst</HashLink></li>
                 </ul>
                 <h2 id="m3">Verantwortlicher</h2><p>Jan Razlaw<br/>Römerstr. 367<br/>53117 Bonn</p>
                 E-Mail-Adresse: <p>jan.razlaw [at] googlemail.com</p>
@@ -465,11 +463,12 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                         hinzugefügt, die einfach darstellen soll welche Daten der Nutzer auf dieser Website selbst
                         verarbeitet werden.
                     </li>
-                    <li><strong>Github Pages:</strong> Im Abschnitt <a className="index-link" href="#m225">Bereitstellung
-                        des Onlineangebotes und Webhosting</a> wurde der Punkt Github Pages hinzugefügt.
+                    <li><strong>Github Pages:</strong> Im Abschnitt <HashLink smooth to="/privacy_statement#m225">
+                        Bereitstellung des Onlineangebotes und Webhosting</HashLink> wurde der Punkt Github Pages hinzugefügt.
                     </li>
-                    <li><strong>OpenWeather:</strong> Im Abschnitt <a className="index-link" href="#m328"> Plugins und
-                        eingebettete Funktionen sowie Inhalte </a> wurde der Punkt OpenWeather hinzugefügt.
+                    <li><strong>OpenWeather:</strong> Im Abschnitt <HashLink smooth to="/privacy_statement#m328">Plugins
+                        und eingebettete Funktionen sowie Inhalte </HashLink>
+                        wurde der Punkt OpenWeather hinzugefügt.
                     </li>
                 </ul>
                 <p className="seal"><a href="https://datenschutz-generator.de/"
