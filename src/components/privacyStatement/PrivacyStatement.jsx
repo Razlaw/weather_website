@@ -76,9 +76,10 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                     <li><a className="index-link" href="#m43">Vom Websiteinhaber angepasst</a></li>
                 </ul>
                 <h2 id="m3">Verantwortlicher</h2><p>Jan Razlaw<br/>Römerstr. 367<br/>53117 Bonn</p>
-                E-Mail-Adresse: <p><a href="mailto:jan.razlaw@googlemail.com">jan.razlaw@googlemail.com</a></p>
-                Impressum: <p><a href="https://razlaw.github.io/weather_website/#/site_notice"
-                                 target="_blank">https://razlaw.github.io/weather_website/#/site_notice</a></p>
+                E-Mail-Adresse: <p>jan.razlaw [at] googlemail.com</p>
+                Impressum: <p>
+                <a href="https://razlaw.github.io/weather_website/#/site_notice" target="_blank" rel="noreferrer">
+                    https://razlaw.github.io/weather_website/#/site_notice</a></p>
                 <h2 id="mOverview">Übersicht der Verarbeitungen</h2><p>Die nachfolgende Übersicht fasst die Arten der
                 verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen
                 Personen.</p><h3>Arten der verarbeiteten Daten</h3>
@@ -160,7 +161,7 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                     EU-Kommission, beim Vorliegen von Zertifizierungen oder verbindlicher internen
                     Datenschutzvorschriften verarbeiten (Art. 44 bis 49 DSGVO, Informationsseite der EU-Kommission: <a
                         href="https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de"
-                        target="_blank">https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de</a>).
+                        target="_blank" rel="noreferrer">https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de</a>).
                 </p>
                 <h2 id="m12">Löschung von Daten</h2><p>Die von uns verarbeiteten Daten werden nach Maßgabe der
                 gesetzlichen Vorgaben gelöscht, sobald deren zur Verarbeitung erlaubten Einwilligungen widerrufen werden
@@ -369,11 +370,12 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                         Website und um dem Benutzer Wettervorhersagen bereitzustellen. Dies stellt ein berechtigtes
                         Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. ;
 
-                        <strong>Dienstanbieter:</strong> Openweather Limited, 4 Queens Road, Wimbledon, London, SW19 8YB,
-                        United Kingdom; <strong>Website:</strong> <a href="https://openweathermap.org/"
-                                                          target="_blank">https://openweathermap.org/</a>; <strong>Datenschutzerklärung:</strong>
-                        <a href="https://openweather.co.uk/privacy-policy"
-                           target="_blank">https://openweather.co.uk/privacy-policy</a>.
+                        <strong> Dienstanbieter:</strong> Openweather Limited, 4 Queens Road, Wimbledon, London, SW19
+                        8YB, United Kingdom; <strong>Website: </strong>
+                        <a href="https://openweathermap.org/" target="_blank" rel="noreferrer">https://openweathermap.org/</a>;
+                        <strong> Datenschutzerklärung: </strong>
+                        <a href="https://openweather.co.uk/privacy-policy" target="_blank" rel="noreferrer">
+                            https://openweather.co.uk/privacy-policy</a>.
                     </li>
                 </ul>
                 <h2 id="m15">Änderung und Aktualisierung der Datenschutzerklärung</h2><p>Wir bitten Sie, sich regelmäßig
@@ -423,8 +425,8 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                         Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die Vorgaben der DSGVO verstößt.
                     </li>
                 </ul>
-                Für uns zuständige Aufsichtsbehörde: <p><a href="https://www.ldi.nrw.de/"
-                                                           target="_blank">https://www.ldi.nrw.de/</a></p>
+                Für uns zuständige Aufsichtsbehörde: <p>
+                <a href="https://www.ldi.nrw.de/" target="_blank" rel="noreferrer">https://www.ldi.nrw.de/</a></p>
                 <h2 id="m42">Begriffsdefinitionen</h2><p>In diesem Abschnitt erhalten Sie eine Übersicht über die in
                 dieser Datenschutzerklärung verwendeten Begrifflichkeiten. Viele der Begriffe sind dem Gesetz entnommen
                 und vor allem im Art. 4 DSGVO definiert. Die gesetzlichen Definitionen sind verbindlich. Die
