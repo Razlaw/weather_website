@@ -66,6 +66,11 @@ body ::-webkit-scrollbar {
         overflow: initial;
       }
     }
+
+    .linkToSiteNotice {
+      cursor: pointer;
+      color: #4183c4;
+    }
   }
 
   * {

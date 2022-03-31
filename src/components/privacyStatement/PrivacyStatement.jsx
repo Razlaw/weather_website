@@ -1,7 +1,10 @@
 import "./privacyStatement.scss";
 import React from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function PrivacyStatement({showCookieBanner, removeCookie, setAreCookiesAccepted}) {
+    const navigate = useNavigate();
+
     function removeAllCookies() {
         removeCookie("selectedCityName", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         removeCookie("lat", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
@@ -78,9 +81,8 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                 </ul>
                 <h2 id="m3">Verantwortlicher</h2><p>Jan Razlaw<br/>Römerstr. 367<br/>53117 Bonn</p>
                 E-Mail-Adresse: <p>jan.razlaw [at] googlemail.com</p>
-                Impressum: <p>
-                <a href="https://razlaw.github.io/weather_website/#/site_notice" target="_blank" rel="noreferrer">
-                    https://razlaw.github.io/weather_website/#/site_notice</a></p>
+                Impressum:
+                <p className="linkToSiteNotice" onClick={() => navigate("/site_notice")}>https://razlaw.github.io/weather_website/#/site_notice</p>
                 <h2 id="mOverview">Übersicht der Verarbeitungen</h2><p>Die nachfolgende Übersicht fasst die Arten der
                 verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen
                 Personen.</p><h3>Arten der verarbeiteten Daten</h3>
