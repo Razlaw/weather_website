@@ -35,12 +35,19 @@
       color: var(--text-color);
       cursor: pointer;
       border-radius: 4px;
+      box-shadow: 2px 2px 3px 1px #151515;
       display: flex;
       justify-content: center;
       align-items: center;
 
       &:hover {
         color: var(--text-color-darker);
+      }
+
+      &:active {
+        height: 39px;
+        margin-top: 1px;
+        box-shadow: none;
       }
     }
 
