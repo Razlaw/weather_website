@@ -161,7 +161,8 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                     EU-Kommission, beim Vorliegen von Zertifizierungen oder verbindlicher internen
                     Datenschutzvorschriften verarbeiten (Art. 44 bis 49 DSGVO, Informationsseite der EU-Kommission: <a
                         href="https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de"
-                        target="_blank" rel="noreferrer">https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de</a>).
+                        target="_blank"
+                        rel="noreferrer">https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de</a>).
                 </p>
                 <h2 id="m12">Löschung von Daten</h2><p>Die von uns verarbeiteten Daten werden nach Maßgabe der
                 gesetzlichen Vorgaben gelöscht, sobald deren zur Verarbeitung erlaubten Einwilligungen widerrufen werden
@@ -302,7 +303,8 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                         <a href="https://github.com/" target="_blank" rel="noreferrer">https://github.com/</a>;
                         <strong> Datenschutzerklärung: </strong>
                         <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
-                           target="_blank" rel="noreferrer">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a>.
+                           target="_blank"
+                           rel="noreferrer">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a>.
                     </li>
                 </ul>
                 <h2 id="m182">Kontakt- und Anfragenverwaltung</h2><p>Bei der Kontaktaufnahme mit uns (z.B. per
@@ -368,11 +370,12 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
 
                         Die Nutzung von OpenWeatherMap erfolgt im Interesse einer ansprechenden Darstellung dieser
                         Website und um dem Benutzer Wettervorhersagen bereitzustellen. Dies stellt ein berechtigtes
-                        Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. ;
+                        Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar.;
 
                         <strong> Dienstanbieter:</strong> Openweather Limited, 4 Queens Road, Wimbledon, London, SW19
                         8YB, United Kingdom; <strong>Website: </strong>
-                        <a href="https://openweathermap.org/" target="_blank" rel="noreferrer">https://openweathermap.org/</a>;
+                        <a href="https://openweathermap.org/" target="_blank"
+                           rel="noreferrer">https://openweathermap.org/</a>;
                         <strong> Datenschutzerklärung: </strong>
                         <a href="https://openweather.co.uk/privacy-policy" target="_blank" rel="noreferrer">
                             https://openweather.co.uk/privacy-policy</a>.
