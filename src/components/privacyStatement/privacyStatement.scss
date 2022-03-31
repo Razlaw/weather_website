@@ -36,6 +36,14 @@
       color: var(--text-color);
       cursor: pointer;
       border-radius: 4px;
+    ul {
+      display: list-item;
+      list-style: disc;
+      margin-bottom: 1rem;
+
+      li {
+        overflow: initial;
+      }
     }
   }
 
