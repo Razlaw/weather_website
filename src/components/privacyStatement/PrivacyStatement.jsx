@@ -50,6 +50,7 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                     deines Smartphones speicherst.
                 </p>
                 <p>
+                    Die Cookies werden maximal ein Jahr lang gespeichert.<br/>
                     Solltest du die Cookies wieder löschen wollen, betätige einfach den Button oben auf dieser
                     Seite.
                 </p>
