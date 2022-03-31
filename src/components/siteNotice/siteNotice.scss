@@ -15,12 +15,31 @@
 
   .contentContainer {
     width: 90%;
+    padding-top: 60px;
     text-align: left;
     scrollbar-width: none;
+    transition: padding-top 1s ease-in-out;
+
+    &.showCookieBanner {
+      padding-top: 260px;
+    }
+
+    @include for-desktop {
+      width: 60%;
+    }
+
+    ul {
+      display: list-item;
+      list-style: disc;
+      margin-bottom: 1rem;
+
+      li {
+        overflow: initial;
+      }
+    }
   }
 
   * {
     touch-action: initial;
-
   }
 }
