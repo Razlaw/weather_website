@@ -1,6 +1,6 @@
 {
-    "name": "Weather",
-    "short_name": "Weather",
+    "name": "Wetter",
+    "short_name": "Wetter",
     "icons": [
         {
             "src": "/weather_website/android-chrome-192x192.png",
@@ -27,6 +27,7 @@
     ],
     "theme_color": "#23232b",
     "background_color": "#23232b",
+    "start_url": "/weather_website/index.html",
     "display": "standalone",
     "orientation": "portrait"
 }
