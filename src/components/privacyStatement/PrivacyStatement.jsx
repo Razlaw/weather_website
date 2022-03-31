@@ -18,6 +18,41 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                 </div>
                 <h1>Datenschutzerklärung</h1>
                 <h2>Einleitung</h2>
+                <p>
+                    <strong>Zusammenfassung für Laien</strong><br/>
+                    Diese Website leitet deine Suchanfrage weiter, um dir die Wettervorhersage darzustellen.
+                    Zusätzlich wird die Möglichkeit geboten deine letzte Suchanfrage in den Cookies auf deinem Gerät zu
+                    speichern.<br/>
+                    Eine weitere Verarbeitung deiner Daten findet auf dieser Website selbst nicht statt.
+                </p>
+                <p>
+                    Trotzdem solltest du dir die gesamte Datenschutzerklärung durchlesen, da auch beispielsweise deine
+                    IP-Adresse vom Websitehoster Github Pages benutzt wird, um dir diese Website bereitzustellen.
+                    Des Weiteren zählt auch deine E-Mail Adresse zu privaten Daten, solltest du dich entscheiden eine
+                    E-Mail an die unten aufgeführte Adresse zu schicken.
+                </p>
+                <p>
+                    Diese und weitere Details sind in der folgenden Datenschutzerklärung aufgeführt.
+                </p>
+                <p>
+                    <strong>Details für Laien</strong><br/>
+
+                    Diese Website leitet die von dir gesuchte Stadt und ihre Geokoordinaten an OpenWeather weiter.<br/>
+                    Die Geokoordinaten werden benötigt, da es Städte mit gleichen Namen gibt.<br/>
+                    OpenWeather antwortet mit der Wettervorhersage für diese Stadt.
+                </p>
+                <p>
+                    Wenn du der Benutzung von Cookies zustimmt, wird deine letzte Suchanfrage auf deinem Gerät
+                    gespeichert.<br/>
+                    Das dient dazu dir die Wettervorhersage dieser Stadt beim nächsten Aufruf der Website direkt
+                    wieder anzuzeigen - ohne dass du erneut danach suchen musst.<br/>
+                    Diese Funktion ist besonders dann praktisch, wenn du die Website als Link auf dem Startbildschirm
+                    deines Smartphones speicherst.
+                </p>
+                <p>
+                    Solltest du die Cookies wieder löschen wollen, betätige einfach den Button oben auf dieser
+                    Seite.
+                </p>
                 <p>Stand: 30. März 2022</p><h2>Inhaltsübersicht</h2>
                 <ul className="index">
                     <li><a className="index-link" href="#m1870">Einleitung</a></li>
@@ -418,6 +453,10 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                 <h2 id="m43">Vom Websiteinhaber angepasst</h2><p>Die folgenden Punkte wurden zu der generierten
                 Datenschutzerklärung vom Websiteinhaber hinzugefügt.</p>
                 <ul className="changesByWebsiteOwner">
+                    <li><strong>Einleitung:</strong> Im Abschnitt Einleitung wurde eine Zusammenfassung für Laien
+                        hinzugefügt, die einfach darstellen soll welche Daten der Nutzer auf dieser Website selbst
+                        verarbeitet werden.
+                    </li>
                     <li><strong>Github Pages:</strong> Im Abschnitt <a className="index-link" href="#m225">Bereitstellung
                         des Onlineangebotes und Webhosting</a> wurde der Punkt Github Pages hinzugefügt.
                     </li>
