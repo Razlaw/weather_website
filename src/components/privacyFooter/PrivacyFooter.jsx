@@ -20,17 +20,26 @@ export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, se
         <div className={"privacyFooterContainer " + (showCookieBanner && "showCookieBanner")}>
             <div className="privacyFooterContent">
                 <div className="cookieBannerContainer">
-                    <div
-                        className="cookieDeclineButton"
-                        onClick={onDecline}
-                    >
-                        Cookies ablehnen
+                    <div className="cookieBanner">
+                        <p className="cookieBannerText">
+                            Soll deine letzte Suchanfrage in den Cookies auf deinem Gerät gespeichert werden? Dadurch
+                            musst du nicht erneut suchen, wenn du auf die Webseite zurückkehrst.<br/>
+                            So kannst du das Wetter für deine Stadt einfacher regelmäßig nachsehen.
+                        </p>
                     </div>
-                    <div
-                        className="cookieAcceptButton"
-                        onClick={onAccept}
-                    >
-                        Cookies zulassen
+                    <div className="cookieButtonsContainer">
+                        <div
+                            className={"cookieButton declineButton " + (showCookieBanner && "showCookieBanner")}
+                            onClick={onDecline}
+                        >
+                            <p>Cookies ablehnen</p>
+                        </div>
+                        <div
+                            className={"cookieButton acceptButton " + (showCookieBanner && "showCookieBanner")}
+                            onClick={onAccept}
+                        >
+                            <p>Cookies zulassen</p>
+                        </div>
                     </div>
                 </div>
                 <div className="linkToPrivacyStatementContainer">

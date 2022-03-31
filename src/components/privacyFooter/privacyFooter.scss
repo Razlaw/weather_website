@@ -30,26 +30,70 @@
       width: 100%;
       height: 200px;
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: flex-end;
+      position: relative;
+      flex-direction: column;
 
-      //background-color: olive;
+      .cookieBanner {
+        width: 100%;
+        height: 155px;
+        color: var(--background-color-bottom);
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-      .cookieDeclineButton {
-        width: 30%;
-        height: 50px;
-        cursor: pointer;
-
-        background-color: olivedrab;
+        .cookieBannerText {
+          width: 90%;
+        }
       }
 
-      .cookieAcceptButton {
-        width: 30%;
-        height: 50px;
-        cursor: pointer;
+      .cookieButtonsContainer {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-end;
 
-        background-color: darkgreen;
+        .cookieButton {
+          width: 35%;
+          height: 40px;
+          cursor: pointer;
+          border-radius: 7px;
+          margin-bottom: 5px;
+          opacity: 0;
+          transition: all 1s ease-in-out;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--text-color);
+          font-size: 1rem;
+          font-weight: bold;
+          overflow: hidden;
+
+          &.declineButton {
+            background-color: var(--search-bar-color-bottom);
+          }
+
+          &.acceptButton {
+            background-color: var(--search-bar-color-top);
+          }
+
+          &.showCookieBanner {
+            opacity: 1;
+            box-shadow: 2px 2px 3px 1px #7b7b7b;
+          }
+
+          &:hover {
+            color: var(--text-color-darker);
+          }
+
+          &:active {
+            height: 38px;
+            box-shadow: none;
+          }
+        }
       }
     }
 
@@ -67,8 +111,6 @@
       * {
         cursor: pointer;
       }
-
-      //background-color: orange;
     }
   }
 }
