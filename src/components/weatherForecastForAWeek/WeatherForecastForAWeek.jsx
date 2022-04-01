@@ -92,12 +92,8 @@ export default function WeatherForecastForAWeek({weatherData}) {
                 )}
                 <div className="footer">
                     <span>
-                        Die dargestellten Wetterdaten werden durch
-                        <a href="https://openweathermap.org"> OpenWeather (TM)</a> unter der
-                        <a href="https://creativecommons.org/licenses/by-sa/4.0/"> Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) </a>
-                        bereitgestellt.
-                        Daten und Datenbank sind offen und lizensiert unter der
-                        <a href="https://opendatacommons.org/licenses/odbl/"> Open Data Commons Open Database License (ODbL)</a>.
+                        Wetterdaten bereitgestellt durch
+                        <a href="https://openweathermap.org"> OpenWeather&trade;</a>
                     </span>
                 </div>
             </div>

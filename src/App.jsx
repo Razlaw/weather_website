@@ -11,6 +11,7 @@ import FailedFetch from "./components/failedFetch/FailedFetch";
 import WeatherForecastDisplay from "./components/weatherForecastDisplay/WeatherForecastDisplay";
 import PrivacyFooter from "./components/privacyFooter/PrivacyFooter";
 import PrivacyStatement from "./components/privacyStatement/PrivacyStatement";
+import Licenses from "./components/licenses/Licenses";
 import SiteNotice from "./components/siteNotice/SiteNotice";
 import ErrorPage from "./components/errorPage/ErrorPage";
 
@@ -51,6 +52,7 @@ function App() {
                         <Route path="/forecast/lat=:lat&lon=:lon&cityname=:cityName" element={<WeatherForecastDisplay updateCityName={updateCityName} areCookiesAccepted={areCookiesAccepted} setCookie={setCookie}/>}/>
 
                         <Route path="/privacy_statement" element={<PrivacyStatement showCookieBanner={showCookieBanner} removeCookie={removeCookie} setAreCookiesAccepted={setAreCookiesAccepted}/>}/>
+                        <Route path="/licenses" element={<Licenses showCookieBanner={showCookieBanner}/>}/>
                         <Route path="/site_notice" element={<SiteNotice showCookieBanner={showCookieBanner}/>}/>
 
                         <Route path="/*" element={<ErrorPage/>}/>

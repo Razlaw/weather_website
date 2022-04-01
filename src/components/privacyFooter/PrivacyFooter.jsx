@@ -46,6 +46,9 @@ export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, se
                     <div className="linkToPrivacyStatement" onClick={() => navigate("/privacy_statement")}>
                         Datenschutz
                     </div>
+                    <div className="linkToLicenses" onClick={() => navigate("/licenses")}>
+                        Lizenzen
+                    </div>
                     <div className="linkToSiteNotice" onClick={() => navigate("/site_notice")}>
                         Impressum
                     </div>
