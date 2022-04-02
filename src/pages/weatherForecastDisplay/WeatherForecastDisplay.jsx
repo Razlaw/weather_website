@@ -1,10 +1,10 @@
 import "./weatherForecastDisplay.scss";
 import React, {useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
 import WeatherForecastForADay from "./../../components/weatherForecastForADay/WeatherForecastForADay";
 import WeatherForecastForAWeek from "./../../components/weatherForecastForAWeek/WeatherForecastForAWeek";
-import {ScrollSnap2D} from "../../utils";
-import {useNavigate, useParams} from "react-router-dom";
-import {getWeatherData} from "../../data";
+import {getWeatherData} from "../../utils/data";
+import {ScrollSnap2D} from "../../utils/utils";
 
 export default function WeatherForecastDisplay({updateCityName, areCookiesAccepted, setCookie, cookies}) {
     const [currentSlidePosition, handleTouchStart, scrollOnSwipe] = ScrollSnap2D(2, 3);

@@ -1,33 +1,33 @@
-import {ReactComponent as SunnyIcon} from "./assets/sunny_icon.svg";
-import {ReactComponent as ScatteredCloudsIcon} from "./assets/scattered_clouds_icon.svg";
-import {ReactComponent as BrokenCloudsIcon} from "./assets/broken_clouds_icon.svg";
-import {ReactComponent as CloudyIcon} from "./assets/cloudy_icon.svg";
-import {ReactComponent as ShowerRainIcon} from "./assets/shower_rain_icon.svg";
-import {ReactComponent as RainIcon} from "./assets/rain_icon.svg";
-import {ReactComponent as ThunderstormIcon} from "./assets/thunderstorm_icon.svg";
-import {ReactComponent as SnowIcon} from "./assets/snow_icon.svg";
-import {ReactComponent as MistIcon} from "./assets/mist_icon.svg";
+import {ReactComponent as SunnyIcon} from "../assets/sunny_icon.svg";
+import {ReactComponent as ScatteredCloudsIcon} from "../assets/scattered_clouds_icon.svg";
+import {ReactComponent as BrokenCloudsIcon} from "../assets/broken_clouds_icon.svg";
+import {ReactComponent as CloudyIcon} from "../assets/cloudy_icon.svg";
+import {ReactComponent as ShowerRainIcon} from "../assets/shower_rain_icon.svg";
+import {ReactComponent as RainIcon} from "../assets/rain_icon.svg";
+import {ReactComponent as ThunderstormIcon} from "../assets/thunderstorm_icon.svg";
+import {ReactComponent as SnowIcon} from "../assets/snow_icon.svg";
+import {ReactComponent as MistIcon} from "../assets/mist_icon.svg";
 
-import {ReactComponent as MoonIcon} from "./assets/moon_icon.svg";
-import {ReactComponent as NightScatteredCloudsIcon} from "./assets/night_scattered_clouds_icon.svg";
-import {ReactComponent as NightBrokenCloudsIcon} from "./assets/night_broken_clouds_icon.svg";
-import {ReactComponent as NightCloudyIcon} from "./assets/night_cloudy_icon.svg";
-import {ReactComponent as NightShowerRainIcon} from "./assets/night_shower_rain_icon.svg";
-import {ReactComponent as NightRainIcon} from "./assets/night_rain_icon.svg";
-import {ReactComponent as NightThunderstormIcon} from "./assets/night_thunderstorm_icon.svg";
-import {ReactComponent as NightSnowIcon} from "./assets/night_snow_icon.svg";
-import {ReactComponent as NightMistIcon} from "./assets/night_mist_icon.svg";
+import {ReactComponent as MoonIcon} from "../assets/moon_icon.svg";
+import {ReactComponent as NightScatteredCloudsIcon} from "../assets/night_scattered_clouds_icon.svg";
+import {ReactComponent as NightBrokenCloudsIcon} from "../assets/night_broken_clouds_icon.svg";
+import {ReactComponent as NightCloudyIcon} from "../assets/night_cloudy_icon.svg";
+import {ReactComponent as NightShowerRainIcon} from "../assets/night_shower_rain_icon.svg";
+import {ReactComponent as NightRainIcon} from "../assets/night_rain_icon.svg";
+import {ReactComponent as NightThunderstormIcon} from "../assets/night_thunderstorm_icon.svg";
+import {ReactComponent as NightSnowIcon} from "../assets/night_snow_icon.svg";
+import {ReactComponent as NightMistIcon} from "../assets/night_mist_icon.svg";
 
-import {ReactComponent as WindDirectionIcon} from "./assets/wind_direction_icon.svg";
+import {ReactComponent as WindDirectionIcon} from "../assets/wind_direction_icon.svg";
 
-import {ReactComponent as ProbabilityLowIcon} from "./assets/probablity_low_icon.svg";
-import {ReactComponent as ProbabilityMediumIcon} from "./assets/probablity_medium_icon.svg";
-import {ReactComponent as ProbabilityHighIcon} from "./assets/probablity_high_icon.svg";
+import {ReactComponent as ProbabilityLowIcon} from "../assets/probablity_low_icon.svg";
+import {ReactComponent as ProbabilityMediumIcon} from "../assets/probablity_medium_icon.svg";
+import {ReactComponent as ProbabilityHighIcon} from "../assets/probablity_high_icon.svg";
 
-import {ReactComponent as NoRainIcon} from "./assets/no_rain_icon.svg";
-import {ReactComponent as LightRainIcon} from "./assets/light_rain_icon.svg";
-import {ReactComponent as MediumRainIcon} from "./assets/medium_rain_icon.svg";
-import {ReactComponent as HeavyRainIcon} from "./assets/heavy_rain_icon.svg";
+import {ReactComponent as NoRainIcon} from "../assets/no_rain_icon.svg";
+import {ReactComponent as LightRainIcon} from "../assets/light_rain_icon.svg";
+import {ReactComponent as MediumRainIcon} from "../assets/medium_rain_icon.svg";
+import {ReactComponent as HeavyRainIcon} from "../assets/heavy_rain_icon.svg";
 
 import React from "react";
 

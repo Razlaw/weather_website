@@ -16,7 +16,7 @@ import Licenses from "./pages/licenses/Licenses";
 import SiteNotice from "./pages/siteNotice/SiteNotice";
 import ErrorPage from "./pages/errorPage/ErrorPage";
 
-import {MaxWindowInnerHeight} from "./utils";
+import {MaxWindowInnerHeight} from "./utils/utils";
 
 function App() {
     // The maximal inner height of the window, being used as the minHeight of the App to prevent a resize of the
