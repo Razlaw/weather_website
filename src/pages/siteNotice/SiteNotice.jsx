@@ -1,4 +1,5 @@
 import "./siteNotice.scss";
+
 import React from "react";
 
 export default function SiteNotice({showCookieBanner}) {

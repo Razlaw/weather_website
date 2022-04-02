@@ -1,6 +1,8 @@
 import "./citySearchBar.scss";
-import {ReactComponent as MagnifyingGlassIcon} from '../../assets/magnifying_glass.svg';
+
 import {useNavigate} from "react-router-dom";
+
+import {ReactComponent as MagnifyingGlassIcon} from '../../assets/magnifying_glass.svg';
 
 export default function CitySearchBar({cityName, updateCityName, setShowCookieBanner}) {
     const navigate = useNavigate();

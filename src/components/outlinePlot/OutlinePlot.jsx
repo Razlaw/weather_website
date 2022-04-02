@@ -1,4 +1,5 @@
 import "./outlinePlot.scss";
+
 import React, {useEffect} from 'react';
 
 function getMinMax(data, dataKey) {

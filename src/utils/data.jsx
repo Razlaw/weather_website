@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import {utcDateFromUTCUnix} from "./utils"
 
 export const getWeatherData = async (lat, lon) => {

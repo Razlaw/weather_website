@@ -1,5 +1,7 @@
 import "./weatherForecastForAWeek.scss";
+
 import React from "react";
+
 import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindDirectionIcon} from "../../utils/iconsUtils";
 
 function weekdayNumberToString(weekdayNumber) {

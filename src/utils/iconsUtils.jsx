@@ -1,3 +1,5 @@
+import React from "react";
+
 import {ReactComponent as SunnyIcon} from "../assets/sunny_icon.svg";
 import {ReactComponent as ScatteredCloudsIcon} from "../assets/scattered_clouds_icon.svg";
 import {ReactComponent as BrokenCloudsIcon} from "../assets/broken_clouds_icon.svg";
@@ -28,8 +30,6 @@ import {ReactComponent as NoRainIcon} from "../assets/no_rain_icon.svg";
 import {ReactComponent as LightRainIcon} from "../assets/light_rain_icon.svg";
 import {ReactComponent as MediumRainIcon} from "../assets/medium_rain_icon.svg";
 import {ReactComponent as HeavyRainIcon} from "../assets/heavy_rain_icon.svg";
-
-import React from "react";
 
 export function getWeatherIcon(iconID, key) {
     switch (iconID) {

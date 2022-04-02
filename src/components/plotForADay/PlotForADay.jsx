@@ -1,5 +1,7 @@
 import "./plotForADay.scss";
+
 import React from 'react';
+
 import OutlinePlot from "../outlinePlot/OutlinePlot";
 import DataListItem from "../dataListItem/DataListItem";
 

@@ -1,8 +1,9 @@
 import "./citySelection.scss";
-import React, {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
-import Flag from 'react-flagpack'
+
 import axios from "axios";
+import React, {useEffect, useState} from "react";
+import Flag from 'react-flagpack'
+import {useNavigate, useParams} from "react-router-dom";
 
 export default function CitySelection({updateCityName}) {
     const navigate = useNavigate();

@@ -1,8 +1,11 @@
 import "./weatherForecastDisplay.scss";
+
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
+
 import WeatherForecastForADay from "./../../components/weatherForecastForADay/WeatherForecastForADay";
 import WeatherForecastForAWeek from "./../../components/weatherForecastForAWeek/WeatherForecastForAWeek";
+
 import {getWeatherData} from "../../utils/data";
 import {ScrollSnap2D} from "../../utils/utils";
 

@@ -1,7 +1,10 @@
 import "./weatherForecastForADay.scss";
-import HourOfDayListItem from "../hourOfDayListItem/HourOfDayListItem";
+
 import React from "react";
+
+import HourOfDayListItem from "../hourOfDayListItem/HourOfDayListItem";
 import PlotForADay from "../plotForADay/PlotForADay";
+
 import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindDirectionIcon} from "../../utils/iconsUtils";
 
 export default function WeatherForecastForADay({

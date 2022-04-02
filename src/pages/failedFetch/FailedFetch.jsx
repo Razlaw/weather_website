@@ -1,4 +1,5 @@
 import "./failedFetch.scss";
+
 import React from "react";
 
 export default function FailedFetch() {

@@ -1,5 +1,7 @@
 import "./privacyFooter.scss";
+
 import React from "react";
+
 import {useNavigate} from "react-router-dom";
 
 export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, setAreCookiesAccepted, setCookie}) {

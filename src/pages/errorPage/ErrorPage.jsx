@@ -1,4 +1,5 @@
 import "./errorPage.scss";
+
 import React from "react";
 import {useLocation} from "react-router-dom";
 
