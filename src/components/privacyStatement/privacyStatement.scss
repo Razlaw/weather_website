@@ -20,13 +20,14 @@ body ::-webkit-scrollbar {
 
   .contentContainer {
     width: 90%;
-    padding-top: 60px;
     text-align: left;
     scrollbar-width: none;
-    transition: padding-top 1s ease-in-out;
+    transform: translateY(60px);
+    transition: transform 1s ease-in-out;
+    will-change: transform;
 
     &.showCookieBanner {
-      padding-top: 260px;
+      transform: translateY(260px);
     }
 
     @include for-desktop {

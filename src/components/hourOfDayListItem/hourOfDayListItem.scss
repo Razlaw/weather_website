@@ -9,6 +9,7 @@
   justify-content: flex-end;
   touch-action: none;
   overflow: hidden;
+  will-change: opacity;
 
   animation: 500ms ease fade-in-hours both;
   animation-iteration-count: 1;
