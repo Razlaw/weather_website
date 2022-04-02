@@ -12,6 +12,7 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
         removeCookie("lon", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         removeCookie("areCookiesAccepted", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         setAreCookiesAccepted(false);
+        window.location.reload(true);
     }
 
     return (
