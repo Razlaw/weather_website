@@ -92,7 +92,7 @@ export default function OutlinePlot({
     return (
         <svg
             className={"svgPlot " + plotDayID}
-            viewBox="0 0 100 100"
+            viewBox="0 0 120 24"
             width="100%"
             height="100%"
             preserveAspectRatio="none"
