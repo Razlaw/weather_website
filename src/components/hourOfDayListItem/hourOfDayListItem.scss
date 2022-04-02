@@ -25,10 +25,12 @@
 
   @include for-tablet {
     font-size: 1.4rem;
+    animation: 2500ms ease fade-in-hours both;
   }
 
   @include for-desktop {
     font-size: x-large;
+    animation: 2500ms ease fade-in-hours both;
   }
 
   span {

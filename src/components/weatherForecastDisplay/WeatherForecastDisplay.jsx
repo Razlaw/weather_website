@@ -6,8 +6,12 @@ import {ScrollSnap2D} from "../../utils";
 import {useNavigate, useParams} from "react-router-dom";
 import {getWeatherData} from "../../data";
 
-export default function WeatherForecastDisplay({updateCityName, areCookiesAccepted, setCookie}) {
+export default function WeatherForecastDisplay({updateCityName, areCookiesAccepted, setCookie, cookies}) {
     const [currentSlidePosition, handleTouchStart, scrollOnSwipe] = ScrollSnap2D(2, 3);
+
+    // Website shows a different animation on first visit, giving a new user visual cues for website's functions
+    // These cue animations take some seconds, which can be saved once the user knows what's where
+    const firstVisit = cookies.selectedCityName === undefined;
 
     const navigate = useNavigate();
 
@@ -71,6 +75,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
                     hourOfSunrise={weatherData["hoursOfSunrise"][0]}
                     hourOfSunset={weatherData["hoursOfSunset"][0]}
                     slideID={currentSlidePosition.x}
+                    firstVisit={firstVisit}
                 />
             </div>
             <div className="container" style={{transform: `translateY(${(1 - currentSlidePosition.y) * 100}%)`}}>
@@ -81,6 +86,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
                     hourOfSunrise={weatherData["hoursOfSunrise"][1]}
                     hourOfSunset={weatherData["hoursOfSunset"][1]}
                     slideID={currentSlidePosition.x}
+                    firstVisit={firstVisit}
                 />
             </div>
             <div className="container" style={{transform: `translateY(${(2 - currentSlidePosition.y) * 100}%)`}}>

@@ -4,7 +4,7 @@ import React from "react";
 import PlotForADay from "../plotForADay/PlotForADay";
 import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindDirectionIcon} from "../../IconsUtils";
 
-export default function WeatherForecastForADay({dayId, weatherData, currentHour, hourOfSunrise, hourOfSunset, slideID}) {
+export default function WeatherForecastForADay({dayId, weatherData, currentHour, hourOfSunrise, hourOfSunset, slideID, firstVisit}) {
     const dayToDisplay = dayId === 0 ? "Heute" : "Morgen";
     const date = (weatherData[0]["dateLocal"]["day"] < 10 ? "0" : "") + weatherData[0]["dateLocal"]["day"].toString() +
         "." + (weatherData[0]["dateLocal"]["month"] < 10 ? "0" : "") + weatherData[0]["dateLocal"]["month"].toString();
@@ -27,6 +27,7 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     active={currentHour === hourOfDay}
                                     sunrise={hourOfSunrise}
                                     sunset={hourOfSunset}
+                                    firstVisit={firstVisit}
                                 />
                             )}
                         </ul>
@@ -34,7 +35,10 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                     </div>
                     <div className="forecastPlot">
                         <div className="plotsContainer">
-                            <div className="temperatureAndWindPlotContainer" style={{transform: `translateX(-${slideID * 100}%)`}} >
+                            <div
+                                className={"temperatureAndWindPlotContainer " + (firstVisit && "firstVisit")}
+                                style={{transform: `translateX(-${slideID * 100}%)`}}
+                            >
                                 <PlotForADay
                                     dayID={dayId}
                                     plotID={"temperature"}
@@ -66,7 +70,10 @@ export default function WeatherForecastForADay({dayId, weatherData, currentHour,
                                     requestedMinimalValueRange={25}
                                 />
                             </div>
-                            <div className="rainPlotContainer" style={{transform: `translateX(${(1 - slideID) * 100}%)`}}>
+                            <div
+                                className={"rainPlotContainer " + (firstVisit && "firstVisit")}
+                                style={{transform: `translateX(${(1 - slideID) * 100}%)`}}
+                            >
                                 <PlotForADay
                                     dayID={dayId}
                                     plotID={"probabilityOfPrecipitation"}

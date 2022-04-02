@@ -80,7 +80,11 @@
 
           @for $i from 1 through 24 {
             li:nth-child(#{$i}n) {
-              animation-delay: #{$i * 0.02}s;
+              animation-delay: 0s;
+
+              &.firstVisit {
+                animation-delay: #{$i * 0.02}s;
+              }
             }
           }
         }
@@ -132,17 +136,22 @@
             @include for-tablet {
               transform: none !important;
               position: relative;
-              animation: 3500ms ease fade-in-temperature;
+              animation: 2500ms ease fade-in-temperature;
             }
 
             @include for-desktop {
               transform: none !important;
               position: relative;
-              animation: 3500ms ease fade-in-temperature;
+              animation: 2500ms ease fade-in-temperature;
             }
 
-            animation: 3500ms ease-in-out slide-in-temperature;
+            animation: 500ms ease fade-in-temperature;
             animation-iteration-count: 1;
+
+            &.firstVisit {
+              animation: 3500ms ease-in-out slide-in-temperature;
+              animation-iteration-count: 1;
+            }
 
             @keyframes slide-in-temperature {
               0% {
@@ -163,10 +172,6 @@
 
             @keyframes fade-in-temperature {
               0% {
-                opacity: 0.0;
-              }
-
-              30% {
                 opacity: 0.0;
               }
 
@@ -192,17 +197,22 @@
             @include for-tablet {
               transform: none !important;
               position: relative;
-              animation: 3500ms ease fade-in-rain;
+              animation: 2500ms ease fade-in-rain;
             }
 
             @include for-desktop {
               transform: none !important;
               position: relative;
-              animation: 3500ms ease fade-in-rain;
+              animation: 2500ms ease fade-in-rain;
             }
 
-            animation: 3500ms ease-in-out slide-in-rain;
+            animation: 500ms ease fade-in-rain;
             animation-iteration-count: 1;
+
+            &.firstVisit {
+              animation: 3500ms ease-in-out slide-in-rain;
+              animation-iteration-count: 1;
+            }
 
             @keyframes slide-in-rain {
               0% {
@@ -223,10 +233,6 @@
 
             @keyframes fade-in-rain {
               0% {
-                opacity: 0.0;
-              }
-
-              30% {
                 opacity: 0.0;
               }
 
