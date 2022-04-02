@@ -5,15 +5,16 @@ import {Route, Routes, useNavigate} from "react-router-dom";
 import {useCookies} from 'react-cookie';
 
 import CitySearchBar from "./components/citySearchBar/CitySearchBar";
-import Home from "./components/home/Home";
-import CitySelection from "./components/citySelection/CitySelection";
-import FailedFetch from "./components/failedFetch/FailedFetch";
-import WeatherForecastDisplay from "./components/weatherForecastDisplay/WeatherForecastDisplay";
 import PrivacyFooter from "./components/privacyFooter/PrivacyFooter";
-import PrivacyStatement from "./components/privacyStatement/PrivacyStatement";
-import Licenses from "./components/licenses/Licenses";
-import SiteNotice from "./components/siteNotice/SiteNotice";
-import ErrorPage from "./components/errorPage/ErrorPage";
+
+import Home from "./pages/home/Home";
+import CitySelection from "./pages/citySelection/CitySelection";
+import FailedFetch from "./pages/failedFetch/FailedFetch";
+import WeatherForecastDisplay from "./pages/weatherForecastDisplay/WeatherForecastDisplay";
+import PrivacyStatement from "./pages/privacyStatement/PrivacyStatement";
+import Licenses from "./pages/licenses/Licenses";
+import SiteNotice from "./pages/siteNotice/SiteNotice";
+import ErrorPage from "./pages/errorPage/ErrorPage";
 
 import {MaxWindowInnerHeight} from "./utils";
 

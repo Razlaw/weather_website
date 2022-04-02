@@ -1,7 +1,7 @@
 import "./weatherForecastDisplay.scss";
 import React, {useEffect, useState} from "react";
-import WeatherForecastForADay from "../weatherForecastForADay/WeatherForecastForADay";
-import WeatherForecastForAWeek from "../weatherForecastForAWeek/WeatherForecastForAWeek";
+import WeatherForecastForADay from "./../../components/weatherForecastForADay/WeatherForecastForADay";
+import WeatherForecastForAWeek from "./../../components/weatherForecastForAWeek/WeatherForecastForAWeek";
 import {ScrollSnap2D} from "../../utils";
 import {useNavigate, useParams} from "react-router-dom";
 import {getWeatherData} from "../../data";
