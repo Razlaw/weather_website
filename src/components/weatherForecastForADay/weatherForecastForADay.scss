@@ -145,7 +145,7 @@
               animation: 2500ms ease fade-in-temperature;
             }
 
-            animation: 500ms ease fade-in-temperature;
+            animation: 1000ms ease fade-in-temperature;
             animation-iteration-count: 1;
 
             &.firstVisit {
@@ -206,7 +206,7 @@
               animation: 2500ms ease fade-in-rain;
             }
 
-            animation: 500ms ease fade-in-rain;
+            animation: 1000ms ease fade-in-rain;
             animation-iteration-count: 1;
 
             &.firstVisit {
