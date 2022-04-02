@@ -30,9 +30,11 @@
     flex: 1;
     width: 100%;
     border-bottom: 1px solid var(--text-color-darkest);
+
     &:first-child {
       border-top: 1px solid var(--text-color-darkest);
     }
+
     cursor: pointer;
     max-height: 60px;
     display: flex;

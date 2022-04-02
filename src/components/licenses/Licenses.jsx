@@ -19,17 +19,22 @@ export default function Licenses({showCookieBanner}) {
                 </p>
                 <ul>
                     <li>Die dargestellten Wetterdaten werden durch
-                        <a href="https://openweathermap.org"> OpenWeather&trade;</a> unter dieser Lizenz bereitgestellt</li>
+                        <a href="https://openweathermap.org"> OpenWeather&trade;</a> unter dieser Lizenz bereitgestellt
+                    </li>
                 </ul>
                 <p>
-                    <a href="https://opendatacommons.org/licenses/odbl/"><strong>Open Data Commons Open Database License (ODbL)</strong></a>
+                    <a href="https://opendatacommons.org/licenses/odbl/"><strong>Open Data Commons Open Database License
+                        (ODbL)</strong></a>
                 </p>
                 <ul>
-                    <li>Daten und Datenbank von <a href="https://openweathermap.org"> OpenWeather&trade;</a> sind offen und unter dieser Lizenz bereitgestellt</li>
+                    <li>Daten und Datenbank von <a href="https://openweathermap.org"> OpenWeather&trade;</a> sind offen
+                        und unter dieser Lizenz bereitgestellt
+                    </li>
                 </ul>
 
                 <p>
-                    <a href="https://www.apache.org/licenses/LICENSE-2.0"><strong>Apache License, Version 2.0</strong></a>
+                    <a href="https://www.apache.org/licenses/LICENSE-2.0"><strong>Apache License, Version
+                        2.0</strong></a>
                 </p>
                 <ul>
                     <li><a href="https://fonts.google.com/specimen/Roboto#standard-styles">Google Font Roboto</a></li>
@@ -45,11 +50,18 @@ export default function Licenses({showCookieBanner}) {
                     <li><a href="https://github.com/reactivestack/cookies/blob/master/LICENSE">react-cookie</a></li>
                     <li><a href="https://github.com/facebook/react/blob/main/LICENSE">react-dom</a></li>
                     <li><a href="https://github.com/Yummygum/react-flagpack/blob/main/LICENSE">react-flagpack</a></li>
-                    <li><a href="https://github.com/remix-run/react-router/blob/main/LICENSE.md">react-router-dom</a></li>
-                    <li><a href="https://github.com/rafgraph/react-router-hash-link/blob/main/LICENSE">react-router-hash-link</a></li>
+                    <li><a href="https://github.com/remix-run/react-router/blob/main/LICENSE.md">react-router-dom</a>
+                    </li>
+                    <li><a
+                        href="https://github.com/rafgraph/react-router-hash-link/blob/main/LICENSE">react-router-hash-link</a>
+                    </li>
                     <li><a href="https://github.com/facebook/create-react-app/blob/main/LICENSE">react-scripts</a></li>
-                    <li><a href="https://github.com/Semantic-Org/Semantic-UI-CSS/blob/master/LICENSE">semantic-ui-css</a></li>
-                    <li><a href="https://github.com/Semantic-Org/Semantic-UI-React/blob/master/LICENSE.md">semantic-ui-react</a></li>
+                    <li><a
+                        href="https://github.com/Semantic-Org/Semantic-UI-CSS/blob/master/LICENSE">semantic-ui-css</a>
+                    </li>
+                    <li><a
+                        href="https://github.com/Semantic-Org/Semantic-UI-React/blob/master/LICENSE.md">semantic-ui-react</a>
+                    </li>
                 </ul>
             </div>
         </div>

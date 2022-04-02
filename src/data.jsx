@@ -99,7 +99,6 @@ export const getWeatherData = async (lat, lon) => {
             });
         }
 
-
         const weatherData = {"hourly": hourlyWeatherForTwoDays, "daily": dailyWeatherForSevenDays};
 
         // Reconstruct the current hour of the requested city

@@ -66,14 +66,18 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                     <li><HashLink smooth to="/privacy_statement#mOverview">Übersicht der Verarbeitungen</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m13">Maßgebliche Rechtsgrundlagen</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m27">Sicherheitsmaßnahmen</HashLink></li>
-                    <li><HashLink smooth to="/privacy_statement#m25">Übermittlung von personenbezogenen Daten</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m25">Übermittlung von personenbezogenen Daten</HashLink>
+                    </li>
                     <li><HashLink smooth to="/privacy_statement#m24">Datenverarbeitung in Drittländern</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m12">Löschung von Daten</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m134">Einsatz von Cookies</HashLink></li>
-                    <li><HashLink smooth to="/privacy_statement#m225">Bereitstellung des Onlineangebotes und Webhosting</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m225">Bereitstellung des Onlineangebotes und
+                        Webhosting</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m182">Kontakt- und Anfragenverwaltung</HashLink></li>
-                    <li><HashLink smooth to="/privacy_statement#m328">Plugins und eingebettete Funktionen sowie Inhalte</HashLink></li>
-                    <li><HashLink smooth to="/privacy_statement#m15">Änderung und Aktualisierung der Datenschutzerklärung</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m328">Plugins und eingebettete Funktionen sowie
+                        Inhalte</HashLink></li>
+                    <li><HashLink smooth to="/privacy_statement#m15">Änderung und Aktualisierung der
+                        Datenschutzerklärung</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m10">Rechte der betroffenen Personen</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m42">Begriffsdefinitionen</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m43">Vom Websiteinhaber angepasst</HashLink></li>
@@ -81,7 +85,8 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                 <h2 id="m3">Verantwortlicher</h2><p>Jan Razlaw<br/>Römerstr. 367<br/>53117 Bonn</p>
                 E-Mail-Adresse: <p>jan.razlaw [at] googlemail.com</p>
                 Impressum:
-                <p className="linkToSiteNotice" onClick={() => navigate("/site_notice")}>https://razlaw.github.io/weather_website/#/site_notice</p>
+                <p className="linkToSiteNotice"
+                   onClick={() => navigate("/site_notice")}>https://razlaw.github.io/weather_website/#/site_notice</p>
                 <h2 id="mOverview">Übersicht der Verarbeitungen</h2><p>Die nachfolgende Übersicht fasst die Arten der
                 verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen
                 Personen.</p><h3>Arten der verarbeiteten Daten</h3>
@@ -465,7 +470,8 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                         verarbeitet werden.
                     </li>
                     <li><strong>Github Pages:</strong> Im Abschnitt <HashLink smooth to="/privacy_statement#m225">
-                        Bereitstellung des Onlineangebotes und Webhosting</HashLink> wurde der Punkt Github Pages hinzugefügt.
+                        Bereitstellung des Onlineangebotes und Webhosting</HashLink> wurde der Punkt Github Pages
+                        hinzugefügt.
                     </li>
                     <li><strong>OpenWeather:</strong> Im Abschnitt <HashLink smooth to="/privacy_statement#m328">Plugins
                         und eingebettete Funktionen sowie Inhalte </HashLink>

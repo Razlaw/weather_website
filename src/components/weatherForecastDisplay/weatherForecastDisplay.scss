@@ -19,6 +19,7 @@
   left: 0;
   touch-action: none;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -46,10 +47,10 @@
     position: absolute;
     padding-top: 60px;
     touch-action: none;
-    transition: all 400ms cubic-bezier(.86,0,.07,1) 0ms;
-    -webkit-transition: all 400ms cubic-bezier(.86,0,.07,1) 0ms;
-    -moz-transition: all 400ms cubic-bezier(.86,0,.07,1) 0ms;
-    -o-transition: all 400ms cubic-bezier(.86,0,.07,1) 0ms;
+    transition: all 400ms cubic-bezier(.86, 0, .07, 1) 0ms;
+    -webkit-transition: all 400ms cubic-bezier(.86, 0, .07, 1) 0ms;
+    -moz-transition: all 400ms cubic-bezier(.86, 0, .07, 1) 0ms;
+    -o-transition: all 400ms cubic-bezier(.86, 0, .07, 1) 0ms;
 
     @include for-desktop {
       scroll-snap-align: start;

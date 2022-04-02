@@ -57,8 +57,10 @@ export function utcDateFromUTCUnix(unixUTCTimeInSeconds) {
  */
 export function ScrollSnap2D(numberOfHorizontalSlides, numberOfVerticalSlides) {
     const minSlidePosition = {x: 0, y: 0};
-    const maxSlidePosition = {x: Math.max(0, numberOfHorizontalSlides - 1),
-        y: Math.max(0, numberOfVerticalSlides - 1)};
+    const maxSlidePosition = {
+        x: Math.max(0, numberOfHorizontalSlides - 1),
+        y: Math.max(0, numberOfVerticalSlides - 1)
+    };
     const [currentSlidePosition, setCurrentSlide] = useState(minSlidePosition);
 
     const touchStartPosition = useRef([0, 0]);
@@ -72,10 +74,10 @@ export function ScrollSnap2D(numberOfHorizontalSlides, numberOfVerticalSlides) {
     }
 
     /**
-    * Checks for a swipe and scrolls into according direction.
-    *
-    * isAwaitingScroll is used to block further scrolling if swipe continues longer than scroll animation.
-    */
+     * Checks for a swipe and scrolls into according direction.
+     *
+     * isAwaitingScroll is used to block further scrolling if swipe continues longer than scroll animation.
+     */
     function scrollOnSwipe(e) {
         // e.preventDefault();
         if (isAwaitingScroll.current) {
@@ -97,8 +99,7 @@ export function ScrollSnap2D(numberOfHorizontalSlides, numberOfVerticalSlides) {
                     setCurrentSlide({x: newHorizontalSlidePosition, y: currentSlidePosition.y});
                 }
                 isAwaitingScroll.current = false;
-            }
-            else {
+            } else {
                 const isSwipingDown = swipeVectorY > 0;
                 const isSwipingUp = swipeVectorY < 0;
 

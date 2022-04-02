@@ -85,29 +85,29 @@ export function getWindDirectionIcon(direction, key) {
 }
 
 export function getProbabilityOfPrecipitationIcon(probabilityOfPrecipitation, key) {
-    if(probabilityOfPrecipitation < 20) {
+    if (probabilityOfPrecipitation < 20) {
         return <ProbabilityLowIcon key={key} className="probabilityOfPrecipitationIcon icon"/>;
     }
-    if(probabilityOfPrecipitation >= 20 && probabilityOfPrecipitation < 60) {
+    if (probabilityOfPrecipitation >= 20 && probabilityOfPrecipitation < 60) {
         return <ProbabilityMediumIcon key={key} className="probabilityOfPrecipitationIcon icon"/>;
     }
-    if(probabilityOfPrecipitation >= 60) {
+    if (probabilityOfPrecipitation >= 60) {
         return <ProbabilityHighIcon key={key} className="probabilityOfPrecipitationIcon icon"/>;
     }
     return <span key={key}>?</span>;
 }
 
 export function getRainIcon(rain, key) {
-    if(rain < 0.1) {
+    if (rain < 0.1) {
         return <NoRainIcon key={key} className="rainIcon icon"/>;
     }
-    if(rain >= 0.1 && rain < 0.4) {
+    if (rain >= 0.1 && rain < 0.4) {
         return <LightRainIcon key={key} className="rainIcon icon"/>;
     }
-    if(rain >= 0.4 && rain < 0.6) {
+    if (rain >= 0.4 && rain < 0.6) {
         return <MediumRainIcon key={key} className="rainIcon icon"/>;
     }
-    if(rain >= 0.6) {
+    if (rain >= 0.6) {
         return <HeavyRainIcon key={key} className="rainIcon icon"/>;
     }
     return <span key={key}>?</span>;

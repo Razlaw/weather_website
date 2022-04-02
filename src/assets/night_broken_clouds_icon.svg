@@ -1,5 +1,5 @@
-<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" id="SVGRoot" version="1.1" viewBox="0 0 16 16"
+     xmlns="http://www.w3.org/2000/svg">
     <defs>
         <linearGradient id="linearGradientMoonYellow" x1="13.158" x2="3.7128" y1="3.0675" y2="12.803"
                         gradientTransform="matrix(1.0567 0 0 1.0567 -.1002 -.54263)" gradientUnits="userSpaceOnUse">

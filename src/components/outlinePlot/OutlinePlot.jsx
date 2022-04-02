@@ -27,7 +27,7 @@ function createDataLine(data, dataKey, plotXOffset, minValue, valueRange) {
     let lineString = "";
     for (let i = 0; i < data.length; i++) {
         const currentValue = (data[i][dataKey] - minValue) / valueRange * 100 + plotXOffset;
-        if(i === 0) {
+        if (i === 0) {
             lineString += "M " + currentValue.toString() + "," + i.toString() + " ";
         }
         lineString += "H " + currentValue.toString() + " ";
@@ -45,13 +45,15 @@ function createCurrentHourBlock(data, dataKey, currentHour, plotXOffset, minValu
     return pathForBlock;
 }
 
-export default function OutlinePlot({dayID,
+export default function OutlinePlot({
+                                        dayID,
                                         plotID,
                                         currentHour,
                                         weatherData,
                                         dataKey,
                                         requestedMinimumValue = undefined,
-                                        requestedMinimalValueRange = undefined}) {
+                                        requestedMinimalValueRange = undefined
+                                    }) {
     const plotXOffset = 20;
     const plotDayID = plotID.toString() + dayID.toString();
 
@@ -64,17 +66,19 @@ export default function OutlinePlot({dayID,
     useEffect(() => {
         const svg = document.querySelector("." + plotDayID);
 
-        const { xMin, xMax, yMin, yMax } = [...svg.children].reduce((acc, el) => {
-            const { x, y, width, height } = el.getBBox();
+        const {xMin, xMax, yMin, yMax} = [...svg.children].reduce((acc, el) => {
+            const {x, y, width, height} = el.getBBox();
             if (x < acc.xMin) acc.xMin = x;
             if (x + width > acc.xMax) acc.xMax = x + width;
             if (y < acc.yMin) acc.yMin = y;
             if (y + height > acc.yMax) acc.yMax = y + height;
             return acc;
-        }, {"xMin": Number.MAX_VALUE,
+        }, {
+            "xMin": Number.MAX_VALUE,
             "xMax": -Number.MAX_VALUE,
             "yMin": Number.MAX_VALUE,
-            "yMax": -Number.MAX_VALUE});
+            "yMax": -Number.MAX_VALUE
+        });
 
         const minViewBoxWidth = 100 + plotXOffset;
         const viewbox = `${xMin} ${yMin} ${Math.max(
@@ -105,7 +109,7 @@ export default function OutlinePlot({dayID,
                 />
 
                 <clipPath id={"clip" + plotDayID}>
-                    <use href={"#outlinePath" + plotDayID} />
+                    <use href={"#outlinePath" + plotDayID}/>
                 </clipPath>
 
                 <path

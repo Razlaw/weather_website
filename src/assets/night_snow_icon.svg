@@ -8,25 +8,38 @@
     <g style="stroke:url(#linearGradientNightSnowGrey)">
         <path d="m8 4-1.7812-1"
               style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m8 4 2-1" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m8 2v6" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m8 8 5-3" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m8 8 5 3" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m3 5 5 3" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m11 6 2 1" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m8 4 2-1"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m8 2v6"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m8 8 5-3"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m8 8 5 3"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m3 5 5 3"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m11 6 2 1"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
         <path d="m11 6 0.40625-1.8281"
               style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m8 8v6" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m3 11 5-3" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m8 8v6"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m3 11 5-3"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
         <path d="M 4.84375,11.78125 5,10"
               style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m3 9 2 1" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m3 9 2 1"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
         <path d="m5 6-0.21875-1.7812"
               style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m5 6-2 1" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m6 13 2-1" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m10 13-2-1" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
-        <path d="m13 9-2 1" style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m5 6-2 1"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m6 13 2-1"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m10 13-2-1"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
+        <path d="m13 9-2 1"
+              style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
         <path d="M 11.28125,11.8125 11,10"
               style="fill:none;stroke-linecap:round;stroke-width:1.5;stroke:url(#linearGradientNightSnowGrey)"/>
     </g>

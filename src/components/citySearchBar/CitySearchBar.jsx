@@ -23,7 +23,9 @@ export default function CitySearchBar({cityName, updateCityName, setShowCookieBa
                 <div className="formComponents">
                     <input
                         onKeyUp={hideKeyboardOnEnter}
-                        onChange={(e) => {updateCityName(e.target.value)}}
+                        onChange={(e) => {
+                            updateCityName(e.target.value)
+                        }}
                         placeholder={"Stadt"}
                         value={cityName}
                         type="text"

@@ -23,7 +23,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
             const localWeatherData = await getWeatherData(lat, lon);
 
             updateCityName(cityName);
-            if(areCookiesAccepted) {
+            if (areCookiesAccepted) {
                 setCookie('selectedCityName', cityName, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
                 setCookie('lat', lat, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
                 setCookie('lon', lon, {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
@@ -43,7 +43,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
     }, [lat, lon]);
 
     const onVisibilityChange = () => {
-        if(document.visibilityState === "visible") {
+        if (document.visibilityState === "visible") {
             fetchWeather(lat, lon);
         }
     };
@@ -53,7 +53,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
         return () => document.removeEventListener("visibilitychange", onVisibilityChange);
     }, []);
 
-    if(weatherData === undefined) {
+    if (weatherData === undefined) {
         return (
             <div className="loadingData">
                 <h1>Lade Daten.</h1>

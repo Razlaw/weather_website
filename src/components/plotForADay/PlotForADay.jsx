@@ -3,7 +3,8 @@ import React from 'react';
 import OutlinePlot from "../outlinePlot/OutlinePlot";
 import DataListItem from "../dataListItem/DataListItem";
 
-export default function PlotForADay({dayID,
+export default function PlotForADay({
+                                        dayID,
                                         plotID,
                                         currentHour,
                                         weatherData,
@@ -12,10 +13,11 @@ export default function PlotForADay({dayID,
                                         unit,
                                         sunrise,
                                         sunset,
-                                    getIconFunction,
-                                    iconKey,
+                                        getIconFunction,
+                                        iconKey,
                                         requestedMinimumValue = undefined,
-                                        requestedMinimalValueRange = undefined}) {
+                                        requestedMinimalValueRange = undefined
+                                    }) {
     return (
         <div className="plotAndDataContainer">
             <div className="iconContainer">

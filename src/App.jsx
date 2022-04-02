@@ -37,7 +37,7 @@ function App() {
     }, []);
 
     return (
-        <div className="appBackground" style={{minHeight : `${maxWindowInnerHeight}px`}}>
+        <div className="appBackground" style={{minHeight: `${maxWindowInnerHeight}px`}}>
             <CitySearchBar
                 cityName={cityName}
                 updateCityName={updateCityName}
