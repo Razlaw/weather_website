@@ -3,7 +3,7 @@
   "homepage": "https://razlaw.github.io/weather_website",
   "version": "1.0.0",
   "private": true,
-  "description": "React website showing the weather",
+  "description": "Übersichtliche Wettervorhersage",
   "keywords": [
     "react",
     "weather"
