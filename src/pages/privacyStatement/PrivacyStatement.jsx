@@ -49,7 +49,7 @@ export default function PrivacyStatement({showCookieBanner, removeCookie, setAre
                     OpenWeather antwortet mit der Wettervorhersage für diese Stadt.
                 </p>
                 <p>
-                    Wenn du der Benutzung von Cookies zustimmt, wird deine letzte Suchanfrage auf deinem Gerät
+                    Wenn du der Benutzung von Cookies zustimmst, wird deine letzte Suchanfrage auf deinem Gerät
                     gespeichert.<br/>
                     Das dient dazu dir die Wettervorhersage dieser Stadt beim nächsten Aufruf der Website direkt
                     wieder anzuzeigen - ohne dass du erneut danach suchen musst.<br/>
