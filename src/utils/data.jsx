@@ -88,10 +88,16 @@ export const getWeatherData = async (lat, lon) => {
             let amountOfPrecipitation = "rain" in nextDaysForecast.data.daily[i] ? nextDaysForecast.data.daily[i].rain : 0;
             amountOfPrecipitation += ("snow" in nextDaysForecast.data.daily[i] ? nextDaysForecast.data.daily[i].snow : 0);
 
+            // OpenWeather's icon for a rainy day is always the "heavy" rain icon, even if it's only showering.
+            // Here the shower rain icon is used for rainy days with an amount of rain below 1mm.
+            const isShowerRain = amountOfPrecipitation > 0.01 && amountOfPrecipitation < 1.0;
+            const isSnowIcon = nextDaysForecast.data.daily[i].weather[0].icon === "13d";
+            const weatherIcon = (isShowerRain && !isSnowIcon) ? "09d" : nextDaysForecast.data.daily[i].weather[0].icon;
+
             dailyWeatherForSevenDays.push({
                 "minTemperature": Math.round(nextDaysForecast.data.daily[i].temp.min),  // in °C
                 "maxTemperature": Math.round(nextDaysForecast.data.daily[i].temp.max),  // in °C
-                "weatherIcon": nextDaysForecast.data.daily[i].weather[0].icon,
+                "weatherIcon": weatherIcon,
                 "windDirection": nextDaysForecast.data.daily[i].wind_deg,  // from 0 to 360 degrees
                 "windSpeed": Math.round(nextDaysForecast.data.daily[i].wind_speed * 3.6),  // in km/h
                 "probabilityOfPrecipitation": ("pop" in nextDaysForecast.data.daily[i] ? (nextDaysForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
