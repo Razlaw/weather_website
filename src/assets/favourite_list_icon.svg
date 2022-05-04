@@ -1,0 +1,11 @@
+<svg id="SVGRoot" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <g transform="matrix(1.8514 0 0 1.8514 -9.146 -6.582)">
+        <path d="m10.152 3.957c-0.13436 0.00362-0.25748 0.075875-0.32617 0.19141l-0.87695 1.4824-1.6836 0.35938c-0.2929 0.063062-0.40947 0.41819-0.21094 0.64258l0.0078125 0.0078125h2.6113a0.80988 0.80988 0 0 1 0.81055 0.80859 0.80988 0.80988 0 0 1-0.81055 0.81055h-1.5176l-0.015625 0.14453h1.5762a0.8365 0.8365 0 0 1 0.83789 0.83594 0.8365 0.8365 0 0 1-0.04688 0.27539l1.2051 0.53711c0.27358 0.12128 0.57663-0.096563 0.54883-0.39453l-0.16016-1.7148 1.1504-1.2812c0.20072-0.22321 0.086126-0.57996-0.20703-0.64453l-1.6797-0.375-0.86328-1.4902c-0.071942-0.12425-0.20609-0.19919-0.34961-0.19531z"
+              style="stroke-width:0.0;color-rendering:auto;color:#000000;dominant-baseline:auto;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;image-rendering:auto;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;shape-rendering:auto;solid-color:#000000;stop-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"/>
+    </g>
+    <g fill="none" stroke-width="1.6549">
+        <path d="m1.2939 13.739 7.47-0.0031" style="stroke-linecap:round;stroke-width:1.6747"/>
+        <path d="m1.2939 7.2134 7.47-0.00315" style="stroke-linecap:round;stroke-width:1.6747"/>
+        <path d="m1.3758 10.529 7.47-0.0031" style="stroke-linecap:round;stroke-width:1.6747"/>
+    </g>
+</svg>

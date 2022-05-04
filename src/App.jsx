@@ -9,6 +9,7 @@ import PrivacyFooter from "./components/privacyFooter/PrivacyFooter";
 
 import Home from "./pages/home/Home";
 import CitySelection from "./pages/citySelection/CitySelection";
+import Favourites from "./pages/favourites/Favourites";
 import FailedFetch from "./pages/failedFetch/FailedFetch";
 import WeatherForecastDisplay from "./pages/weatherForecastDisplay/WeatherForecastDisplay";
 import PrivacyStatement from "./pages/privacyStatement/PrivacyStatement";
@@ -43,12 +44,14 @@ function App() {
                 cityName={cityName}
                 updateCityName={updateCityName}
                 setShowCookieBanner={setShowCookieBanner}
+                areCookiesAccepted={areCookiesAccepted}
             />
             <div className={"appContentContainer " + (showCookieBanner && "showCookieBanner")}>
                 <div className="appContent">
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/city_selection/cityname=:cityName" element={<CitySelection updateCityName={updateCityName}/>}/>
+                        <Route path="/city_selection/cityname=:cityName" element={<CitySelection updateCityName={updateCityName} />}/>
+                        <Route path="/favourites" element={<Favourites/>} />
                         <Route path="/failed_fetch" element={<FailedFetch/>}/>
                         <Route path="/forecast/lat=:lat&lon=:lon&cityname=:cityName" element={<WeatherForecastDisplay updateCityName={updateCityName} areCookiesAccepted={areCookiesAccepted}/>}/>
 

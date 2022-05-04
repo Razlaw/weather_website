@@ -3,8 +3,9 @@ import "./citySearchBar.scss";
 import {useNavigate} from "react-router-dom";
 
 import {ReactComponent as MagnifyingGlassIcon} from '../../assets/magnifying_glass.svg';
+import {ReactComponent as FavouriteListIcon} from '../../assets/favourite_list_icon.svg';
 
-export default function CitySearchBar({cityName, updateCityName, setShowCookieBanner}) {
+export default function CitySearchBar({cityName, updateCityName, setShowCookieBanner, areCookiesAccepted}) {
     const navigate = useNavigate();
 
     function hideKeyboardOnEnter(e) {
@@ -17,6 +18,12 @@ export default function CitySearchBar({cityName, updateCityName, setShowCookieBa
         e.preventDefault();
         setShowCookieBanner(false);
         navigate("/city_selection/cityname=" + cityName);
+    }
+
+    function navigateToFavouriteList(e) {
+        e.preventDefault();
+        setShowCookieBanner(false);
+        navigate("/favourites");
     }
 
     return (
@@ -39,6 +46,12 @@ export default function CitySearchBar({cityName, updateCityName, setShowCookieBa
                     </button>
                 </div>
             </form>
+            <div
+                className={"favouriteListIconContainer " + (areCookiesAccepted && "areCookiesAccepted")}
+                onClick={navigateToFavouriteList}
+            >
+                <FavouriteListIcon className="favouriteListIcon"/>
+            </div>
         </div>
     );
 }
