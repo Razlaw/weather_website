@@ -70,6 +70,13 @@ function getDailyForecast(weatherForecast, dailyForecast, timezoneOffset) {
     }
 }
 
+function getCurrentHourWithOffset(timezoneOffset) {
+    const utcNow = Date.now();  // Use .now() because current time in data might be from previous hour
+    const nowInTimezone = (utcNow + (timezoneOffset * 1000));
+    const dateInTimezone = new Date(nowInTimezone);
+    return dateInTimezone.getUTCHours();  // .getUTCHours() to not apply the timezone of the user
+}
+
 export const getWeatherData = async (lat, lon) => {
     try {
         const hoursInTwoDays = 48;
@@ -133,12 +140,8 @@ export const getWeatherData = async (lat, lon) => {
 
         const weatherData = {"hourly": hourlyWeatherForTwoDays, "daily": dailyWeatherForSevenDays};
 
-        // Reconstruct the current hour of the requested city
-        const utcNow = Date.now();  // Use .now() because current time in data might be from previous hour
-        const nowInTimezone = (utcNow + (timezoneOffset * 1000));
-        const dateInTimezone = new Date(nowInTimezone);
-        const currentHour = dateInTimezone.getUTCHours();  // .getUTCHours() to not apply the timezone of the user
-        weatherData["currentHour"] = currentHour;
+        // Get the current hour of the requested city in local time
+        weatherData["currentHour"] = getCurrentHourWithOffset(timezoneOffset);
 
         // Save hours of sunrise and sunset for current and next day
         weatherData["hoursOfSunrise"] = [];
