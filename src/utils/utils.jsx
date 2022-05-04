@@ -2,13 +2,16 @@ import {useEffect, useRef, useState} from "react";
 
 export function utcTimeFromUTCUnix(unixUTCTimeInSeconds) {
     const dateUTC = new Date(unixUTCTimeInSeconds * 1000);
-    const hoursUTC = dateUTC.getUTCHours();
-    let minutesUTC = dateUTC.getUTCMinutes().toString();
-    minutesUTC = minutesUTC.length === 1 ? "0" + minutesUTC : minutesUTC;
-    let secondsUTC = dateUTC.getUTCSeconds().toString();
-    secondsUTC = secondsUTC.length === 1 ? "0" + secondsUTC : secondsUTC;
+    return {
+        hours: dateUTC.getUTCHours(),
+        minutes: dateUTC.getUTCMinutes(),
+        seconds: dateUTC.getUTCSeconds()
+    };
+}
 
-    return hoursUTC + ':' + minutesUTC + ':' + secondsUTC;
+export function utcHourFromUTCUnix(unixUTCTimeInSeconds) {
+    const dateUTC = new Date(unixUTCTimeInSeconds * 1000);
+    return dateUTC.getUTCHours();
 }
 
 export function localTimeFromUTCUnix(unixUTCTimeInSeconds) {
