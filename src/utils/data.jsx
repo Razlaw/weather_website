@@ -46,6 +46,30 @@ function appendForecastEntryToWeatherData(dataEntry, weatherData, timezoneOffset
     });
 }
 
+function getDailyForecast(weatherForecast, dailyForecast, timezoneOffset) {
+    for (let i = 0; i < 7; i++) {
+        let amountOfPrecipitation = "rain" in weatherForecast.data.daily[i] ? weatherForecast.data.daily[i].rain : 0;
+        amountOfPrecipitation += ("snow" in weatherForecast.data.daily[i] ? weatherForecast.data.daily[i].snow : 0);
+
+        // OpenWeather's icon for a rainy day is always the "heavy" rain icon, even if it's only showering.
+        // Here the shower rain icon is used for rainy days with an amount of rain below 1mm.
+        const isShowerRain = amountOfPrecipitation > 0.01 && amountOfPrecipitation < 1.0;
+        const isSnowIcon = weatherForecast.data.daily[i].weather[0].icon === "13d";
+        const weatherIcon = (isShowerRain && !isSnowIcon) ? "09d" : weatherForecast.data.daily[i].weather[0].icon;
+
+        dailyForecast.push({
+            "minTemperature": Math.round(weatherForecast.data.daily[i].temp.min),  // in °C
+            "maxTemperature": Math.round(weatherForecast.data.daily[i].temp.max),  // in °C
+            "weatherIcon": weatherIcon,
+            "windDirection": weatherForecast.data.daily[i].wind_deg,  // from 0 to 360 degrees
+            "windSpeed": Math.round(weatherForecast.data.daily[i].wind_speed * 3.6),  // in km/h
+            "probabilityOfPrecipitation": ("pop" in weatherForecast.data.daily[i] ? (weatherForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
+            "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
+            "dateLocal": utcDateFromUTCUnix(weatherForecast.data.daily[i].dt + timezoneOffset)
+        });
+    }
+}
+
 export const getWeatherData = async (lat, lon) => {
     try {
         const hoursInTwoDays = 48;
@@ -105,29 +129,7 @@ export const getWeatherData = async (lat, lon) => {
 
         // Convert forecast's daily data into needed format and store in array
         let dailyWeatherForSevenDays = [];
-        for (let i = 0; i < 7; i++){
-            let amountOfPrecipitation = "rain" in weatherForecast.data.daily[i] ? weatherForecast.data.daily[i].rain : 0;
-            amountOfPrecipitation += ("snow" in weatherForecast.data.daily[i] ? weatherForecast.data.daily[i].snow : 0);
-
-            // OpenWeather's icon for a rainy day is always the "heavy" rain icon, even if it's only showering.
-            // Here the shower rain icon is used for rainy days with an amount of rain below 1mm.
-            const isShowerRain = amountOfPrecipitation > 0.01 && amountOfPrecipitation < 1.0;
-            const isSnowIcon = weatherForecast.data.daily[i].weather[0].icon === "13d";
-            const weatherIcon = (isShowerRain && !isSnowIcon) ? "09d" : weatherForecast.data.daily[i].weather[0].icon;
-
-            dailyWeatherForSevenDays.push({
-                "minTemperature": Math.round(weatherForecast.data.daily[i].temp.min),  // in °C
-                "maxTemperature": Math.round(weatherForecast.data.daily[i].temp.max),  // in °C
-                "weatherIcon": weatherIcon,
-                "windDirection": weatherForecast.data.daily[i].wind_deg,  // from 0 to 360 degrees
-                "windSpeed": Math.round(weatherForecast.data.daily[i].wind_speed * 3.6),  // in km/h
-                "probabilityOfPrecipitation": ("pop" in weatherForecast.data.daily[i] ? (weatherForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
-                "amountOfPrecipitation": amountOfPrecipitation.toFixed(1),
-                "dateLocal": utcDateFromUTCUnix(weatherForecast.data.daily[i].dt + timezoneOffset)
-            });
-
-            console.log("weatherForecast.data.daily[i].clouds", weatherForecast.data.daily[i].clouds);
-        }
+        getDailyForecast(weatherForecast, dailyWeatherForSevenDays, timezoneOffset);
 
         const weatherData = {"hourly": hourlyWeatherForTwoDays, "daily": dailyWeatherForSevenDays};
 
