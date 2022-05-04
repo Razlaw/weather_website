@@ -79,12 +79,10 @@ function getCurrentHourWithOffset(timezoneOffset) {
 
 export const getWeatherData = async (lat, lon) => {
     try {
-        const hoursInTwoDays = 48;
         let hourlyWeatherForTwoDays = [];
 
-        // Get the weather forecast
+        // Get the weather forecast - Hourly forecast starts at previous full hour - e.g. for 11:08 at 11:00
         const exclude = "current,minutely,alerts"
-        // Hourly forecast starts at previous full hour - e.g. for 11:08 at 11:00
         const weatherForecast = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=${process.env.REACT_APP_API_KEY}`);
         
         const timezoneOffset = weatherForecast.data.timezone_offset;
@@ -130,6 +128,7 @@ export const getWeatherData = async (lat, lon) => {
         }
 
         // Convert forecast's hourly data into needed format and store in array
+        const hoursInTwoDays = 48;
         for (let i = 0; hourlyWeatherForTwoDays.length < hoursInTwoDays; i++){
             appendForecastEntryToWeatherData(weatherForecast.data.hourly[i], hourlyWeatherForTwoDays, timezoneOffset);
         }
