@@ -7,19 +7,19 @@ import {getProbabilityOfPrecipitationIcon, getRainIcon, getWeatherIcon, getWindD
 function weekdayNumberToString(weekdayNumber) {
     switch (weekdayNumber) {
         case 0:
-            return "Son";
+            return "So";
         case 1:
-            return "Mon";
+            return "Mo";
         case 2:
-            return "Din";
+            return "Di";
         case 3:
-            return "Mit";
+            return "Mi";
         case 4:
-            return "Don";
+            return "Do";
         case 5:
-            return "Fre";
+            return "Fr";
         case 6:
-            return "Sam";
+            return "Sa";
         default:
             return "?";
     }
