@@ -50,9 +50,9 @@ function App() {
                         <Route path="/" element={<Home/>}/>
                         <Route path="/city_selection/cityname=:cityName" element={<CitySelection updateCityName={updateCityName}/>}/>
                         <Route path="/failed_fetch" element={<FailedFetch/>}/>
-                        <Route path="/forecast/lat=:lat&lon=:lon&cityname=:cityName" element={<WeatherForecastDisplay updateCityName={updateCityName} areCookiesAccepted={areCookiesAccepted} setCookie={setCookie} cookies={cookies}/>}/>
+                        <Route path="/forecast/lat=:lat&lon=:lon&cityname=:cityName" element={<WeatherForecastDisplay updateCityName={updateCityName} areCookiesAccepted={areCookiesAccepted}/>}/>
 
-                        <Route path="/privacy_statement" element={<PrivacyStatement showCookieBanner={showCookieBanner} removeCookie={removeCookie} setAreCookiesAccepted={setAreCookiesAccepted}/>}/>
+                        <Route path="/privacy_statement" element={<PrivacyStatement showCookieBanner={showCookieBanner} setAreCookiesAccepted={setAreCookiesAccepted}/>}/>
                         <Route path="/licenses" element={<Licenses showCookieBanner={showCookieBanner}/>}/>
                         <Route path="/site_notice" element={<SiteNotice showCookieBanner={showCookieBanner}/>}/>
 
@@ -64,7 +64,6 @@ function App() {
                 showCookieBanner={showCookieBanner}
                 setShowCookieBanner={setShowCookieBanner}
                 setAreCookiesAccepted={setAreCookiesAccepted}
-                setCookie={setCookie}
             />
         </div>
     );

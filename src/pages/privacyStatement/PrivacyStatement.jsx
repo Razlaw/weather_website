@@ -2,16 +2,19 @@ import "./privacyStatement.scss";
 
 import React from "react";
 
+import {useCookies} from "react-cookie";
 import {HashLink} from "react-router-hash-link";
 import {useNavigate} from "react-router-dom";
 
-export default function PrivacyStatement({showCookieBanner, removeCookie, setAreCookiesAccepted}) {
+export default function PrivacyStatement({showCookieBanner, setAreCookiesAccepted}) {
     const navigate = useNavigate();
+    const [cookies, setCookie, removeCookie] = useCookies([]);
 
     function removeAllCookies() {
         removeCookie("selectedCityName", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         removeCookie("lat", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         removeCookie("lon", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
+        removeCookie("favouriteCities", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         removeCookie("areCookiesAccepted", {path: '/', secure: true, sameSite: "strict", maxAge: 31536000});
         setAreCookiesAccepted(false);
         window.location.reload(true);

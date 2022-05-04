@@ -1,6 +1,7 @@
 import "./weatherForecastDisplay.scss";
 
 import React, {useEffect, useState} from "react";
+import {useCookies} from "react-cookie";
 import {useNavigate, useParams} from "react-router-dom";
 
 import WeatherForecastForADay from "./../../components/weatherForecastForADay/WeatherForecastForADay";
@@ -9,7 +10,8 @@ import WeatherForecastForAWeek from "./../../components/weatherForecastForAWeek/
 import {getWeatherData} from "../../utils/data";
 import {ScrollSnap2D} from "../../utils/utils";
 
-export default function WeatherForecastDisplay({updateCityName, areCookiesAccepted, setCookie, cookies}) {
+export default function WeatherForecastDisplay({updateCityName, areCookiesAccepted}) {
+    const [cookies, setCookie, removeCookie] = useCookies([]);
     const [currentSlidePosition, handleTouchStart, scrollOnSwipe] = ScrollSnap2D(2, 3);
 
     // Website shows a different animation on first visit, giving a new user visual cues for website's functions
