@@ -26,9 +26,12 @@ export default function PrivacyFooter({showCookieBanner, setShowCookieBanner, se
                 <div className="cookieBannerContainer">
                     <div className="cookieBanner">
                         <p className="cookieBannerText">
-                            Soll deine letzte Suchanfrage in den Cookies auf deinem Gerät gespeichert werden? Dadurch
-                            musst du nicht erneut suchen, wenn du auf die Webseite zurückkehrst.<br/>
-                            So kannst du das Wetter für deine Stadt einfacher regelmäßig nachsehen.
+                            Solltest du die Nutzung von Cookies zulassen, kannst du deine Städte in einer Liste von
+                            Favoriten speichern.<br/>
+                            Zusätzlich wird dir dann bei deiner Rückkehr das Wetter deiner zuletzt gesuchten Stadt
+                            angezeigt.<br/>
+                            Sollen deine Favoriten und die letzte Suchanfrage als Cookies auf deinem Gerät
+                            gespeichert werden?
                         </p>
                     </div>
                     <div className="cookieButtonsContainer">

@@ -31,8 +31,8 @@ export default function PrivacyStatement({showCookieBanner, setAreCookiesAccepte
                 <p>
                     <strong>Zusammenfassung für Laien</strong><br/>
                     Diese Website leitet deine Suchanfrage weiter, um dir die Wettervorhersage darzustellen.
-                    Zusätzlich wird die Möglichkeit geboten deine letzte Suchanfrage in den Cookies auf deinem Gerät zu
-                    speichern.<br/>
+                    Solltest du die Cookies akzeptiert haben, hast du die Option Städte als Favoriten zu speichern.
+                    Zusätzlich wird dann deine letzte Suchanfrage in den Cookies auf deinem Gerät gespeichert.<br/>
                     Eine weitere Verarbeitung deiner Daten findet auf dieser Website selbst nicht statt.
                 </p>
                 <p>
@@ -48,8 +48,8 @@ export default function PrivacyStatement({showCookieBanner, setAreCookiesAccepte
                     <strong>Details für Laien</strong><br/>
 
                     Diese Website leitet die von dir gesuchte Stadt und ihre Geokoordinaten an OpenWeather weiter.<br/>
-                    Die Geokoordinaten werden benötigt, da es Städte mit gleichen Namen gibt.<br/>
-                    OpenWeather antwortet mit der Wettervorhersage für diese Stadt.
+                    Die Geokoordinaten werden benötigt, da es unterschiedliche Städte mit gleichem Namen gibt.<br/>
+                    OpenWeather antwortet mit der Wettervorhersage für deine gesuchte Stadt.
                 </p>
                 <p>
                     Wenn du der Benutzung von Cookies zustimmst, wird deine letzte Suchanfrage auf deinem Gerät
@@ -58,6 +58,7 @@ export default function PrivacyStatement({showCookieBanner, setAreCookiesAccepte
                     wieder anzuzeigen - ohne dass du erneut danach suchen musst.<br/>
                     Diese Funktion ist besonders dann praktisch, wenn du die Website als Link auf dem Startbildschirm
                     deines Smartphones speicherst.
+                    Zusätzlich erhälst du die Option Städte in deinen Favouriten zu speichern.
                 </p>
                 <p>
                     Die Cookies werden maximal ein Jahr lang gespeichert.<br/>
