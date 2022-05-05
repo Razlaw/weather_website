@@ -55,10 +55,12 @@
       }
     }
 
-    &:hover {
-      .cityDetailsContainer {
-        .cityDetails {
-          padding-left: 10px;
+    @include for-desktop {
+      &:hover {
+        .cityDetailsContainer {
+          .cityDetails {
+            padding-left: 10px;
+          }
         }
       }
     }
