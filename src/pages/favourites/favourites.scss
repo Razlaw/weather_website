@@ -99,6 +99,15 @@
       justify-content: center;
 
       font-size: 30px;
+
+      .favouriteIcon {
+        height: 55%;
+        stroke: var(--text-color);
+
+        &.full {
+          fill: var(--text-color);
+        }
+      }
     }
   }
 }

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import {useCookies} from "react-cookie";
 import Flag from "react-flagpack";
 
+import {ReactComponent as FavouriteIcon} from '../../assets/favourite_icon.svg';
+
 export default function Favourites() {
     const navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies(["favouriteCities"]);
@@ -76,7 +78,7 @@ export default function Favourites() {
                         className="isInFavouritesIcon"
                         onClick={(e) => removeCityFromFavourites(e, id)}
                     >
-                        {"\u2605"}
+                        <FavouriteIcon className="favouriteIcon full"/>
                     </div>
                 </div>
             ))}

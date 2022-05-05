@@ -100,6 +100,22 @@
         justify-content: center;
 
         font-size: 30px;
+
+        .favouriteIcon {
+          height: 55%;
+          stroke: var(--text-color);
+          transition: all cubic-bezier(.68,-0.55,.27,1.55) 800ms;
+
+          &.empty {
+            fill: rgba(255, 255, 255, 0);
+            transform: rotateZ(0);
+          }
+
+          &.full {
+            fill: var(--text-color);
+            transform: rotateZ(1turn);
+          }
+        }
       }
     }
   }
