@@ -12,6 +12,24 @@ function getMidnightIndex(dataArray, timezoneOffset) {
     }
 }
 
+// OpenWeather's icons indicate "completely cloudy" if the cloud probability is above 50%.
+// I notices that this was a very pessimistic estimate and increased the threshold :)
+function adaptCloudinessInWeatherIcon(icon, cloudProbability) {
+    const cloudIcons = ["01d", "01n", "02d", "02n", "03d", "03n", "04d", "04n"];
+    if(cloudIcons.indexOf(icon) > -1) {
+        if(cloudProbability < 25) {
+            return "01" + icon.slice(-1);
+        }
+        else if(cloudProbability < 50) {
+            return "02" + icon.slice(-1);
+        }
+        else if(cloudProbability < 85) {
+            return "03" + icon.slice(-1);
+        }
+    }
+    return icon;
+}
+
 function appendHistoricalEntryToWeatherData(dataEntry, weatherData, timezoneOffset) {
     const wasRaining = (("rain" in dataEntry && dataEntry.rain["1h"] > 0)
                      || ("snow" in dataEntry && dataEntry.snow["1h"] > 0));
@@ -20,7 +38,7 @@ function appendHistoricalEntryToWeatherData(dataEntry, weatherData, timezoneOffs
 
     weatherData.push({
         "temperature": Math.round(dataEntry.temp),
-        "weatherIcon": dataEntry.weather[0].icon,
+        "weatherIcon": adaptCloudinessInWeatherIcon(dataEntry.weather[0].icon, dataEntry.clouds),
         "windDirection": dataEntry.wind_deg,
         "windSpeed": Math.round(dataEntry.wind_speed * 3.6),
         "probabilityOfPrecipitation": (wasRaining ? 100 : 0),
@@ -36,7 +54,7 @@ function appendForecastEntryToWeatherData(dataEntry, weatherData, timezoneOffset
 
     weatherData.push({
         "temperature": Math.round(dataEntry.temp),  // in °C
-        "weatherIcon": dataEntry.weather[0].icon,
+        "weatherIcon": adaptCloudinessInWeatherIcon(dataEntry.weather[0].icon, dataEntry.clouds),
         "windDirection": dataEntry.wind_deg,  // from 0 to 360 degrees
         "windSpeed": Math.round(dataEntry.wind_speed * 3.6),  // in km/h
         "probabilityOfPrecipitation": ("pop" in dataEntry ? (dataEntry["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
@@ -60,7 +78,7 @@ function getDailyForecast(weatherForecast, dailyForecast, timezoneOffset) {
         dailyForecast.push({
             "minTemperature": Math.round(weatherForecast.data.daily[i].temp.min),  // in °C
             "maxTemperature": Math.round(weatherForecast.data.daily[i].temp.max),  // in °C
-            "weatherIcon": weatherIcon,
+            "weatherIcon": adaptCloudinessInWeatherIcon(weatherIcon, weatherForecast.data.daily[i].clouds),
             "windDirection": weatherForecast.data.daily[i].wind_deg,  // from 0 to 360 degrees
             "windSpeed": Math.round(weatherForecast.data.daily[i].wind_speed * 3.6),  // in km/h
             "probabilityOfPrecipitation": ("pop" in weatherForecast.data.daily[i] ? (weatherForecast.data.daily[i]["pop"] * 100).toFixed() : 0),  // in percent from 0 to 100
