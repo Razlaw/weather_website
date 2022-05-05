@@ -22,7 +22,7 @@
   flex-direction: column;
   overflow: hidden;
 
-  @for $i from 1 through 5 {
+  @for $i from 1 through 20 {
     .favouriteOption:nth-child(#{$i}n) {
       animation-delay: #{$i * 0.1}s;
     }
