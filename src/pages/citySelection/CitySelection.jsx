@@ -8,6 +8,8 @@ import {useNavigate, useParams} from "react-router-dom";
 
 import {ReactComponent as FavouriteIcon} from '../../assets/favourite_icon.svg';
 
+import LoadingAnimation from "../../components/loadingAnimation/LoadingAnimation";
+
 export default function CitySelection({updateCityName}) {
     const navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies(["favouriteCities"]);
@@ -103,9 +105,7 @@ export default function CitySelection({updateCityName}) {
 
     if (citySelection === undefined) {
         return (
-            <div className="loadingCitySelection">
-                <h1>Lade Daten.</h1>
-            </div>
+            <LoadingAnimation/>
         );
     }
 

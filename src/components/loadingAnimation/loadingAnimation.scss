@@ -1,0 +1,66 @@
+@import "./../../global.scss";
+
+.loadingScreen {
+  width: 100%;
+  height: 100%;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .loadingScreenContent {
+    display: flex;
+    flex-direction: row;
+
+    .loadingAnimation{
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 20px;
+
+      .dot {
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        color: white;
+        display: inline-block;
+        margin-left: 4px;
+
+        animation: 1800ms ease-in-out infinite move-up-down;
+
+        @keyframes move-up-down {
+          0% {
+            transform: translateY(0px);
+          }
+
+          20% {
+            transform: translateY(-6px);
+          }
+
+          40% {
+            transform: translateY(0px);
+          }
+
+          100% {
+            transform: translateY(0px);
+          }
+        }
+      }
+
+      #first {
+        background-color: var(--text-color);
+      }
+
+      #second {
+        background-color: var(--text-color);
+        animation-delay: 200ms;
+      }
+
+      #third {
+        background-color: var(--text-color);
+        animation-delay: 400ms;
+      }
+    }
+  }
+}

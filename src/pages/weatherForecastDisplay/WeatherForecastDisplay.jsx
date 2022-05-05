@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import {useCookies} from "react-cookie";
 import {useNavigate, useParams} from "react-router-dom";
 
+import LoadingAnimation from "../../components/loadingAnimation/LoadingAnimation";
 import WeatherForecastForADay from "./../../components/weatherForecastForADay/WeatherForecastForADay";
 import WeatherForecastForAWeek from "./../../components/weatherForecastForAWeek/WeatherForecastForAWeek";
 
@@ -60,9 +61,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
 
     if (weatherData === undefined) {
         return (
-            <div className="loadingData">
-                <h1>Lade Daten.</h1>
-            </div>
+            <LoadingAnimation/>
         );
     }
 
