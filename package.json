@@ -1,7 +1,7 @@
 {
   "name": "weather_website",
   "homepage": "https://razlaw.github.io/weather_website",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "Übersichtliche Wettervorhersage",
   "keywords": [
