@@ -23,6 +23,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
 
     const {lat, lon, cityName} = useParams();
     const [weatherData, updateWeatherData] = useState();
+    const [numberOfForceReloads, setNumberOfForceReloads] = useState(0);
 
     const fetchWeather = async (lat, lon) => {
         try {
@@ -46,7 +47,7 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
 
     useEffect(() => {
         fetchWeather(lat, lon);
-    }, [lat, lon]);
+    }, [lat, lon, numberOfForceReloads]);
 
     const onVisibilityChange = () => {
         if (document.visibilityState === "visible") {
@@ -63,6 +64,17 @@ export default function WeatherForecastDisplay({updateCityName, areCookiesAccept
         return (
             <LoadingAnimation/>
         );
+    }
+
+    // When website is installed as PWA, sometimes cached data is used instead of current data on visibility change,
+    // although data should be reloaded. Reloading when the first entry of the data does not correspond to data at
+    // midnight is a workaround until this behaviour is fixed or I have enough insight to know how to provide a
+    // proper fix.
+    if (weatherData.hourly[0].hourLocal !== 0) {
+        console.error("Weather data does not start at midnight. Reloading.");
+        if(numberOfForceReloads < 2) {
+            setNumberOfForceReloads(numberOfForceReloads + 1);
+        }
     }
 
     return (
