@@ -151,6 +151,18 @@
             &.firstVisit {
               animation: 3500ms ease-in-out slide-in-temperature;
               animation-iteration-count: 1;
+
+              @include for-tablet {
+                transform: none !important;
+                position: relative;
+                animation: 2500ms ease fade-in-temperature;
+              }
+
+              @include for-desktop {
+                transform: none !important;
+                position: relative;
+                animation: 2500ms ease fade-in-temperature;
+              }
             }
 
             @keyframes slide-in-temperature {
@@ -212,6 +224,18 @@
             &.firstVisit {
               animation: 3500ms ease-in-out slide-in-rain;
               animation-iteration-count: 1;
+
+              @include for-tablet {
+                transform: none !important;
+                position: relative;
+                animation: 2500ms ease fade-in-rain;
+              }
+
+              @include for-desktop {
+                transform: none !important;
+                position: relative;
+                animation: 2500ms ease fade-in-rain;
+              }
             }
 
             @keyframes slide-in-rain {
