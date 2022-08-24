@@ -1,5 +1,7 @@
-import "@fontsource/roboto"
-import 'semantic-ui-css/semantic.min.css';
+import "@fontsource/roboto";
+import "@fontsource/lato/700.css";
+import "@fontsource/lato/400.css";
+import "./semantic-ui-min-wo-google.css";
 
 import ReactDOM from "react-dom";
 
