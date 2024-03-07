@@ -88,7 +88,7 @@ export default function PrivacyStatement({showCookieBanner, setAreCookiesAccepte
                     <li><HashLink smooth to="/privacy_statement#m42">Begriffsdefinitionen</HashLink></li>
                     <li><HashLink smooth to="/privacy_statement#m43">Vom Websiteinhaber angepasst</HashLink></li>
                 </ul>
-                <h2 id="m3">Verantwortlicher</h2><p>Jan Razlaw<br/>Römerstr. 367<br/>53117 Bonn</p>
+                <h2 id="m3">Verantwortlicher</h2><p>Jan Razlaw<br/>Rheindorfer Str. 76<br/>53225 Bonn</p>
                 E-Mail-Adresse: <p>jan.razlaw [at] googlemail.com</p>
                 Impressum:
                 <p className="linkToSiteNotice"

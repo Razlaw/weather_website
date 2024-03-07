@@ -9,8 +9,8 @@ export default function SiteNotice({showCookieBanner}) {
                 <h1>Impressum</h1>
                 <h2 id="m46">Diensteanbieter</h2>
                 <p>Jan Razlaw</p>
-                <p>Römerstr. 367</p>
-                <p>53117 Bonn</p>
+                <p>Rheindorfer Str. 76</p>
+                <p>53225 Bonn</p>
                 <h2 id="m56">Kontaktmöglichkeiten</h2>E-Mail-Adresse: <p>jan.razlaw [at] googlemail.com</p>
                 <h2 id="m65">Haftungs- und Schutzrechtshinweise</h2><p><strong>Haftungsausschluss: </strong>Die Inhalte
                 dieses
